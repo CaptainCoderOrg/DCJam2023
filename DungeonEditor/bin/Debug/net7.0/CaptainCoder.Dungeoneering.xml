@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CaptainCoder.Dungeoneering</name>
+    </assembly>
+    <members>
+        <member name="P:DungeonGrid.TileBounds">
+            <summary>
+            Returns the bounds of positions that could potentially have tiles.
+            Any position outside of these bounds is guaranteed to not be passable.
+            </summary>
+        </member>
+    </members>
+</doc>

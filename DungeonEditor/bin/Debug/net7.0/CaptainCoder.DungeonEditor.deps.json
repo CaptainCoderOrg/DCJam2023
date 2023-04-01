@@ -1,0 +1,50 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v7.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v7.0": {
+      "CaptainCoder.DungeonEditor/1.0.0": {
+        "dependencies": {
+          "CaptainCoder.Core": "1.0.0",
+          "CaptainCoder.Dungeoneering": "1.0.0"
+        },
+        "runtime": {
+          "CaptainCoder.DungeonEditor.dll": {}
+        }
+      },
+      "CaptainCoder.Core/1.0.0": {
+        "runtime": {
+          "CaptainCoder.Core.dll": {}
+        }
+      },
+      "CaptainCoder.Dungeoneering/1.0.0": {
+        "dependencies": {
+          "CaptainCoder.Core": "1.0.0"
+        },
+        "runtime": {
+          "CaptainCoder.Dungeoneering.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "CaptainCoder.DungeonEditor/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "CaptainCoder.Core/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "CaptainCoder.Dungeoneering/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
