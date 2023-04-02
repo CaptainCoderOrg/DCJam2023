@@ -7,6 +7,9 @@ public class DungeonEditor
     private Position _gridOffset = (2, 0);
     private Position _cursor;
     private List<string> _messages = new();
+    public EditorMode Mode = EditorMode.WallMode;
+    
+    
 
     public DungeonEditor()
     {
@@ -15,6 +18,11 @@ public class DungeonEditor
         _inputs[ConsoleKey.S] = () => Cursor -= Facing.MovePosition();
         _inputs[ConsoleKey.D] = () => Facing = Facing.RotateClockwise();
         _inputs[ConsoleKey.A] = () => Facing = Facing.RotateCounterClockwise();
+    }
+
+    public void Draw()
+    {
+
     }
 
 
@@ -32,9 +40,16 @@ public class DungeonEditor
     {
         Console.Clear();
         Console.WriteLine("Dungeon Editor");
+        DisplayMode();
         DrawGrid();
         DrawCursor();
         DrawMessages();
+    }
+
+    public void DisplayMode()
+    {
+        Console.SetCursorPosition(0, 1);
+        Console.Write($"Mode: {Mode}");
     }
 
     public void DrawMessages()
