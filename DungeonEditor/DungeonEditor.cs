@@ -6,6 +6,7 @@ public class DungeonEditor
     private readonly Dictionary<ConsoleKey, Action> _inputs;
     private Position _gridOffset = (2, 0);
     private Position _cursor;
+    private bool _cursorVisible = true;
     private readonly List<string> _messages = new();
     public IEditorMode Mode = WallMode.Instance;
     public readonly Queue<IEditorMode> Modes = new Queue<IEditorMode>(
@@ -21,10 +22,24 @@ public class DungeonEditor
         _inputs = new ();
         _inputs[ConsoleKey.W] = () => Cursor += Facing.MovePosition();
         _inputs[ConsoleKey.S] = () => Cursor -= Facing.MovePosition();
+        _inputs[ConsoleKey.E] = () => Cursor += Facing.RotateClockwise().MovePosition();
+        _inputs[ConsoleKey.Q] = () => Cursor -= Facing.RotateClockwise().MovePosition();
         _inputs[ConsoleKey.D] = () => Facing = Facing.RotateClockwise();
         _inputs[ConsoleKey.A] = () => Facing = Facing.RotateCounterClockwise();
         _inputs[ConsoleKey.Spacebar] = () => Mode.Draw(this);
         _inputs[ConsoleKey.Tab] = NextMode;
+        _inputs[ConsoleKey.OemPeriod] = () => TileMode.Instance.Draw(this);
+        Blink();
+    }
+
+    public async void Blink()
+    {
+        while (true)
+        {
+            await Task.Delay(500);
+            _cursorVisible = Grid.TileAt(Cursor) == Tile.NoTile ? true : !_cursorVisible;
+            DrawCursor();
+        }
     }
 
     public void NextMode()
@@ -75,9 +90,22 @@ public class DungeonEditor
     {
         foreach ((Position pos, char ch ) in Grid.ToASCII())
         {
-            Log($"{pos} = {ch}");
             SetCursorPosition(pos + _gridOffset);
             Console.Write(ch);
+        }
+    }
+
+    public void DrawPosition(Position pos)
+    {
+        SetCursorPosition(_gridOffset + pos.ToASCIIPosition());
+        ITile tile = Grid.TileAt(pos);
+        if(tile == Tile.NoTile)
+        {
+            Console.Write(' ');
+        }
+        else
+        {
+            Console.Write(tile.Symbol);
         }
     }
 
@@ -85,10 +113,19 @@ public class DungeonEditor
 
     private void DrawCursor()
     {
-        SetCursorPosition(_gridOffset + Cursor.ToASCIIPosition());
-        Console.ForegroundColor = ConsoleColor.DarkYellow;
-        Console.Write(GridSymbol);
-        Console.ResetColor();
+        if (_cursorVisible)
+        {
+            SetCursorPosition(_gridOffset + Cursor.ToASCIIPosition());
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
+            Console.Write(GridSymbol);
+            Console.ResetColor();
+            Console.CursorVisible = false;
+            Console.SetCursorPosition(0, 0);
+        }
+        else
+        {
+            DrawPosition(_cursor);
+        }
     }
 
     private char GridSymbol => Facing switch

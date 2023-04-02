@@ -13,9 +13,14 @@ public class WallMode : IEditorMode
 
     public string Draw(DungeonEditor editor)
     {
-        if (editor.Grid.WallAt(editor.Cursor, editor.Facing) == Wall.NoWall)
+        IWall wall = editor.Grid.WallAt(editor.Cursor, editor.Facing);
+        if (wall == Wall.NoWall)
         {
             editor.Grid.SetWall(editor.Cursor, editor.Facing, Wall.Solid);
+        }
+        else if (wall == Wall.Solid)
+        {
+            editor.Grid.SetWall(editor.Cursor, editor.Facing, Wall.Door);
         }
         else
         {
