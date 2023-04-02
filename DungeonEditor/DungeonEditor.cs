@@ -6,9 +6,14 @@ public class DungeonEditor
     private readonly Dictionary<ConsoleKey, Action> _inputs;
     private Position _gridOffset = (2, 0);
     private Position _cursor;
-    private List<string> _messages = new();
-    public EditorMode Mode = EditorMode.WallMode;
-    
+    private readonly List<string> _messages = new();
+    public IEditorMode Mode = WallMode.Instance;
+    public readonly Queue<IEditorMode> Modes = new Queue<IEditorMode>(
+        new IEditorMode[]{
+            TileMode.Instance,
+            WallMode.Instance
+        }
+    );
     
 
     public DungeonEditor()
@@ -18,13 +23,15 @@ public class DungeonEditor
         _inputs[ConsoleKey.S] = () => Cursor -= Facing.MovePosition();
         _inputs[ConsoleKey.D] = () => Facing = Facing.RotateClockwise();
         _inputs[ConsoleKey.A] = () => Facing = Facing.RotateCounterClockwise();
+        _inputs[ConsoleKey.Spacebar] = () => Mode.Draw(this);
+        _inputs[ConsoleKey.Tab] = NextMode;
     }
 
-    public void Draw()
+    public void NextMode()
     {
-
+        Modes.Enqueue(Mode);
+        Mode = Modes.Dequeue();
     }
-
 
     public Position Cursor
     {
@@ -68,6 +75,7 @@ public class DungeonEditor
     {
         foreach ((Position pos, char ch ) in Grid.ToASCII())
         {
+            Log($"{pos} = {ch}");
             SetCursorPosition(pos + _gridOffset);
             Console.Write(ch);
         }
