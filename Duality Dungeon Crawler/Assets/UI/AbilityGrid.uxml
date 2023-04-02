@@ -1,0 +1,20 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/ability-grid.uss?fileID=7433441132597879392&amp;guid=26ea18a90ec68cf42a7fc902c1475933&amp;type=3#ability-grid" />
+    <ui:VisualElement name="GridContainer" class="ability-grid" style="flex-grow: 0; width: 300px; height: 300px; flex-shrink: 0; position: relative; top: 50px; left: 50px;">
+        <ui:VisualElement name="Row" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-direction: row;">
+            <AbilityGridCellElement rune="1" name="AbilityGridCellElement" class="ability-grid-element" />
+            <AbilityGridCellElement rune="2" style="flex-grow: 1;" />
+            <AbilityGridCellElement rune="3" style="flex-grow: 1;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="Row" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-direction: row;">
+            <AbilityGridCellElement rune="4" style="flex-grow: 1;" />
+            <AbilityGridCellElement rune="5" style="flex-grow: 1;" />
+            <AbilityGridCellElement rune="6" style="flex-grow: 1;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="Row" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-direction: row;">
+            <AbilityGridCellElement rune="7" style="flex-grow: 1;" />
+            <AbilityGridCellElement focusable="false" rune="8" style="flex-grow: 1;" />
+            <AbilityGridCellElement rune="9" style="flex-grow: 1;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
