@@ -16,7 +16,7 @@ public class AbilityGridController : MonoBehaviour
     {
         _root = GetComponent<UIDocument>().rootVisualElement;
         VisualElement gridContainer = _root.Q<VisualElement>("GridContainer");
-        gridContainer.RegisterCallback<PointerDownEvent>(HandleClick);
+        _root.RegisterCallback<PointerDownEvent>(HandleClick);
         _root.RegisterCallback<PointerUpEvent>(HandleRelease);
         _root.RegisterCallback<PointerLeaveEvent>(HandleLeave);
     }

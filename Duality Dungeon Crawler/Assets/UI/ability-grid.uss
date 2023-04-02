@@ -1,25 +1,26 @@
-.ability-grid {
-    border-top-width: 1px;
-    border-left-width: 1px;
-    border-left-color: rgb(0, 0, 0);
-    border-top-color: rgb(0, 0, 0);
-}
-
 .ability-grid-element {
     flex-grow: 1;
+    margin: 10px;
+    border-top-width: 1px;
+    border-left-width: 1px;
     border-right-width: 1px;
     border-bottom-width: 1px;
     border-right-color: rgb(0, 0, 0);
     border-bottom-color: rgb(0, 0, 0);
+    border-left-color: rgb(0, 0, 0);
+    border-top-color: rgb(0, 0, 0);
 }
 
 .ability-grid-element-selected {
-    border-top-width: 1px;
-    border-left-width: 1px;
-    border-right-width: 1px;
-    border-bottom-width: 1px;
     border-left-color: rgb(255, 237, 0);
     border-right-color: rgb(255, 237, 0);
     border-top-color: rgb(255, 237, 0);
     border-bottom-color: rgb(255, 237, 0);
+}
+
+.ability-grid {
+    flex-grow: 0;
+    width: 300px;
+    height: 300px;
+    flex-shrink: 0;
 }
