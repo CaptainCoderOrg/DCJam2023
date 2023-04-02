@@ -7,7 +7,9 @@ public class DungeonEditor
     private Position _gridOffset = (2, 0);
     private Position _cursor;
     private bool _cursorVisible = true;
+    private bool _curserPaused = false;
     private readonly List<string> _messages = new();
+    private string _filename = string.Empty;
     public IEditorMode Mode = WallMode.Instance;
     public readonly Queue<IEditorMode> Modes = new Queue<IEditorMode>(
         new IEditorMode[]{
@@ -15,11 +17,11 @@ public class DungeonEditor
             WallMode.Instance
         }
     );
-    
+
 
     public DungeonEditor()
     {
-        _inputs = new ();
+        _inputs = new();
         _inputs[ConsoleKey.W] = () => Cursor += Facing.MovePosition();
         _inputs[ConsoleKey.S] = () => Cursor -= Facing.MovePosition();
         _inputs[ConsoleKey.E] = () => Cursor += Facing.RotateClockwise().MovePosition();
@@ -27,8 +29,9 @@ public class DungeonEditor
         _inputs[ConsoleKey.D] = () => Facing = Facing.RotateClockwise();
         _inputs[ConsoleKey.A] = () => Facing = Facing.RotateCounterClockwise();
         _inputs[ConsoleKey.Delete] = () => WallMode.Instance.Delete(this);
-        _inputs[ConsoleKey.Backspace] = () =>  WallMode.Instance.Delete(this);
+        _inputs[ConsoleKey.Backspace] = () => WallMode.Instance.Delete(this);
         _inputs[ConsoleKey.Spacebar] = () => Mode.Draw(this);
+        _inputs[ConsoleKey.D0] = Save;
         _inputs[ConsoleKey.Tab] = NextMode;
         _inputs[ConsoleKey.OemPeriod] = () => TileMode.Instance.Draw(this);
         Blink();
@@ -39,6 +42,7 @@ public class DungeonEditor
         while (true)
         {
             await Task.Delay(500);
+            if (_curserPaused) { continue; }
             _cursorVisible = Grid.TileAt(Cursor) == Tile.NoTile ? true : !_cursorVisible;
             DrawCursor();
         }
@@ -80,7 +84,7 @@ public class DungeonEditor
     {
         int messageStart = Console.WindowHeight - 4;
         Console.SetCursorPosition(0, messageStart);
-        int startIx = Math.Max(0,_messages.Count - 3);
+        int startIx = Math.Max(0, _messages.Count - 3);
         for (int ix = startIx; ix < _messages.Count; ix++)
         {
             Console.Write(_messages[ix]);
@@ -90,7 +94,7 @@ public class DungeonEditor
 
     public void DrawGrid()
     {
-        foreach ((Position pos, char ch ) in Grid.ToASCII())
+        foreach ((Position pos, char ch) in Grid.ToASCII())
         {
             SetCursorPosition(pos + _gridOffset);
             Console.Write(ch);
@@ -101,7 +105,7 @@ public class DungeonEditor
     {
         SetCursorPosition(_gridOffset + pos.ToASCIIPosition());
         ITile tile = Grid.TileAt(pos);
-        if(tile == Tile.NoTile)
+        if (tile == Tile.NoTile)
         {
             Console.Write(' ');
         }
@@ -142,12 +146,50 @@ public class DungeonEditor
     public void HandleInput(ConsoleKeyInfo info)
     {
         _inputs.GetValueOrDefault(info.Key, () => InvalidInput(info.KeyChar)).Invoke();
-    } 
+    }
     public void InvalidInput(char ch) => Log($"Invalid Input: '{ch}'");
 
     public void Log(string message)
     {
         _messages.Add(message);
         DrawMessages();
+    }
+
+    public void Save()
+    {
+        _curserPaused = true;
+        Console.CursorVisible = true;
+        Log($"Save As ({_filename}): ");
+        string filename = Console.ReadLine()!;
+        Log(filename);
+        if (filename == string.Empty)
+        {
+            filename = _filename;
+
+        }
+        if (filename == string.Empty)
+        {
+            _curserPaused = false;
+            Log("Cancelled");
+            return;
+        }
+        _filename = filename;
+        if (filename != _filename && File.Exists(filename))
+        {
+            Log("File exists.");
+        }
+        else
+        {
+            try
+            {
+                File.WriteAllText(filename, Grid.ToASCII().ToGridString());
+                Log("File saved!");
+            }
+            catch
+            {
+                Log("File failed to save.");
+            }
+        }
+        _curserPaused = false;
     }
 }
