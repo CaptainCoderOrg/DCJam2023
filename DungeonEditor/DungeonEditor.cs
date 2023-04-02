@@ -26,6 +26,8 @@ public class DungeonEditor
         _inputs[ConsoleKey.Q] = () => Cursor -= Facing.RotateClockwise().MovePosition();
         _inputs[ConsoleKey.D] = () => Facing = Facing.RotateClockwise();
         _inputs[ConsoleKey.A] = () => Facing = Facing.RotateCounterClockwise();
+        _inputs[ConsoleKey.Delete] = () => WallMode.Instance.Delete(this);
+        _inputs[ConsoleKey.Backspace] = () =>  WallMode.Instance.Delete(this);
         _inputs[ConsoleKey.Spacebar] = () => Mode.Draw(this);
         _inputs[ConsoleKey.Tab] = NextMode;
         _inputs[ConsoleKey.OemPeriod] = () => TileMode.Instance.Draw(this);

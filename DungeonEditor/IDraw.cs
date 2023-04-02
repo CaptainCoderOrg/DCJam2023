@@ -26,7 +26,26 @@ public class WallMode : IEditorMode
         {
             editor.Grid.DeleteWall(editor.Cursor, editor.Facing);
         }
+        CheckTile(editor);
         return string.Empty;
+    }
+
+    public void Delete(DungeonEditor editor)
+    {
+        editor.Grid.DeleteWall(editor.Cursor, editor.Facing);
+        CheckTile(editor);
+    }
+
+    private void CheckTile(DungeonEditor editor)
+    {
+        if (editor.Grid.HasWallsAt(editor.Cursor) && !editor.Grid.HasTileAt(editor.Cursor))
+        {
+            editor.Grid.SetTile(editor.Cursor, Tile.Floor);
+        }
+        else if (!editor.Grid.HasWallsAt(editor.Cursor) && editor.Grid.TileAt(editor.Cursor) == Tile.Floor)
+        {
+            editor.Grid.DeleteTile(editor.Cursor);
+        }
     }
 }
 
