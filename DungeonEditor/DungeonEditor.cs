@@ -78,7 +78,7 @@ public class DungeonEditor
     public void DisplayMode()
     {
         Console.SetCursorPosition(0, 1);
-        Console.Write($"Mode: {Mode}");
+        Console.Write($"Mode: {Mode} | ({Cursor.Row}, {Cursor.Col})");
     }
 
     public void DrawMessages()
