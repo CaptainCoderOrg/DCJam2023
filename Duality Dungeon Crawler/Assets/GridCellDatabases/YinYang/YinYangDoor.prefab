@@ -46,9 +46,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3259ae21a4911fb4dadb38f129e67d05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _northSouth: {fileID: 8162977261084693146}
-  _eastWest: {fileID: 7499364677843179078}
-  _material: {fileID: 0}
+  _northSouth: {fileID: 7499364677843179078}
+  _eastWest: {fileID: 8162977261084693146}
 --- !u!1 &2795976757522492119
 GameObject:
   m_ObjectHideFlags: 0
@@ -414,7 +413,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b9b73b7a932f784a9ac07737cefe362, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _material: {fileID: 0}
 --- !u!1 &3867591787626689667
 GameObject:
   m_ObjectHideFlags: 0
@@ -781,7 +779,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b9b73b7a932f784a9ac07737cefe362, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _material: {fileID: 2100000, guid: 6c99e05bfb931f84cad42d823eecf1c4, type: 2}
 --- !u!114 &6304108246342513159
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1160,7 +1157,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b9b73b7a932f784a9ac07737cefe362, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _material: {fileID: 0}
 --- !u!114 &4054109662309493538
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1539,7 +1535,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b9b73b7a932f784a9ac07737cefe362, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _material: {fileID: 2100000, guid: 6c99e05bfb931f84cad42d823eecf1c4, type: 2}
 --- !u!114 &4527492373038641883
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1562,12 +1557,12 @@ GameObject:
   m_Component:
   - component: {fileID: 1256440073604323538}
   m_Layer: 0
-  m_Name: EastWest
+  m_Name: NorthSouth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1256440073604323538
 Transform:
   m_ObjectHideFlags: 0
@@ -1596,7 +1591,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6836115887980477687}
   m_Layer: 0
-  m_Name: NorthSouth
+  m_Name: EastWest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1985,7 +1980,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b9b73b7a932f784a9ac07737cefe362, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _material: {fileID: 2100000, guid: 6c99e05bfb931f84cad42d823eecf1c4, type: 2}
 --- !u!1 &9081625277748779570
 GameObject:
   m_ObjectHideFlags: 0
@@ -2352,7 +2346,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b9b73b7a932f784a9ac07737cefe362, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _material: {fileID: 0}
 --- !u!114 &1222679794008834811
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -9,7 +9,7 @@ public class PlayerMovementController : MonoBehaviour
 {
     private PlayerControls _controls;
     [field: SerializeField]
-    public float GridCellSize { get; private set; } = 5;
+    public static float GridCellSize { get; private set; } = 5;
     [field: SerializeField]
     public List<CameraPosition> Cameras { get; private set; }
     [SerializeField]
@@ -111,7 +111,7 @@ public class PlayerMovementController : MonoBehaviour
     private void PositionCamera()
     {
         Vector3 newPosition = new(_position.Row * GridCellSize, 0, _position.Col * GridCellSize);
-        transform.position = newPosition;
+        transform.localPosition = newPosition;
         foreach (CameraPosition camera in Cameras)
         {
             camera.Camera.gameObject.SetActive(camera.Facing == Facing);

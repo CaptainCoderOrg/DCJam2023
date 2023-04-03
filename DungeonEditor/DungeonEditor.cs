@@ -113,9 +113,11 @@ public class DungeonEditor
     {
         foreach ((Position pos, char ch) in Grid.ToASCII())
         {
+            DungeonColors.SetColor(ch);
             SetCursorPosition(pos + _gridOffset);
             Console.Write(ch);
         }
+        Console.ResetColor();
     }
 
     public void DrawPosition(Position pos)
