@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6054927106626678285
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6482418743143646648}
+  - component: {fileID: 8454643922669348802}
+  m_Layer: 0
+  m_Name: YinYangGridCellDatabse
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6482418743143646648
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6054927106626678285}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8454643922669348802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6054927106626678285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f6d6594946612944abaceb42177aabe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _cellEntries:
+  - <Key>k__BackingField: .DUG
+    <Value>k__BackingField: {fileID: 2335308055764904564, guid: f5c8dbd6cf8e99b43bd537567a85a4e9, type: 3}
+  - <Key>k__BackingField: ',EHV'
+    <Value>k__BackingField: {fileID: 2335308055764904564, guid: 84d23286dd51c9b498537e293b429918, type: 3}
+  - <Key>k__BackingField: BAC
+    <Value>k__BackingField: {fileID: 2335308055764904564, guid: eb6c78badbd38ad418070465f4d6eef9, type: 3}
+  _defaultFloor: {fileID: 2335308055764904564, guid: f5c8dbd6cf8e99b43bd537567a85a4e9, type: 3}
+  _wallEntries:
+  - <Key>k__BackingField: '#'
+    <Value>k__BackingField: {fileID: 7744616278776981774, guid: abcac4583076aef4aa4c8e0f6e665ed4, type: 3}
+  - <Key>k__BackingField: =
+    <Value>k__BackingField: {fileID: 7744616278776981774, guid: cc9a260a1211b9f4aa7401f84a4c4388, type: 3}
+  - <Key>k__BackingField: '*'
+    <Value>k__BackingField: {fileID: 7744616278776981774, guid: 8c30f9a691e060e48846fa1a19523930, type: 3}
+  - <Key>k__BackingField: '-'
+    <Value>k__BackingField: {fileID: 7744616278776981774, guid: dc9ede2c6770fa7469a449460439bc51, type: 3}
+  - <Key>k__BackingField: +
+    <Value>k__BackingField: {fileID: 7744616278776981774, guid: 48fd737bc39773148a783bd4c11e5812, type: 3}
+  <WallMaterial>k__BackingField: {fileID: 2100000, guid: 6c99e05bfb931f84cad42d823eecf1c4, type: 2}

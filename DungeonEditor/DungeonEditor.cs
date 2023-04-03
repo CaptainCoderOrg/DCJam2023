@@ -9,7 +9,7 @@ public class DungeonEditor
     private bool _cursorVisible = true;
     private bool _curserPaused = false;
     private readonly List<string> _messages = new();
-    private string _filename = string.Empty;
+    private string _filename = string.Empty;    
     public IEditorMode Mode = WallMode.Instance;
     public readonly Queue<IEditorMode> Modes = new Queue<IEditorMode>(
         new IEditorMode[]{
@@ -33,10 +33,14 @@ public class DungeonEditor
         _inputs[ConsoleKey.Spacebar] = () => Mode.Draw(this);
         _inputs[ConsoleKey.D0] = Save;
         _inputs[ConsoleKey.F10] = Load;
+        _inputs[ConsoleKey.F12] = ChangeWallSymbol;
+        _inputs[ConsoleKey.OemMinus] = ChangeFloorSymbol;
         _inputs[ConsoleKey.Tab] = NextMode;
         _inputs[ConsoleKey.OemPeriod] = () => TileMode.Instance.Draw(this);
         Blink();
     }
+    public char CurrentWallSymbol { get; private set; }= '#';
+    public char CurrentFloorSymbol { get; private set; }= '.';
 
     public async void Blink()
     {
@@ -78,9 +82,21 @@ public class DungeonEditor
     public void DisplayMode()
     {
         Console.SetCursorPosition(0, 1);
-        Console.Write($"Mode: {Mode} | ({Cursor.Row}, {Cursor.Col})");
+        Console.Write($"Mode: {Mode} | ({Cursor.Row}, {Cursor.Col}) | Wall: '{CurrentWallSymbol} | Floor: '{CurrentFloorSymbol}'");
     }
 
+    public void ChangeWallSymbol()
+    {
+        Log("Enter new Wall Symbol");
+        CurrentWallSymbol = Console.ReadKey().KeyChar;
+        Log($"Wall Symbol set to '{CurrentWallSymbol}'");
+    }
+    public void ChangeFloorSymbol()
+    {
+        Log("Enter new Floor Symbol");
+        CurrentFloorSymbol = Console.ReadKey().KeyChar;
+        Log($"Floor Symbol set to '{CurrentFloorSymbol}'");
+    }
     public void DrawMessages()
     {
         int messageStart = Console.WindowHeight - 4;

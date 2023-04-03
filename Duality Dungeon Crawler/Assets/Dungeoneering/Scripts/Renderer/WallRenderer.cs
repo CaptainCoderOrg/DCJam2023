@@ -11,7 +11,7 @@ namespace CaptainCoder.Dungeoneering
         public Material Material 
         { 
             get => _material; 
-            private set
+            set
             {
                 _material = value;
                 Renderer.sharedMaterial = _material;

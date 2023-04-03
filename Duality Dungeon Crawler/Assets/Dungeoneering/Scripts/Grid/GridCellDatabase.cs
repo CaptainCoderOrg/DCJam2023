@@ -7,6 +7,8 @@ namespace CaptainCoder.Dungeoneering
     {
         [SerializeField]
         private List<Entry> _cellEntries;
+        [SerializeField]
+        private GameObject _defaultFloor;
         private Dictionary<char, GameObject> _cellEntryDict;
         private Dictionary<char, GameObject> CellEntryDict
         {
@@ -17,8 +19,11 @@ namespace CaptainCoder.Dungeoneering
                     _cellEntryDict = new Dictionary<char, GameObject>();
                     foreach (Entry e in _cellEntries)
                     {
-                        Debug.Assert(!_cellEntryDict.ContainsKey(e.Key), $"Entry List contains duplicate entry for character '{e.Key}'");
-                        _cellEntryDict[e.Key] = e.Value;
+                        foreach (char ch in e.Key)
+                        {
+                            Debug.Assert(!_cellEntryDict.ContainsKey(ch), $"Entry List contains duplicate entry for character '{ch}'");
+                            _cellEntryDict[ch] = e.Value;
+                        }
                     }
                 }
                 return _cellEntryDict;
@@ -38,16 +43,19 @@ namespace CaptainCoder.Dungeoneering
                     _wallEntryDict = new Dictionary<char, WallTileInitializer>();
                     foreach (WallEntry e in _wallEntries)
                     {
-                        Debug.Assert(!_wallEntryDict.ContainsKey(e.Key), $"Entry List contains duplicate entry for character '{e.Key}'");
-                        _wallEntryDict[e.Key] = e.Value;
+                        foreach (char ch in e.Key)
+                        {
+                            Debug.Assert(!_wallEntryDict.ContainsKey(ch), $"Entry List contains duplicate entry for character '{ch}'");
+                            _wallEntryDict[ch] = e.Value;
+                        }
                     }
                 }
                 return _wallEntryDict;
             }
         }
 
-        [field: SerializeField]
-        public Material WallMaterial { get; private set; }
+        // [field: SerializeField]
+        // public Material WallMaterial { get; private set; }
 
         public GameObject InstantiateTile(char ch, Transform parent = null) => Instantiate(CellEntryDict[ch], parent);
         public GameObject InstantiateWall(char ch, bool isNorthSouth, Transform parent = null)
@@ -57,11 +65,19 @@ namespace CaptainCoder.Dungeoneering
             return wall.gameObject;
         }
 
+        
+
+        public void OnValidate()
+        {
+            _cellEntryDict = null;
+            _wallEntryDict = null;   
+        }
+
         [System.Serializable]
         public class Entry
         {
             [field: SerializeField]
-            public char Key { get; private set; }
+            public string Key { get; private set; }
             [field: SerializeField]
             public GameObject Value { get; private set; }
         }
@@ -70,7 +86,7 @@ namespace CaptainCoder.Dungeoneering
         public class WallEntry
         {
             [field: SerializeField]
-            public char Key { get; private set; }
+            public string Key { get; private set; }
             [field: SerializeField]
             public WallTileInitializer Value { get; private set; }
         }

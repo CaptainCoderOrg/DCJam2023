@@ -28,8 +28,10 @@ namespace CaptainCoder.Dungeoneering
             VisualElement refContainer = root.Q<VisualElement>("ObjectRefContainer");
             ObjectField gridTarget = new("Target Transform") { objectType = typeof(Transform) };
             ObjectField gridCellDatabase = new("Grid Cell Database") { objectType = typeof(GridCellDatabase) };
+            ObjectField textFile = new("Map Text File") { objectType = typeof(TextAsset) };
             refContainer.Add(gridTarget);
             refContainer.Add(gridCellDatabase);
+            refContainer.Add(textFile);
 
             TextField mapData = rootVisualElement.Q<TextField>("MapData");
             var addToSceneButton = rootVisualElement.Q<Button>("AddToScene");
@@ -40,6 +42,15 @@ namespace CaptainCoder.Dungeoneering
             var generationSteps = rootVisualElement.Q<SliderInt>("GenerationSteps");
             var generateButton = rootVisualElement.Q<Button>("Generate");
             generateButton.clicked += () => GenerateGrid(mapData, generationSteps);
+
+            var loadButton = rootVisualElement.Q<Button>("Load");
+            loadButton.clicked += () => LoadMap((TextAsset)textFile.value, mapData);
+        }
+
+        private void LoadMap(TextAsset textFile, TextField mapData)
+        {
+            if (textFile == null) { return; }
+            mapData.SetValueWithoutNotify(textFile.text);
         }
 
         private void GenerateGrid(TextField mapOutput, SliderInt generationSteps)

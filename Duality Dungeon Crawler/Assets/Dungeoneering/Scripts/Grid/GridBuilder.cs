@@ -74,36 +74,36 @@ namespace CaptainCoder.Dungeoneering
             }
         }
 
-        public static GameObject MergeMeshes(List<GameObject> objectsToMerge, Material material)
-        {
-            // Create a new mesh to merge the objects into
-            Mesh mergedMesh = new Mesh();
-            List<CombineInstance> combines = new();
-            foreach (GameObject toMerge in objectsToMerge) //int i = 0; i < objectsToMerge.Count; i++)
-            {
-                MeshFilter[] filters = toMerge.GetComponentsInChildren<MeshFilter>();
-                foreach (MeshFilter filter in filters)
-                {
-                    CombineInstance combine = default;
-                    combine.mesh = filter.sharedMesh;
-                    combine.transform = filter.gameObject.transform.localToWorldMatrix;
-                    combines.Add(combine);
-                }
-            }
-            mergedMesh.CombineMeshes(combines.ToArray());
+        // public static GameObject MergeMeshes(List<GameObject> objectsToMerge, Material material)
+        // {
+        //     // Create a new mesh to merge the objects into
+        //     Mesh mergedMesh = new Mesh();
+        //     List<CombineInstance> combines = new();
+        //     foreach (GameObject toMerge in objectsToMerge) //int i = 0; i < objectsToMerge.Count; i++)
+        //     {
+        //         MeshFilter[] filters = toMerge.GetComponentsInChildren<MeshFilter>();
+        //         foreach (MeshFilter filter in filters)
+        //         {
+        //             CombineInstance combine = default;
+        //             combine.mesh = filter.sharedMesh;
+        //             combine.transform = filter.gameObject.transform.localToWorldMatrix;
+        //             combines.Add(combine);
+        //         }
+        //     }
+        //     mergedMesh.CombineMeshes(combines.ToArray());
 
-            // Create a new game object to hold the merged mesh
-            GameObject mergedObject = new("mesh_Merged");
-            mergedObject.AddComponent<MeshFilter>().mesh = mergedMesh;
-            mergedObject.AddComponent<MeshRenderer>().material = material;
-            mergedObject.AddComponent<MeshCollider>();
+        //     // Create a new game object to hold the merged mesh
+        //     GameObject mergedObject = new("mesh_Merged");
+        //     mergedObject.AddComponent<MeshFilter>().mesh = mergedMesh;
+        //     mergedObject.AddComponent<MeshRenderer>().material = material;
+        //     mergedObject.AddComponent<MeshCollider>();
 
-            // Remove the original objects
-            foreach (GameObject go in objectsToMerge)
-            {
-                GameObject.DestroyImmediate(go);
-            }
-            return mergedObject;
-        }
+        //     // Remove the original objects
+        //     foreach (GameObject go in objectsToMerge)
+        //     {
+        //         GameObject.DestroyImmediate(go);
+        //     }
+        //     return mergedObject;
+        // }
     }
 }

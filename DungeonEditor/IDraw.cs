@@ -16,14 +16,12 @@ public class WallMode : IEditorMode
         IWall wall = editor.Grid.WallAt(editor.Cursor, editor.Facing);
         if (wall == Wall.NoWall)
         {
-            editor.Grid.SetWall(editor.Cursor, editor.Facing, Wall.Solid);
+            // editor.Grid.SetWall(editor.Cursor, editor.Facing, Wall.Solid);
+            editor.Grid.SetWall(editor.Cursor, editor.Facing, new Wall(editor.CurrentWallSymbol));
         }
-        else if (wall == Wall.Solid)
+        else // if (wall == Wall.Solid)
         {
-            editor.Grid.SetWall(editor.Cursor, editor.Facing, Wall.Door);
-        }
-        else
-        {
+            // editor.Grid.SetWall(editor.Cursor, editor.Facing, new Wall(editor.CurrentWallSymbol));
             editor.Grid.DeleteWall(editor.Cursor, editor.Facing);
         }
         CheckTile(editor);
@@ -57,7 +55,7 @@ public class TileMode : IEditorMode
     {
         if (editor.Grid.TileAt(editor.Cursor) == Tile.NoTile)
         {
-            editor.Grid.SetTile(editor.Cursor, Tile.Floor);
+            editor.Grid.SetTile(editor.Cursor, new Tile(editor.CurrentFloorSymbol, true));
         }
         else
         {
