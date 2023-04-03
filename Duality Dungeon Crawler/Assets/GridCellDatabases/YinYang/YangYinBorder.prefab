@@ -48,7 +48,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _northSouth: {fileID: 8162977261084693146}
   _eastWest: {fileID: 7499364677843179078}
-  _material: {fileID: 0}
 --- !u!1 &2795976757522492119
 GameObject:
   m_ObjectHideFlags: 0
@@ -147,7 +146,7 @@ MonoBehaviour:
       m_Rotation: 0
       m_Anchor: 9
     m_Material: {fileID: 0}
-    m_SubmeshIndex: 0
+    m_SubmeshIndex: 1
     m_ManualUV: 0
     elementGroup: -1
     m_TextureGroup: -1
@@ -298,7 +297,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 1777
+  m_VersionIndex: 1789
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -350,7 +349,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: df410213637b86a4f9131bdfe2324d1d, type: 2}
+  - {fileID: 2100000, guid: a95df0a0948e9ce4fb07cb0b36bc8eb7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -414,7 +414,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b9b73b7a932f784a9ac07737cefe362, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _material: {fileID: 0}
 --- !u!1 &3867591787626689667
 GameObject:
   m_ObjectHideFlags: 0
@@ -514,7 +513,7 @@ MonoBehaviour:
       m_Rotation: 0
       m_Anchor: 9
     m_Material: {fileID: 0}
-    m_SubmeshIndex: 0
+    m_SubmeshIndex: 1
     m_ManualUV: 0
     elementGroup: -1
     m_TextureGroup: -1
@@ -665,7 +664,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 1800
+  m_VersionIndex: 1804
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -718,6 +717,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 6c99e05bfb931f84cad42d823eecf1c4, type: 2}
+  - {fileID: 2100000, guid: a95df0a0948e9ce4fb07cb0b36bc8eb7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -781,7 +781,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b9b73b7a932f784a9ac07737cefe362, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _material: {fileID: 2100000, guid: 6c99e05bfb931f84cad42d823eecf1c4, type: 2}
 --- !u!114 &6304108246342513159
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -893,7 +892,7 @@ MonoBehaviour:
       m_Rotation: 0
       m_Anchor: 9
     m_Material: {fileID: 0}
-    m_SubmeshIndex: 0
+    m_SubmeshIndex: 1
     m_ManualUV: 0
     elementGroup: -1
     m_TextureGroup: -1
@@ -1044,11 +1043,19 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 1802
+  m_VersionIndex: 1814
   m_IsSelectable: 1
-  m_SelectedFaces: 
-  m_SelectedEdges: []
-  m_SelectedVertices: 
+  m_SelectedFaces: 00000000
+  m_SelectedEdges:
+  - a: 0
+    b: 1
+  - a: 2
+    b: 0
+  - a: 1
+    b: 3
+  - a: 3
+    b: 2
+  m_SelectedVertices: 00000000010000000200000003000000
 --- !u!114 &8254666005991545247
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1096,7 +1103,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: df410213637b86a4f9131bdfe2324d1d, type: 2}
+  - {fileID: 2100000, guid: a95df0a0948e9ce4fb07cb0b36bc8eb7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1160,7 +1168,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b9b73b7a932f784a9ac07737cefe362, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _material: {fileID: 0}
 --- !u!114 &4054109662309493538
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1272,7 +1279,7 @@ MonoBehaviour:
       m_Rotation: 0
       m_Anchor: 9
     m_Material: {fileID: 0}
-    m_SubmeshIndex: 0
+    m_SubmeshIndex: 1
     m_ManualUV: 0
     elementGroup: -1
     m_TextureGroup: -1
@@ -1423,7 +1430,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 1808
+  m_VersionIndex: 1812
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -1476,6 +1483,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 6c99e05bfb931f84cad42d823eecf1c4, type: 2}
+  - {fileID: 2100000, guid: a95df0a0948e9ce4fb07cb0b36bc8eb7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1539,7 +1547,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b9b73b7a932f784a9ac07737cefe362, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _material: {fileID: 2100000, guid: 6c99e05bfb931f84cad42d823eecf1c4, type: 2}
 --- !u!114 &4527492373038641883
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1567,7 +1574,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1256440073604323538
 Transform:
   m_ObjectHideFlags: 0
@@ -1718,7 +1725,7 @@ MonoBehaviour:
       m_Rotation: 0
       m_Anchor: 9
     m_Material: {fileID: 0}
-    m_SubmeshIndex: 0
+    m_SubmeshIndex: 1
     m_ManualUV: 0
     elementGroup: -1
     m_TextureGroup: -1
@@ -1869,7 +1876,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 1780
+  m_VersionIndex: 1784
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -1922,6 +1929,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 6c99e05bfb931f84cad42d823eecf1c4, type: 2}
+  - {fileID: 2100000, guid: a95df0a0948e9ce4fb07cb0b36bc8eb7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1985,7 +1993,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b9b73b7a932f784a9ac07737cefe362, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _material: {fileID: 2100000, guid: 6c99e05bfb931f84cad42d823eecf1c4, type: 2}
 --- !u!1 &9081625277748779570
 GameObject:
   m_ObjectHideFlags: 0
@@ -2085,7 +2092,7 @@ MonoBehaviour:
       m_Rotation: 0
       m_Anchor: 9
     m_Material: {fileID: 0}
-    m_SubmeshIndex: 0
+    m_SubmeshIndex: 1
     m_ManualUV: 0
     elementGroup: -1
     m_TextureGroup: -1
@@ -2236,7 +2243,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 1794
+  m_VersionIndex: 1806
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -2288,7 +2295,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: df410213637b86a4f9131bdfe2324d1d, type: 2}
+  - {fileID: 2100000, guid: a95df0a0948e9ce4fb07cb0b36bc8eb7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2352,7 +2360,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b9b73b7a932f784a9ac07737cefe362, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _material: {fileID: 0}
 --- !u!114 &1222679794008834811
 MonoBehaviour:
   m_ObjectHideFlags: 0

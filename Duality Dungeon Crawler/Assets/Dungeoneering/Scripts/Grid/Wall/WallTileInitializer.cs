@@ -12,8 +12,8 @@ namespace CaptainCoder.Dungeoneering
         private GameObject _northSouth;
         [SerializeField]
         private GameObject _eastWest;
-        [SerializeField]
-        private Material _material;
+        // [SerializeField]
+        // private Material _material;
         
         public void Initialize(bool isNorthSouth)
         {
@@ -31,13 +31,13 @@ namespace CaptainCoder.Dungeoneering
             _isSet = true;
         }
 
-        public void OnValidate()
-        {
-            WallRenderer[] renderers = GetComponentsInChildren<WallRenderer>();
-            foreach (WallRenderer renderer in renderers)
-            {
-                renderer.Material = _material;
-            }
-        }
+        // public void OnValidate()
+        // {
+        //     WallRenderer[] renderers = GetComponentsInChildren<WallRenderer>();
+        //     foreach (WallRenderer renderer in renderers)
+        //     {
+        //         renderer.Material = _material;
+        //     }
+        // }
     }
 }
