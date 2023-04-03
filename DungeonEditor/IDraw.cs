@@ -65,4 +65,11 @@ public class TileMode : IEditorMode
         }
         return string.Empty;
     }
+
+    
+    public string Draw(DungeonEditor editor, char ch)
+    {
+        editor.Grid.SetTile(editor.Cursor, new Tile(ch, true));
+        return string.Empty; 
+    }
 }

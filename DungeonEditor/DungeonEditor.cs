@@ -22,16 +22,17 @@ public class DungeonEditor
     public DungeonEditor()
     {
         _inputs = new();
-        _inputs[ConsoleKey.W] = () => Cursor += Facing.MovePosition();
-        _inputs[ConsoleKey.S] = () => Cursor -= Facing.MovePosition();
-        _inputs[ConsoleKey.E] = () => Cursor += Facing.RotateClockwise().MovePosition();
-        _inputs[ConsoleKey.Q] = () => Cursor -= Facing.RotateClockwise().MovePosition();
-        _inputs[ConsoleKey.D] = () => Facing = Facing.RotateClockwise();
-        _inputs[ConsoleKey.A] = () => Facing = Facing.RotateCounterClockwise();
+        _inputs[ConsoleKey.W] = () => Cursor -= (1, 0);
+        _inputs[ConsoleKey.S] = () => Cursor += (1, 0);
+        _inputs[ConsoleKey.D] = () => Cursor += (0, 1);
+        _inputs[ConsoleKey.A] = () => Cursor -= (0, 1);
+        _inputs[ConsoleKey.E] = () => Facing = Facing.RotateClockwise();
+        _inputs[ConsoleKey.Q] = () => Facing = Facing.RotateCounterClockwise();
         _inputs[ConsoleKey.Delete] = () => WallMode.Instance.Delete(this);
         _inputs[ConsoleKey.Backspace] = () => WallMode.Instance.Delete(this);
         _inputs[ConsoleKey.Spacebar] = () => Mode.Draw(this);
         _inputs[ConsoleKey.D0] = Save;
+        _inputs[ConsoleKey.F10] = Load;
         _inputs[ConsoleKey.Tab] = NextMode;
         _inputs[ConsoleKey.OemPeriod] = () => TileMode.Instance.Draw(this);
         Blink();
@@ -145,7 +146,18 @@ public class DungeonEditor
 
     public void HandleInput(ConsoleKeyInfo info)
     {
-        _inputs.GetValueOrDefault(info.Key, () => InvalidInput(info.KeyChar)).Invoke();
+        if (info.Modifiers == ConsoleModifiers.Shift && char.IsLetter(info.KeyChar))
+        {
+            TileMode.Instance.Draw(this, info.KeyChar);
+        }
+        else if (_inputs.TryGetValue(info.Key, out Action? action))
+        {
+            action.Invoke();
+        }
+        else if (char.IsLetter(info.KeyChar))
+        {
+            TileMode.Instance.Draw(this, info.KeyChar);
+        }
     }
     public void InvalidInput(char ch) => Log($"Invalid Input: '{ch}'");
 
@@ -153,6 +165,39 @@ public class DungeonEditor
     {
         _messages.Add(message);
         DrawMessages();
+    }
+
+    public void Load()
+    {
+        _curserPaused = true;
+        Console.CursorVisible = true;
+        Log($"Load File: ");
+        string filename = Console.ReadLine()!;
+        Log(filename);
+        if (filename == string.Empty)
+        {
+            _curserPaused = false;
+            Console.CursorVisible = false;
+            return;
+        }
+        if (!File.Exists(filename))
+        {
+            Log("No such file");
+            _curserPaused = false;
+            Console.CursorVisible = false;
+            return;
+        }
+        if (DungeonGrid.TryLoad(filename, out DungeonGrid grid))
+        {
+            Grid = grid;
+            Log("File loaded!");
+        }
+        else
+        {
+            Log("Load failed.");
+        }
+        _curserPaused = false;
+        Console.CursorVisible = false;
     }
 
     public void Save()
@@ -191,5 +236,10 @@ public class DungeonEditor
             }
         }
         _curserPaused = false;
+    }
+
+    public void Load(string path)
+    {
+
     }
 }
