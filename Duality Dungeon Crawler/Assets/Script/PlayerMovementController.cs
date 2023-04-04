@@ -16,6 +16,18 @@ public class PlayerMovementController : MonoBehaviour
     [field: SerializeField]
     public List<CameraPosition> Cameras { get; private set; }
     [SerializeField]
+    private MapLoaderController _currentMap;
+    public MapLoaderController CurrentMap
+    {
+        get => _currentMap;
+        set
+        {
+            _currentMap = value;
+            transform.SetParent(_currentMap.gameObject.transform);
+            PositionCamera();
+        }
+    }
+    [SerializeField]
     private MutablePosition _position;
     public Position Position
     {
@@ -39,6 +51,15 @@ public class PlayerMovementController : MonoBehaviour
             OnDirectionChange?.Invoke(_facing);
         }
     }
+
+    public void Awake()
+    {
+        if (CurrentMap == null)
+        {
+            CurrentMap = GetComponentInParent<MapLoaderController>();
+        }
+    }
+    
 
     public void OnEnable()
     {
@@ -126,6 +147,7 @@ public class PlayerMovementController : MonoBehaviour
     public void OnValidate()
     {
         Position = _position;
+        CurrentMap = _currentMap;
     }
 
 }
