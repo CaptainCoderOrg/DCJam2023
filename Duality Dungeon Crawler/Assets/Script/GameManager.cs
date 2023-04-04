@@ -1,6 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class GameManager : MonoBehaviour
 {
@@ -14,4 +13,22 @@ public class GameManager : MonoBehaviour
     {
         Instance = this;
     }
+
+    internal MapLoaderController GetMap(Location target)
+    {
+        return target switch
+        {
+            Location.Entrance => EntranceMap,
+            Location.Yang => YangMap,
+            Location.Yin => YinMap,
+            _ => throw new NotImplementedException($"Could not load map {target}"),
+        };
+    }
+}
+
+public enum Location
+{
+    Entrance,
+    Yang,
+    Yin
 }

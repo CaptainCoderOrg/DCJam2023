@@ -19,3 +19,12 @@ MonoBehaviour:
   _wallEntries:
   - <Key>k__BackingField: '#'
     <Value>k__BackingField: {fileID: 7744616278776981774, guid: a7d6ab8dbb6030f4daa102dd92afeda9, type: 3}
+  _cellEvents:
+  - <Key>k__BackingField: V
+    <EventHandlers>k__BackingField:
+    - {fileID: 11400000, guid: bc722169b0efe4a4797decd4370b3ecb, type: 2}
+    - {fileID: 11400000, guid: af6c598c51e3c5549ad56b9361228958, type: 2}
+  - <Key>k__BackingField: ^
+    <EventHandlers>k__BackingField:
+    - {fileID: 11400000, guid: 2c034069adea63843a6fa9f6523a8c9f, type: 2}
+    - {fileID: 11400000, guid: 7984328c5cd82864abb0b8b2bd3ef26a, type: 2}

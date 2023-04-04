@@ -14,8 +14,8 @@ public class MapData : ScriptableObject
         get => _grid ??= DungeonGrid.Load(TextData.text.Split("\n"));
     }
 
-    public bool TryGetEventAt(CaptainCoder.Core.Position position, out MapEvent evt) =>
-        CellEventDict.TryGetValue(Grid.TileAt(position).Symbol, out evt);
+    public bool TryGetEventsAt(CaptainCoder.Core.Position position, out List<MapEvent> evt) =>
+        CellEventsDict.TryGetValue(Grid.TileAt(position).Symbol, out evt);
 
     [SerializeField]
     private List<Entry> _cellEntries;
@@ -39,28 +39,7 @@ public class MapData : ScriptableObject
             return _cellEntryDict;
         }
     }
-    [SerializeField]
-    private List<EventEntry> _cellEvents;
-    private Dictionary<char, MapEvent> _cellEventDict;
-    private Dictionary<char, MapEvent> CellEventDict
-    {
-        get
-        {
-            if (_cellEventDict == null)
-            {
-                _cellEventDict = new Dictionary<char, MapEvent>();
-                foreach (EventEntry e in _cellEvents)
-                {
-                    foreach (char ch in e.Key)
-                    {
-                        Debug.Assert(!_cellEventDict.ContainsKey(ch), $"Event Entry List contains duplicate entry for character '{ch}'");
-                        _cellEventDict[ch] = e.EventHandler;
-                    }
-                }
-            }
-            return _cellEventDict;
-        }
-    }
+    
 
     [SerializeField]
     private List<WallEntry> _wallEntries;
@@ -85,6 +64,29 @@ public class MapData : ScriptableObject
         }
     }
 
+    [SerializeField]
+    private List<EventEntry> _cellEvents;
+    private Dictionary<char, List<MapEvent>> _cellEventsDict;
+    private Dictionary<char, List<MapEvent>> CellEventsDict
+    {
+        get
+        {
+            if (_cellEventsDict == null)
+            {
+                _cellEventsDict = new Dictionary<char, List<MapEvent>>();
+                foreach (EventEntry e in _cellEvents)
+                {
+                    foreach (char ch in e.Key)
+                    {
+                        Debug.Assert(!_cellEventsDict.ContainsKey(ch), $"Event Entry List contains duplicate entry for character '{ch}'");
+                        _cellEventsDict[ch] = e.EventHandlers;
+                    }
+                }
+            }
+            return _cellEventsDict;
+        }
+    }
+
     // [field: SerializeField]
     // public Material WallMaterial { get; private set; }
 
@@ -102,6 +104,7 @@ public class MapData : ScriptableObject
     {
         _cellEntryDict = null;
         _wallEntryDict = null;
+        _cellEventsDict = null;
     }
 
     [System.Serializable]
@@ -128,7 +131,7 @@ public class MapData : ScriptableObject
         [field: SerializeField]
         public string Key { get; private set; }
         [field: SerializeField]
-        public MapEvent EventHandler { get; private set; }
+        public List<MapEvent> EventHandlers { get; private set; }
     }
 
 }

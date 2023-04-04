@@ -10,6 +10,7 @@ public class PlayerMovementController : MonoBehaviour
 {
     public static event Action<Direction> OnDirectionChange;
     public static event Action<Position> OnPositionChange;
+    public static PlayerMovementController Instance { get; private set; }
     private PlayerControls _controls;
     [field: SerializeField]
     public static float GridCellSize { get; private set; } = 5;
@@ -51,13 +52,9 @@ public class PlayerMovementController : MonoBehaviour
             OnDirectionChange?.Invoke(_facing);
         }
     }
-
     public void Awake()
     {
-        if (CurrentMap == null)
-        {
-            CurrentMap = GetComponentInParent<MapLoaderController>();
-        }
+        Instance = this;
     }
 
 
@@ -67,6 +64,7 @@ public class PlayerMovementController : MonoBehaviour
         _controls.Enable();
         _controls.PlayerMovement.Step.started += HandleMoveInput;
         _controls.PlayerMovement.Rotate.started += HandleRotateInput;
+        _controls.PlayerMovement.Interact.started += HandleInteract;
     }
 
     public void OnDisable()
@@ -75,6 +73,18 @@ public class PlayerMovementController : MonoBehaviour
         _controls.Disable();
         _controls.PlayerMovement.Step.started -= HandleMoveInput;
         _controls.PlayerMovement.Rotate.started -= HandleRotateInput;
+        _controls.PlayerMovement.Interact.started -= HandleInteract;
+    }
+
+    private void HandleInteract(CallbackContext ctx)
+    {
+        if (_currentMap.MapData.TryGetEventsAt(Position, out List<MapEvent> events))
+        {
+            foreach (MapEvent evt in events)
+            {
+                if(evt.OnInteract()) { break; }
+            }
+        }
     }
 
     private void HandleRotateInput(CallbackContext ctx)
@@ -126,13 +136,25 @@ public class PlayerMovementController : MonoBehaviour
                 }
                 else
                 {
-                    Position += MovePosition(type);
+                    PerformMove(MovePosition(type));
                 }
                 break;
             default:
                 throw new System.Exception($"Could not handle input type {type}.");
         }
         return true;
+    }
+    private void PerformMove(Position p)
+    {
+
+        Position += p;
+        if (_currentMap.MapData.TryGetEventsAt(Position, out List<MapEvent> events))
+        {
+            foreach (MapEvent evt in events)
+            {
+                evt.OnEnter();
+            }
+        }
     }
     private void IllegalMove()
     {
