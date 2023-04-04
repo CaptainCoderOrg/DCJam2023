@@ -9,7 +9,7 @@ public class MessageEvent : MapEvent
 
     public override bool OnEnter()
     {
-        Debug.Log(Message);
+        MessageController.WriteLine(Message);
         return false;
     }
 }

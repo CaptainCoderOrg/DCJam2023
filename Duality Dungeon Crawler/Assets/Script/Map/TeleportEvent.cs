@@ -21,7 +21,7 @@ public class TeleportEvent : MapEvent
         player.Facing = Facing;
         if (Message != null && Message != string.Empty)
         {
-            Debug.Log(Message);
+            MessageController.WriteLine(Message);
         }
         return true;
     }

@@ -1,0 +1,5 @@
+.message-label {
+    -unity-font: url('project://database/Assets/UI/Fonts/Kingthings%20Petrock.ttf?fileID=12800000&guid=54ef9d49b1852844ca2751a5680d66ed&type=3#Kingthings Petrock');
+    -unity-font-definition: url('project://database/Assets/UI/Fonts/Kingthings%20Petrock%20SDF.asset?fileID=11400000&guid=acefd71c41da01f43bcdbc93e45f455d&type=2#Kingthings Petrock SDF');
+    font-size: 24px;
+}

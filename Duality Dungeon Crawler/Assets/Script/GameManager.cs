@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
     public MapLoaderController YangMap;
     public MapLoaderController YinMap;
 
+    public AbilityManifest AbilityManifest;
+
     public void Awake()
     {
         Instance = this;
