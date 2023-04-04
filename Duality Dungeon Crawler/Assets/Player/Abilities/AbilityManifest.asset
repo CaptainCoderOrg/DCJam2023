@@ -13,8 +13,5 @@ MonoBehaviour:
   m_Name: AbilityManifest
   m_EditorClassIdentifier: 
   <Abilities>k__BackingField:
-  - {fileID: 11400000, guid: a3614a303f29e8d4b9c0fffe041d27a8, type: 2}
-  - {fileID: 11400000, guid: 3ab8d87814357f84086eda885ace6ad3, type: 2}
-  - {fileID: 11400000, guid: aeab524750481504e919f8531cc96f40, type: 2}
-  - {fileID: 11400000, guid: b632bceb12bbd7f4a892dda7a5cd0d72, type: 2}
+  - {fileID: 11400000, guid: e4757d02817afc546ac744f31d0743df, type: 2}
   LoadAbilities: 0
