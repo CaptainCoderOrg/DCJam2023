@@ -33,7 +33,7 @@ public class DialogController : MonoBehaviour
         }
     }
 
-    public void SetDialogText(string message)
+    public void DisplayDialog(string message)
     {
         _dialogText.text = message;
     }

@@ -8,7 +8,7 @@ public class StatChangeEvent : MapEvent
     public override bool OnInteract()
     {
         var diag = DialogController.Instance;
-        diag.SetDialogText("Before you are three fountains.\nA red fountain.\nA blue fountain.\nA green fountain.\nWhich do you drink?");
+        diag.DisplayDialog("Before you are three fountains.\nA red fountain.\nA blue fountain.\nA green fountain.\nWhich do you drink?");
         (string, Action) red = ("Red Fountain", CreateAction(DualStat.BodyMind, 10));
         (string, Action) blue = ("Blue Fountain", CreateAction(DualStat.SunMoon, -10));
         (string, Action) green = ("Green Fountain", CreateAction(DualStat.YinYang, 15));
