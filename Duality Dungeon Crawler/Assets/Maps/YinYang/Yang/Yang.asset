@@ -27,3 +27,7 @@ MonoBehaviour:
     <Value>k__BackingField: {fileID: 7744616278776981774, guid: abcac4583076aef4aa4c8e0f6e665ed4, type: 3}
   - <Key>k__BackingField: +
     <Value>k__BackingField: {fileID: 7744616278776981774, guid: 27249f5926fa62e41b579e993ef645cc, type: 3}
+  _cellEvents:
+  - <Key>k__BackingField: E
+    <EventHandlers>k__BackingField:
+    - {fileID: 11400000, guid: 8dc2033d700f9c444ab79302767a97e4, type: 2}

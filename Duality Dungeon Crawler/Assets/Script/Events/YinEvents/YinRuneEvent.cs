@@ -8,18 +8,12 @@ public class YinRuneEvent : MapEvent
     private RuneData YinRune => GameManager.Instance.Runes.Yin;
     private DialogController Dialog => DialogController.Instance;
 
-    /// <summary>
-    /// Returns true if this interaction should stop propogation of further events.
-    /// </summary>
     public override bool OnEnter()
     {
         MessageController.WriteLine("A statue of the Sun diety Sol is here.");
         return false;
     }
 
-    /// <summary>
-    /// Returns true if this interaction should stop propogation of further events.
-    /// </summary>
     public override bool OnInteract()
     {
         if (!Player.Runes.HasRune(YinRune))

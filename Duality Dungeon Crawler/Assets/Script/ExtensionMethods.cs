@@ -7,7 +7,7 @@ public static class ExtensionMethods
 
     public static string TrimMultiLine(this string toTrim)
     {
-        return string.Join(" ", toTrim.Split("\n").Select(s => s.Trim()));
+        return string.Join(" ", toTrim.Split("\n").Select(s => s.Trim()).Where(s => s != string.Empty));
     }
 
     public static Action ThenCloseDialog(this Action action)
