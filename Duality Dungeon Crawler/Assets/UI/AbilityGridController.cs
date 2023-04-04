@@ -40,14 +40,14 @@ public class AbilityGridController : MonoBehaviour
 
     private void GenerateAbility()
     {
-        Debug.Log($"RuneWord was: {RunePhrase}");
+        
         if (AbilityManifest.TryLookup(RunePhrase, out AbilityDefinition definition))
         {
-            Debug.Log($"Ability: {definition}");
+            definition.OnUse(GameManager.Instance.Player);   
         }
         else
         {
-            Debug.Log($"Invalid Ability");
+            
         }
     }
 

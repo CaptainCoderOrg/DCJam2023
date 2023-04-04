@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     }
     public static GameManager Instance { get; private set; }
 
+    public event Action OnInterrupt;
     public MapLoaderController EntranceMap;
     public MapLoaderController YangMap;
     public MapLoaderController YinMap;
@@ -42,6 +43,8 @@ public class GameManager : MonoBehaviour
     {
         Player.NotifyObservers();
     }
+
+    public void InterruptAbilities() => OnInterrupt?.Invoke();
 
     internal MapLoaderController GetMap(Location target)
     {

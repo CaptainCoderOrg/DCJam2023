@@ -10,7 +10,7 @@ public class YangRuneEvent : MapEvent
 
     public override bool OnEnter()
     {
-        MessageController.WriteLine("A statue of the Moon diety Lun is here.");
+        MessageController.Display("A statue of the Moon diety Lun is here.");
         return false;
     }
 
@@ -56,14 +56,14 @@ public class YangRuneEvent : MapEvent
 
     private Action GiveRune => () =>
     {
-        MessageController.WriteLine("You now know the power of the Yang rune.");
+        MessageController.Display("You now know the power of the Yang rune.");
         Player.Runes.AddRune(YangRune);
     };
 
     private Action Leave => () => {
         PlayerMovementController.Instance.Position = (1, 11);
         PlayerMovementController.Instance.Facing = Direction.West;
-        MessageController.WriteLine("You step away from the statue.");
+        MessageController.Display("You step away from the statue.");
     };
 
 }

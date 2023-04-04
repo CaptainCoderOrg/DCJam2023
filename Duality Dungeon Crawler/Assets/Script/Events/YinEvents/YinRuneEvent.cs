@@ -10,7 +10,7 @@ public class YinRuneEvent : MapEvent
 
     public override bool OnEnter()
     {
-        MessageController.WriteLine("A statue of the Sun diety Sol is here.");
+        MessageController.Display("A statue of the Sun diety Sol is here.");
         return false;
     }
 
@@ -54,14 +54,14 @@ public class YinRuneEvent : MapEvent
 
     private Action GiveRune => () =>
     {
-        MessageController.WriteLine("You now know the power of the Yin rune.");
+        MessageController.Display("You now know the power of the Yin rune.");
         Player.Runes.AddRune(YinRune);
     };
 
     private Action Leave => () => {
         PlayerMovementController.Instance.Position = (14, 4);
         PlayerMovementController.Instance.Facing = Direction.East;
-        MessageController.WriteLine("You step away from the statue.");
+        MessageController.Display("You step away from the statue.");
     };
 
 }

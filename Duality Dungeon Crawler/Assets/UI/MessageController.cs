@@ -19,7 +19,7 @@ public class MessageController : MonoBehaviour
         Debug.Assert(_messageContainer != null, "Could not locate message container.");
     }
 
-    public static void WriteLine(string message)
+    public static void Display(string message)
     {
         // Debug.Log(message);
         Label label = new (message);
