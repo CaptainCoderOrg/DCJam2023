@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+using CaptainCoder.Core;
 
 [CreateAssetMenu(fileName = "Balance", menuName = "BodyMind/Ability/Balance")]
 public class BalanceAbility : AbilityDefinition
@@ -8,6 +10,7 @@ public class BalanceAbility : AbilityDefinition
     private static readonly WaitForSeconds s_Delay = new (0.1f);
     private Coroutine _coroutine;
     private bool _isRegistered = false;
+
     
     public override void OnUse(PlayerData player)
     {
@@ -17,11 +20,12 @@ public class BalanceAbility : AbilityDefinition
 
     public void RegisterInterrupt()
     {
-        if (_isRegistered) { return; }
-        PlayerMovementController.Instance.OnPositionChange += (_) => InterruptBalance();
-        PlayerMovementController.Instance.OnDirectionChange += (_) => InterruptBalance();
-        _isRegistered = true;
+        PlayerMovementController.Instance.OnPositionChange += CancelOnPositionChange;
+        PlayerMovementController.Instance.OnDirectionChange += CancelOnDirectionChange;
     }
+
+    private void CancelOnPositionChange(Position p) => InterruptBalance();
+    private void CancelOnDirectionChange(Direction f) => InterruptBalance();
 
     public void InterruptBalance()
     {
@@ -31,6 +35,8 @@ public class BalanceAbility : AbilityDefinition
             GameManager.Instance.StopCoroutine(_coroutine);
             _coroutine = null;
         }
+        PlayerMovementController.Instance.OnPositionChange -= CancelOnPositionChange;
+        PlayerMovementController.Instance.OnDirectionChange -= CancelOnDirectionChange;
     }
 
     private IEnumerator Balance(PlayerData player)
@@ -56,6 +62,13 @@ public class BalanceAbility : AbilityDefinition
             if (stop) { break; }
         }
         MessageController.Display("You feel balanced.");
+        PlayerMovementController.Instance.OnPositionChange -= CancelOnPositionChange;
+        PlayerMovementController.Instance.OnDirectionChange -= CancelOnDirectionChange;
+    }
+
+    public void OnEnable()
+    {
+        _isRegistered = false;
     }
 
     private bool IsBalanced
