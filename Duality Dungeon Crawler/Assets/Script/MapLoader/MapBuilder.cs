@@ -20,7 +20,10 @@ public class MapBuilder
         GameObject floorContainer = new("Floors");
         floorContainer.transform.SetParent(container);
         floorContainer.transform.localPosition = default;
-        BuildFloors(floorContainer.transform);
+        GameObject ceilingContainer = new("Ceiling");
+        ceilingContainer.transform.SetParent(container);
+        ceilingContainer.transform.localPosition = default;
+        BuildFloors(floorContainer.transform, ceilingContainer.transform);
         GameObject wallContainer = new("Walls");
         wallContainer.transform.SetParent(container);
         wallContainer.transform.localPosition = default;
@@ -70,44 +73,25 @@ public class MapBuilder
                 end.DetectOtherEnds();
             }
         }
-        // List<GameObject> allWalls = new();
-        // for (int r = 0; r < rows.Length; r++)
-        // {
-        //     // On even rows, we care about the odd columns
-        //     // On odd rows, we care about the even columns
-        //     int startColumn = r % 2 == 0 ? 1 : 0;
-        //     bool isNorthSouth = r % 2 == 1;
-        //     for (int c = startColumn; c < rows[r].Length; c += 2)
-        //     {
-        //         char ch = rows[r][c];
-        //         if (ch == ' ') { continue; }
-        //         GameObject obj = _database.InstantiateWall(ch, isNorthSouth, container);
-        //         allWalls.Add(obj);
-
-        //         float row = (r * .5f);
-        //         float col = (c * .5f);
-        //         obj.name = $"({row}, {col}) - {obj.name}";
-        //         obj.transform.localPosition = new Vector3(row * PlayerMovementController.GridCellSize, 0, col * PlayerMovementController.GridCellSize);
-
-        //         WallTileEndDetector[] ends = obj.GetComponentsInChildren<WallTileEndDetector>();
-        //         foreach (WallTileEndDetector end in ends)
-        //         {
-        //             end.DetectOtherEnds();
-        //         }
-        //     }
-        // }
-        // GameObject merged = MergeMeshes(allWalls, _database.WallMaterial);
-        // merged.transform.parent = container;
     }
 
-    private void BuildFloors(Transform container)
+    private void BuildCeiling(Transform container)
+    {
+
+    }
+
+    private void BuildFloors(Transform floorContainer, Transform ceilingContainer)
     {
         foreach ((CaptainCoder.Core.Position position, ITile tile) in _map.Grid.Tiles)
         {
             if (tile.Symbol == ' ') { continue; }
-            GameObject obj = _map.InstantiateTile(tile.Symbol, container);
+            GameObject obj = _map.InstantiateTile(tile.Symbol, floorContainer);
             obj.name = $"{position} - {obj.name}";
             obj.transform.localPosition = new Vector3(position.Row * PlayerMovementController.GridCellSize, 0, position.Col * PlayerMovementController.GridCellSize);
+
+            GameObject ceiling = _map.InstantiateTile(tile.Symbol, ceilingContainer);
+            ceiling.name = $"{position} - {obj.name}";
+            ceiling.transform.localPosition = new Vector3(position.Row * PlayerMovementController.GridCellSize, 5, position.Col * PlayerMovementController.GridCellSize);
         }
     }
 }

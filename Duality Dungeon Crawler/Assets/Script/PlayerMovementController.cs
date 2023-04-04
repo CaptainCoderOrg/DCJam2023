@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +8,8 @@ using static UnityEngine.InputSystem.InputAction;
 
 public class PlayerMovementController : MonoBehaviour
 {
+    public static event Action<Direction> OnDirectionChange;
+    public static event Action<Position> OnPositionChange;
     private PlayerControls _controls;
     [field: SerializeField]
     public static float GridCellSize { get; private set; } = 5;
@@ -21,6 +24,7 @@ public class PlayerMovementController : MonoBehaviour
         {
             _position = new MutablePosition { Row = value.Row, Col = value.Col };
             PositionCamera();
+            OnPositionChange?.Invoke(_position);
         }
     }
     [SerializeField]
@@ -32,6 +36,7 @@ public class PlayerMovementController : MonoBehaviour
         {
             _facing = value;
             PositionCamera();
+            OnDirectionChange?.Invoke(_facing);
         }
     }
 

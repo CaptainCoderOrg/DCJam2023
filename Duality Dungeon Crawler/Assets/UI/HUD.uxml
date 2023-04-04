@@ -1,0 +1,9 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:Template name="AbilityGrid" src="project://database/Assets/UI/AbilityGrid.uxml?fileID=9197481963319205126&amp;guid=9c9f72a8fa076c546a2a868d15e106af&amp;type=3#AbilityGrid" />
+    <ui:Template name="Compass" src="project://database/Assets/UI/Compass.uxml?fileID=9197481963319205126&amp;guid=fb6109bdf1145e34b9767f6be89b7506&amp;type=3#Compass" />
+    <ui:VisualElement name="Screen" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
+        <ui:Instance template="Compass" name="Compass" />
+        <ui:VisualElement name="Spacer" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);" />
+        <ui:Instance template="AbilityGrid" name="AbilityGrid" style="align-items: flex-end; flex-direction: column;" />
+    </ui:VisualElement>
+</ui:UXML>
