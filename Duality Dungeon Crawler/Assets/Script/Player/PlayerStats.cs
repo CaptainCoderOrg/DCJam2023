@@ -6,6 +6,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "PlayerStat", menuName = "BodyMind/Player Stat")]
 public class PlayerStats : ScriptableObject
 {
+    [NaughtyAttributes.OnValueChanged("NotifyObservers")]
     public List<PlayerStat> Stats;
 
     public PlayerStat Stat(DualStat stat)
