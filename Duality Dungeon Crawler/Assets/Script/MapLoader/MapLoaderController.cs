@@ -20,7 +20,6 @@ public class MapLoaderController : MonoBehaviour
         }
 
         MapBuilder builder = new(MapData);
-        
         GameObject parent = new(ChildContainer);
         parent.transform.SetParent(this.transform);
         parent.transform.localPosition = new Vector3(0, 0, 0);

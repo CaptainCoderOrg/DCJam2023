@@ -18,10 +18,12 @@ public class MapBuilder
     public void Build(Transform container)
     {
         GameObject floorContainer = new("Floors");
-        floorContainer.transform.parent = container;
+        floorContainer.transform.SetParent(container);
+        floorContainer.transform.localPosition = default;
         BuildFloors(floorContainer.transform);
         GameObject wallContainer = new("Walls");
-        wallContainer.transform.parent = container;
+        wallContainer.transform.SetParent(container);
+        wallContainer.transform.localPosition = default;
         BuildWalls(wallContainer.transform);
     }
 
