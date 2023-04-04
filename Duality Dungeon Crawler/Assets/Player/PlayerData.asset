@@ -16,5 +16,6 @@ MonoBehaviour:
   Abilities:
     _knownAbilities: []
   Runes:
-    _runes: []
+    _runes:
+    - {fileID: 11400000, guid: 3853e147e5f13d74a858a70e443eb76d, type: 2}
   SetValues: {fileID: 0}
