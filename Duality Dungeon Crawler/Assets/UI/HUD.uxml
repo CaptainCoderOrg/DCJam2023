@@ -1,6 +1,7 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <ui:Template name="Compass" src="project://database/Assets/UI/Compass.uxml?fileID=9197481963319205126&amp;guid=fb6109bdf1145e34b9767f6be89b7506&amp;type=3#Compass" />
     <ui:Template name="AbilityGrid" src="project://database/Assets/UI/AbilityGrid.uxml?fileID=9197481963319205126&amp;guid=9c9f72a8fa076c546a2a868d15e106af&amp;type=3#AbilityGrid" />
+    <ui:Template name="PlayerStats" src="project://database/Assets/UI/PlayerStats.uxml?fileID=9197481963319205126&amp;guid=1a2386d7b1ddbd54fb7d1b3013f867e5&amp;type=3#PlayerStats" />
     <Style src="project://database/Assets/UI/message.uss?fileID=7433441132597879392&amp;guid=ce41e7ee686e4564eabd9933b7b6e257&amp;type=3#message" />
     <ui:VisualElement name="Screen" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
         <ui:Instance template="Compass" name="Compass" />
@@ -9,5 +10,6 @@
         <ui:VisualElement name="Messages" style="flex-grow: 1; background-color: rgba(255, 255, 255, 0.38); position: absolute; left: 11px; top: 424px; right: 325px; bottom: 19px;">
             <ui:ScrollView name="MessageContainer" />
         </ui:VisualElement>
+        <ui:Instance template="PlayerStats" name="PlayerStats" style="position: absolute; height: 128px; width: 256px; top: 19px; left: 689px;" />
     </ui:VisualElement>
 </ui:UXML>
