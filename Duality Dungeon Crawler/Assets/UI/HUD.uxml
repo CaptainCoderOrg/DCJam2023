@@ -9,7 +9,7 @@
         <ui:VisualElement name="Spacer" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);" />
         <ui:Instance template="AbilityGrid" name="AbilityGrid" style="align-items: flex-end; flex-direction: column;" />
         <ui:VisualElement name="Messages" style="flex-grow: 1; background-color: rgba(255, 255, 255, 0.38); position: absolute; left: 11px; top: 424px; right: 325px; bottom: 19px;">
-            <ui:ScrollView name="MessageContainer" />
+            <ui:ScrollView name="MessageContainer" nested-interaction-kind="ForwardScrolling" vertical-scroller-visibility="Hidden" horizontal-scroller-visibility="Hidden" />
         </ui:VisualElement>
         <ui:Instance template="PlayerStats" name="PlayerStats" style="position: absolute; height: 128px; width: 256px; top: 19px; left: 689px;" />
         <ui:Instance template="DialogBox" name="DialogBox" style="position: absolute; height: 227px; width: 681px; left: 22px; top: 294px; display: none; visibility: visible;" />

@@ -8,8 +8,8 @@ using static UnityEngine.InputSystem.InputAction;
 
 public class PlayerMovementController : MonoBehaviour
 {
-    public static event Action<Direction> OnDirectionChange;
-    public static event Action<Position> OnPositionChange;
+    public event Action<Direction> OnDirectionChange;
+    public event Action<Position> OnPositionChange;
     public static PlayerMovementController Instance { get; private set; }
     private PlayerControls _controls;
     [field: SerializeField]

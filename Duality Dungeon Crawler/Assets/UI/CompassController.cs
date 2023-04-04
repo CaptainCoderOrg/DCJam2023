@@ -14,7 +14,11 @@ public class CompassController : MonoBehaviour
         _root = GetComponent<UIDocument>().rootVisualElement;
         _compassLabel = _root.Q<Label>("CompassLabel");
         Debug.Assert(_compassLabel != null, "Compass label was null");
-        PlayerMovementController.OnDirectionChange += UpdateLabel;
+    }
+
+    public void Start()
+    {
+        PlayerMovementController.Instance.OnDirectionChange += UpdateLabel;
     }
 
     private void UpdateLabel(Direction newDirection)

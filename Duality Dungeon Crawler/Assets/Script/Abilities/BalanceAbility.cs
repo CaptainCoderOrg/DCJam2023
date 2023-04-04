@@ -18,8 +18,8 @@ public class BalanceAbility : AbilityDefinition
     public void RegisterInterrupt()
     {
         if (_isRegistered) { return; }
-        PlayerMovementController.OnPositionChange += (_) => InterruptBalance();
-        PlayerMovementController.OnDirectionChange += (_) => InterruptBalance();
+        PlayerMovementController.Instance.OnPositionChange += (_) => InterruptBalance();
+        PlayerMovementController.Instance.OnDirectionChange += (_) => InterruptBalance();
         _isRegistered = true;
     }
 
