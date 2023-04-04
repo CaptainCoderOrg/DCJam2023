@@ -1,0 +1,13 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement name="DialogContainer" style="flex-grow: 1; background-color: rgba(142, 88, 0, 0.62); padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+        <ui:ScrollView style="margin-left: 10px; margin-right: 10px; margin-top: 10px; margin-bottom: 10px; flex-grow: 1;">
+            <ui:VisualElement name="TextContainer" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-wrap: wrap;">
+                <ui:Label tabindex="-1" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel lectus id tortor pharetra lobortis ut maximus dolor. Nunc fermentum venenatis turpis vel volutpat. Nulla maximus nec tellus quis hendrerit. Integer ut eros ut justo fermentum porta. Nunc placerat erat et massa finibus, vitae vulputate ex fermentum. Pellentesque volutpat risus vel metus congue, quis varius arcu aliquet. In eu arcu molestie, accumsan felis nec, dignissim velit. In malesuada blandit magna sed dapibus. Fusce eu porttitor augue. Integer rutrum nisi viverra est tincidunt, vitae efficitur urna egestas. Etiam nisi odio, placerat id imperdiet ut, bibendum non ligula. Nullam sed eros vitae nulla scelerisque vestibulum eu in enim. Nullam congue, eros sed rutrum pellentesque, felis tellus imperdiet purus, non faucibus velit mauris et eros." display-tooltip-when-elided="true" name="DialogText" style="white-space: normal; -unity-font: url(&apos;project://database/Assets/UI/Fonts/Kingthings%20Petrock.ttf?fileID=12800000&amp;guid=54ef9d49b1852844ca2751a5680d66ed&amp;type=3#Kingthings Petrock&apos;); -unity-font-definition: url(&apos;project://database/Assets/UI/Fonts/Kingthings%20Petrock%20SDF.asset?fileID=11400000&amp;guid=acefd71c41da01f43bcdbc93e45f455d&amp;type=2#Kingthings Petrock SDF&apos;); font-size: 20px;" />
+            </ui:VisualElement>
+        </ui:ScrollView>
+        <ui:VisualElement name="ButtonContainer" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0); flex-direction: row;">
+            <ui:Button text="Button" display-tooltip-when-elided="true" style="flex-shrink: 1; flex-grow: 1;" />
+            <ui:Button text="Button" display-tooltip-when-elided="true" style="flex-shrink: 1; flex-grow: 1;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

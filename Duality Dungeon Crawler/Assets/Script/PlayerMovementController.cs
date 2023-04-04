@@ -57,6 +57,24 @@ public class PlayerMovementController : MonoBehaviour
         Instance = this;
     }
 
+    private bool _controlsEnabled = false;
+    public bool ControlsEnabled
+    {
+        get => _controlsEnabled;
+        set
+        {
+            _controlsEnabled = value;
+            if (_controlsEnabled)
+            {
+                _controls.Enable();                
+            }
+            else
+            {
+                _controls.Disable();
+            }
+        }
+    }
+
 
     public void OnEnable()
     {

@@ -1,15 +1,29 @@
 using CaptainCoder.Core;
 using UnityEngine;
+using System;
 
 [CreateAssetMenu(fileName = "StatChangeEvent", menuName = "BodyMind/Events/Stat Change")]
 public class StatChangeEvent : MapEvent
 {
     public override bool OnInteract()
     {
-        GameManager.Instance.PlayerStats.Stat(DualStat.BodyMind).Value += 10;
-        GameManager.Instance.PlayerStats.Stat(DualStat.SunMoon).Value -= 17;
-        GameManager.Instance.PlayerStats.Stat(DualStat.YinYang).Value += 7;
-        MessageController.WriteLine("You feel your body grow!");
+        var diag = DialogController.Instance;
+        diag.SetDialogText("Before you are three fountains.\nA red fountain.\nA blue fountain.\nA green fountain.\nWhich do you drink?");
+        (string, Action) red = ("Red Fountain", CreateAction(DualStat.BodyMind, 10));
+        (string, Action) blue = ("Blue Fountain", CreateAction(DualStat.SunMoon, -10));
+        (string, Action) green = ("Green Fountain", CreateAction(DualStat.YinYang, 15));
+        diag.SetOptions(red, blue, green);
+        diag.IsVisible = true;
         return true;
+    }
+
+    private Action CreateAction(DualStat stat, int change)
+    {
+        return () =>
+        {
+            GameManager.Instance.PlayerStats.Stat(stat).Value += change;
+            DialogController.Instance.IsVisible = false;
+            MessageController.WriteLine("You feel your body grow!");
+        };
     }
 }
