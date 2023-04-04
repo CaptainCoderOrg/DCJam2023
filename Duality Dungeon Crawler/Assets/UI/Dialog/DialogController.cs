@@ -8,6 +8,9 @@ using System.Linq;
 public class DialogController : MonoBehaviour
 {
     public static DialogController Instance { get; private set; }
+    private Queue<char> _messageQueue = new ();
+    private Coroutine _messagePrinter;
+    public float CharDelay = 0.01f;
     private VisualElement _root;
     private VisualElement _buttonContainer;
     private VisualElement _textContainer; // This is where you should put new labels
@@ -35,7 +38,28 @@ public class DialogController : MonoBehaviour
 
     public void DisplayDialog(string message)
     {
-        _dialogText.text = message;
+        _dialogText.text = string.Empty;
+        _messageQueue.Clear();
+        message.ToList().ForEach(_messageQueue.Enqueue);
+        StartDisplayMessage();
+    }
+
+    private void StartDisplayMessage()
+    {
+        if (_messagePrinter != null)
+        {
+            StopCoroutine(_messagePrinter);
+        }
+        _messagePrinter = StartCoroutine(DisplayMessage());
+    }
+
+    private IEnumerator DisplayMessage()
+    {
+        while (_messageQueue.Count > 0)
+        {
+            _dialogText.text += _messageQueue.Dequeue();
+            yield return new WaitForSeconds(CharDelay);
+        }
     }
 
     public void SetOptions(params (string label, System.Action actions)[] actions)
