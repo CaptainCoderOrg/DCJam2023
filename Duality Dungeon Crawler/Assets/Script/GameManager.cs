@@ -1,8 +1,24 @@
 using UnityEngine;
+using System.Collections.Generic;
 using System;
 
 public class GameManager : MonoBehaviour
 {
+    private static Queue<Action> OnReady = new();
+
+    // This hack is insane, don't do this
+    public static void EnqueueAction(string details, Action toEnqueue)
+    {
+        if (Instance == null)
+        {
+            Debug.Log($"Action Enqueued: {details}");
+            OnReady.Enqueue(toEnqueue);
+        }
+        else
+        {
+            toEnqueue.Invoke();
+        }
+    }
     public static GameManager Instance { get; private set; }
 
     public MapLoaderController EntranceMap;
@@ -16,6 +32,10 @@ public class GameManager : MonoBehaviour
     public void Awake()
     {
         Instance = this;
+        while (OnReady.Count > 0)
+        {
+            OnReady.Dequeue().Invoke();
+        }
     }
 
     public void Start()

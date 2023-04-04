@@ -17,3 +17,4 @@ MonoBehaviour:
     _knownAbilities: []
   Runes:
     _runes: []
+  SetValues: {fileID: 0}

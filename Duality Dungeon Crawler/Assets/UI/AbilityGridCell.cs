@@ -15,10 +15,13 @@ public class AbilityGridCellElement : VisualElement
         RegisterCallback<PointerEnterEvent>(HandleDrag);
         RegisterCallback<PointerDownEvent>(HandleClick);
         AbilityGridController.OnDragEnd += () => IsSelected = false;
-        Debug.Log(GameManager.Instance);
-        GameManager.Instance.Player.Runes.OnRuneAdded += HandleRuneAdded;
-        GameManager.Instance.Player.Runes.OnReady += HandleReady;
+
+        // Crazy Hack...
+        GameManager.EnqueueAction("HandleRuneAdded", () => GameManager.Instance.Player.Runes.OnRuneAdded += HandleRuneAdded);
+        GameManager.EnqueueAction("HandleReady", () => GameManager.Instance.Player.Runes.OnReady += HandleReady);
     }
+    
+    // private IEnumerator
 
     public bool IsSelected
     {
