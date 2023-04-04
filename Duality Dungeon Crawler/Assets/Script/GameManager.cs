@@ -9,11 +9,18 @@ public class GameManager : MonoBehaviour
     public MapLoaderController YangMap;
     public MapLoaderController YinMap;
     public PlayerStats PlayerStats;
+    public PlayerData Player;
     public AbilityManifest AbilityManifest;
+    public RuneManifest Runes;
 
     public void Awake()
     {
         Instance = this;
+    }
+
+    public void Start()
+    {
+        Player.NotifyObservers();
     }
 
     internal MapLoaderController GetMap(Location target)

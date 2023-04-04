@@ -60,6 +60,8 @@ public class PlayerStat : ISerializationCallbackReceiver
         // Ignore
     }
 
+    internal void NotifyObservers() => OnChange?.Invoke(this);
+
     #region Inspector Helpers
     [SerializeField]
     private int _right;

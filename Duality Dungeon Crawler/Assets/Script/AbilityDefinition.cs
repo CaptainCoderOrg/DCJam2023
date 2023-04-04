@@ -11,7 +11,12 @@ public class AbilityDefinition : ScriptableObject
     [field: SerializeField]
     public string RunePhrase { get; private set; }
     [field: SerializeField]
-    public List<StatModifier> Modifiers { get; private set; } 
+    public List<StatModifier> Modifiers { get; private set; }
+
+    public virtual void OnUse(PlayerData player)
+    {
+
+    }
     
 }
 

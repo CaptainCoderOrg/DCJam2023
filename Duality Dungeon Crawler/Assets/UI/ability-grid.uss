@@ -1,4 +1,12 @@
+.rune-image {
+}
+
+.ability-grid-row {
+    flex-basis: 0;
+}
+
 .ability-grid-element {
+    flex-basis: 0;
     flex-grow: 1;
     margin: 10px;
     border-top-width: 1px;

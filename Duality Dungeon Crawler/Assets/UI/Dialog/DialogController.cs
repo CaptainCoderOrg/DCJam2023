@@ -18,7 +18,9 @@ public class DialogController : MonoBehaviour
         _root = GetComponent<UIDocument>().rootVisualElement.Q<VisualElement>("DialogBox");
         Debug.Assert(_root != null, "Could not find dialog box.");
         _buttonContainer = _root.Q<VisualElement>("ButtonContainer");
+        Debug.Assert(_buttonContainer != null, "Could not find button container.");
         _dialogText = _root.Q<Label>("DialogText");
+        Debug.Assert(_dialogText != null, "Could not find dialog text.");
     }
 
     public bool IsVisible
