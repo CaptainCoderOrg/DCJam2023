@@ -9,11 +9,23 @@ public class PlayerStat : ISerializationCallbackReceiver
 
     public PlayerStat(DualStat stat, int max) => (Stat, Max) = (stat, max);
 
+    public event Action<PlayerStat> OnChange;
+
     public int Value
     {
         get => _value;
-        set => _value = Mathf.Clamp(value, -Max, Max);
+        set
+        {
+            _value = Mathf.Clamp(value, -Max, Max);
+            if (!isSerializing)
+            {
+                OnChange?.Invoke(this);
+            }
+        }
     }
+
+    public float LeftPercentage => .5f + ((float)Value / (float)Max) * .5f;
+
     [field: SerializeField]
     public int Max { get; set; }
     [field: SerializeField]
@@ -33,11 +45,14 @@ public class PlayerStat : ISerializationCallbackReceiver
         throw new System.ArgumentException($"Cannot get value of {toCheck} on dual stat {Stat}");
     }
 
+    private bool isSerializing;
     public void OnAfterDeserialize()
     {
+        isSerializing = true;
         Value = _value;
         _left = PartValue(Parts.Left);
         _right = PartValue(Parts.Right);
+        isSerializing = false;
     }
 
     public void OnBeforeSerialize()

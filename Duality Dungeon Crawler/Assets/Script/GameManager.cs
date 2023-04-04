@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     public MapLoaderController EntranceMap;
     public MapLoaderController YangMap;
     public MapLoaderController YinMap;
-
+    public PlayerStats PlayerStats;
     public AbilityManifest AbilityManifest;
 
     public void Awake()
