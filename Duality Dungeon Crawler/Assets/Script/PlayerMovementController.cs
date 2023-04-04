@@ -59,7 +59,7 @@ public class PlayerMovementController : MonoBehaviour
             CurrentMap = GetComponentInParent<MapLoaderController>();
         }
     }
-    
+
 
     public void OnEnable()
     {
@@ -117,21 +117,48 @@ public class PlayerMovementController : MonoBehaviour
                 Facing = Facing.RotateCounterClockwise();
                 break;
             case InputType.Forward:
-                Position += Facing.MovePosition();
-                break;
             case InputType.Backward:
-                Position -= Facing.MovePosition();
-                break;
             case InputType.Left:
-                Position += Facing.RotateCounterClockwise().MovePosition();
-                break;
             case InputType.Right:
-                Position += Facing.RotateClockwise().MovePosition();
+                if (!MoveWall(type).IsPassable)
+                {
+                    IllegalMove();
+                }
+                else
+                {
+                    Position += MovePosition(type);
+                }
                 break;
             default:
                 throw new System.Exception($"Could not handle input type {type}.");
         }
         return true;
+    }
+    private void IllegalMove()
+    {
+        // TODO: Play bump sound / animation
+    }
+    private Position MovePosition(InputType type)
+    {
+        return type switch
+        {
+            InputType.Forward => Facing.MovePosition(),
+            InputType.Backward => Facing.RotateClockwise().RotateClockwise().MovePosition(),
+            InputType.Left => Facing.RotateCounterClockwise().MovePosition(),
+            InputType.Right => Facing.RotateClockwise().MovePosition(),
+            _ => throw new NotImplementedException($"Invalid movement {type}"),
+        };
+    }
+    private IWall MoveWall(InputType type)
+    {
+        return type switch
+        {
+            InputType.Forward => CurrentMap.MapData.Grid.WallAt(Position, Facing),
+            InputType.Backward => CurrentMap.MapData.Grid.WallAt(Position, Facing.RotateClockwise().RotateClockwise()),
+            InputType.Left => CurrentMap.MapData.Grid.WallAt(Position, Facing.RotateCounterClockwise()),
+            InputType.Right => CurrentMap.MapData.Grid.WallAt(Position, Facing.RotateClockwise()),
+            _ => throw new NotImplementedException($"Invalid movement {type}"),
+        };
     }
 
     private void PositionCamera()
