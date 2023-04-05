@@ -44,9 +44,25 @@ public class GameManager : MonoBehaviour
     public void Start()
     {
         Player.NotifyObservers();
+        foreach (PlayerStat stat in PlayerStats.Stats)
+        {
+            stat.OnStatIsZero += HandleOutOfHarmony;
+        }
     }
 
     public void InterruptAbilities() => OnInterrupt?.Invoke();
+
+    public void HandleOutOfHarmony(Stat zeroStat)
+    {
+        DialogController.Instance.DisplayDialog(@"Your body is out of harmony... You can no longer continue. You feint.");
+        Action WakeUp = () => {
+            PlayerMovementController.Instance.Position = (2,2);
+            PlayerMovementController.Instance.Facing = Direction.North;
+            PlayerMovementController.Instance.CurrentMap = EntranceMap;
+        };
+        DialogController.Instance.SetOptions(("Wake up", WakeUp.ThenCloseDialog()));
+        DialogController.Instance.IsVisible = true;
+    }
 
     internal MapLoaderController GetMap(Location target)
     {

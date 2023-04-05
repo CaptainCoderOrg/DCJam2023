@@ -10,6 +10,7 @@ public class PlayerStat : ISerializationCallbackReceiver
     public PlayerStat(DualStat stat, int max) => (Stat, Max) = (stat, max);
 
     public event Action<PlayerStat> OnChange;
+    public event Action<Stat> OnStatIsZero;
 
     public int Value
     {
@@ -17,6 +18,14 @@ public class PlayerStat : ISerializationCallbackReceiver
         set
         {
             _value = Mathf.Clamp(value, -Max, Max);
+            if (_value == -Max)
+            {
+                OnStatIsZero?.Invoke(Parts.Left);
+            }
+            if (_value == Max)
+            {
+                OnStatIsZero?.Invoke(Parts.Right);
+            }
             if (!isSerializing)
             {
                 OnChange?.Invoke(this);
