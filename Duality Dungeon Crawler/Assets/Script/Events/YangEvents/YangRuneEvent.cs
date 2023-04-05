@@ -55,8 +55,6 @@ public class YangRuneEvent : MapEvent
     };
 
     private Action Leave => () => {
-        PlayerMovementController.Instance.Position = PlayerMovementController.Instance.Facing.RotateClockwise().RotateClockwise().MovePosition();
-        MessageController.Display("You step away from the statue.");
     };
 
 }

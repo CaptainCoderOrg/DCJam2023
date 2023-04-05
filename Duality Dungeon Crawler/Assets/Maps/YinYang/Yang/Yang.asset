@@ -36,7 +36,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 8dc2033d700f9c444ab79302767a97e4, type: 2}
     - {fileID: 11400000, guid: 04fbee3fd9b221648ae5f9d46202c8f8, type: 2}
     <Prefabs>k__BackingField:
-    - {fileID: 5722850626881981022, guid: a727d34ef0ff2f04192baa4555da63b5, type: 3}
+    - {fileID: 3928358897171807308, guid: b05377fbc651bdd478289259430a5604, type: 3}
   - <Name>k__BackingField: Return to Entrance
     <Key>k__BackingField: U
     <EventHandlers>k__BackingField:
@@ -59,7 +59,8 @@ MonoBehaviour:
     <Key>k__BackingField: P
     <EventHandlers>k__BackingField:
     - {fileID: 11400000, guid: 455fc3842cc1eb346a19d598862cf84c, type: 2}
-    <Prefabs>k__BackingField: []
+    <Prefabs>k__BackingField:
+    - {fileID: 2524529364223263107, guid: 35d8c93f7b7477c49babd3b70e0bef23, type: 3}
   - <Name>k__BackingField: Entrance Pressure Plate
     <Key>k__BackingField: O
     <EventHandlers>k__BackingField:

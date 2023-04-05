@@ -53,9 +53,6 @@ public class YinRuneEvent : MapEvent
     };
 
     private Action Leave => () => {
-        PlayerMovementController.Instance.Position = (14, 4);
-        PlayerMovementController.Instance.Facing = Direction.East;
-        MessageController.Display("You step away from the statue.");
     };
 
 }

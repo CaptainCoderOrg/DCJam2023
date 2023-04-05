@@ -54,9 +54,6 @@ public class MoonRuneEvent : MapEvent
     };
 
     private Action Leave => () => {
-        PlayerMovementController.Instance.Position = (2, 1);
-        PlayerMovementController.Instance.Facing = Direction.West;
-        MessageController.Display("You step away from the statue.");
     };
 
 }
