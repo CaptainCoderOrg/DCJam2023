@@ -36,7 +36,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 8dc2033d700f9c444ab79302767a97e4, type: 2}
     - {fileID: 11400000, guid: 04fbee3fd9b221648ae5f9d46202c8f8, type: 2}
     <Prefabs>k__BackingField:
-    - {fileID: 3928358897171807308, guid: b05377fbc651bdd478289259430a5604, type: 3}
+    - {fileID: 4860836494079287607, guid: bc70b116d266c12469305c676923b11c, type: 3}
   - <Name>k__BackingField: Return to Entrance
     <Key>k__BackingField: U
     <EventHandlers>k__BackingField:

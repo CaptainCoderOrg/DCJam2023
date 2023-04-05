@@ -36,6 +36,15 @@ public class DialogController : MonoBehaviour
         }
     }
 
+    public System.Action Dialog(string message)
+    {
+        return () => 
+        {
+            DisplayDialog(message);
+            IsVisible = true;
+        };
+    }
+
     public void DisplayDialog(string message)
     {
         _dialogText.text = string.Empty;
