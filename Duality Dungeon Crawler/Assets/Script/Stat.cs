@@ -20,7 +20,7 @@ public enum DualStat
     BodyMind = Stat.Body | Stat.Mind,
     SunMoon = Stat.Sun | Stat.Moon,
     YinYang = Stat.Yin | Stat.Yang,
-    CalmRage = Stat.Calm | Stat.Rage,
+    RageCalm = Stat.Rage | Stat.Calm,
 }
 
 public static class StatExtensions
@@ -32,7 +32,7 @@ public static class StatExtensions
             BodyMind => (Body, Mind),
             SunMoon => (Sun, Moon),
             YinYang => (Yin, Yang),
-            CalmRage => (Rage, Calm),
+            RageCalm => (Rage, Calm),
             _ => throw new NotImplementedException()
         };
     }
