@@ -18,6 +18,17 @@ public class PlayerStats : ScriptableObject
         throw new System.ArgumentException($"Could not find stat {stat}.");
     }
 
+    public int Stat(Stat stat)
+    {
+        foreach(PlayerStat playerStat in Stats)
+        {
+            // if (stat == playerStat.Stat) { return playerStat; }
+            if (stat == playerStat.Parts.Left) { return playerStat.PartValue(stat); }
+            if (stat == playerStat.Parts.Right) { return playerStat.PartValue(stat); }
+        }
+        throw new System.ArgumentException($"Could not find stat {stat}.");
+    }
+
     internal void NotifyObservers()
     {
         foreach (PlayerStat stat in Stats)
