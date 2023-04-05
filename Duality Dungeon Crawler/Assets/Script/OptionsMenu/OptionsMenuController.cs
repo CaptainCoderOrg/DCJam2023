@@ -39,10 +39,12 @@ public class OptionsMenuController : MonoBehaviour
         _controls.UIControls.ToggleMenu.started -= ToggleMenu;
     }
 
-    private void ToggleMenu(CallbackContext ctx)
+    public void ToggleMenu()
     {
         DisplayStyle current = _document.rootVisualElement.style.display.value;
         _document.rootVisualElement.style.display = current == DisplayStyle.None ? DisplayStyle.Flex : DisplayStyle.None;
     }
+
+    private void ToggleMenu(CallbackContext ctx) => ToggleMenu();
 
 }

@@ -14,5 +14,6 @@
         </ui:VisualElement>
         <ui:Instance template="PlayerStats" name="PlayerStats" style="position: absolute; height: 128px; width: 256px; top: 19px; left: 689px;" />
         <ui:Instance template="DialogBox" name="DialogBox" style="position: absolute; height: 227px; width: 681px; left: 22px; top: 294px; display: none; visibility: visible;" />
+        <ui:Button display-tooltip-when-elided="true" name="OptionsButton" focusable="false" class="gear-button" />
     </ui:VisualElement>
 </ui:UXML>
