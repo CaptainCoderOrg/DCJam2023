@@ -112,9 +112,9 @@ public class PlayerMovementController : MonoBehaviour
 
     private void HandleInteract(CallbackContext ctx)
     {
-        if (_currentMap.MapData.TryGetEventsAt(Position, out List<MapEvent> events))
+        if (_currentMap.MapData.TryGetEventsAt(Position, out MapData.EventEntry mapEvent))
         {
-            foreach (MapEvent evt in events)
+            foreach (MapEvent evt in mapEvent.EventHandlers)
             {
                 if(evt.OnInteract()) { break; }
             }
@@ -182,9 +182,9 @@ public class PlayerMovementController : MonoBehaviour
     {
 
         Position += p;
-        if (_currentMap.MapData.TryGetEventsAt(Position, out List<MapEvent> events))
+        if (_currentMap.MapData.TryGetEventsAt(Position, out MapData.EventEntry mapEvent))
         {
-            foreach (MapEvent evt in events)
+            foreach (MapEvent evt in mapEvent.EventHandlers)
             {
                 evt.OnEnter();
             }

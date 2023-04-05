@@ -14,7 +14,7 @@ public class MapData : ScriptableObject
         get => _grid ??= DungeonGrid.Load(TextData.text.Split("\n"));
     }
 
-    public bool TryGetEventsAt(CaptainCoder.Core.Position position, out List<MapEvent> evt) =>
+    public bool TryGetEventsAt(CaptainCoder.Core.Position position, out EventEntry evt) =>
         CellEventsDict.TryGetValue(Grid.TileAt(position).Symbol, out evt);
 
     [SerializeField]
@@ -66,20 +66,20 @@ public class MapData : ScriptableObject
 
     [SerializeField]
     private List<EventEntry> _cellEvents;
-    private Dictionary<char, List<MapEvent>> _cellEventsDict;
-    private Dictionary<char, List<MapEvent>> CellEventsDict
+    private Dictionary<char, EventEntry> _cellEventsDict;
+    private Dictionary<char, EventEntry> CellEventsDict
     {
         get
         {
             if (_cellEventsDict == null)
             {
-                _cellEventsDict = new Dictionary<char, List<MapEvent>>();
+                _cellEventsDict = new Dictionary<char, EventEntry>();
                 foreach (EventEntry e in _cellEvents)
                 {
                     foreach (char ch in e.Key)
                     {
                         Debug.Assert(!_cellEventsDict.ContainsKey(ch), $"Event Entry List contains duplicate entry for character '{ch}'");
-                        _cellEventsDict[ch] = e.EventHandlers;
+                        _cellEventsDict[ch] = e;
                     }
                 }
             }
@@ -134,6 +134,8 @@ public class MapData : ScriptableObject
         public string Key { get; private set; }
         [field: SerializeField]
         public List<MapEvent> EventHandlers { get; private set; }
+        [field: SerializeField]
+        public GameObject Prefab { get; private set; }
     }
 
 }

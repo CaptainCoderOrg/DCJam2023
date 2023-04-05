@@ -13,6 +13,7 @@ public class OptionsMenuController : MonoBehaviour
     public void Awake()
     {
         _document = GetComponent<UIDocument>();
+        _document.enabled = true;
         Slider musicVolume = _document.rootVisualElement.Q<Slider>("MusicVolume");
         musicVolume.value = MusicController.Instance.MusicVolume * 100;
         musicVolume.RegisterValueChangedCallback(UpdateMusicVolume);
