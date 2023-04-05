@@ -21,7 +21,7 @@ public class AbilityDefinition : ScriptableObject
     /// Returns if the conditions are met. If they are not message is set to
     /// the reason why it could not be cast.
     /// </summary>
-    public virtual bool CanCast(PlayerStats stats, out string message)
+    public virtual bool CanCast(PlayerData player, out string message)
     {
         message = string.Empty;
         return true;

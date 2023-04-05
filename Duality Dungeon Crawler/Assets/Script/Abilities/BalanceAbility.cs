@@ -1,8 +1,6 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using System;
-using CaptainCoder.Core;
 
 [CreateAssetMenu(fileName = "Balance", menuName = "BodyMind/Ability/Balance")]
 public class BalanceAbility : AbilityDefinition
@@ -14,6 +12,7 @@ public class BalanceAbility : AbilityDefinition
     {
         MessageController.Display("You take a deep breath and focus inward.");
         yield return s_StartDelay;
+        GameManager.Instance.Player.Effects = 0;
         MessageController.Display("You energies begin to balance...");
         while (true)
         {
@@ -32,8 +31,9 @@ public class BalanceAbility : AbilityDefinition
         MessageController.Display("You feel balanced.");
         OnFinish();
     }
-    public override bool CanCast(PlayerStats stats, out string message)
+    public override bool CanCast(PlayerData player, out string message)
     {
+        var stats = player.Stats;
         message = string.Empty;
         foreach (PlayerStat stat in stats.Stats)
         {

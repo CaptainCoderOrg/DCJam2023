@@ -15,7 +15,7 @@ public class PlayerAbilityController : MonoBehaviour
             InterruptCasting();
             return;
         }
-        if (!ability.CanCast(GameManager.Instance.PlayerStats, out string message))
+        if (!ability.CanCast(GameManager.Instance.Player, out string message))
         {
             MessageController.Display(message);
             return;

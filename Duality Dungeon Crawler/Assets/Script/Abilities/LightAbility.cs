@@ -31,13 +31,20 @@ public class LightAbility : AbilityDefinition
             player.Stats.Stat(DualStat.SunMoon).Value--;
         }
         MessageController.Display("A ball of light is hovering with you.");
+        GameManager.Instance.Player.Effects |= PlayerEffect.Light;
         OnFinish();
     }
 
-    public override bool CanCast(PlayerStats stats, out string message)
+    public override bool CanCast(PlayerData player, out string message)
     { 
+        var stats = player.Stats;
         message = string.Empty;
-        if(GameManager.Instance.PlayerStats.Stat(Stat.Sun) >= SunCost)
+        if (player.Effects.HasFlag(PlayerEffect.Light))
+        {
+            message = "A ball of light is already following you.";
+            return false;
+        }
+        if(stats.Stat(Stat.Sun) >= SunCost)
         {
             return true;
         }

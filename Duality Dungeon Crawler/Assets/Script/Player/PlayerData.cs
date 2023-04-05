@@ -11,6 +11,8 @@ public class PlayerData : ScriptableObject
     public PlayerAbilities Abilities;
     [NaughtyAttributes.OnValueChanged("NotifyObservers")]
     public PlayerRunes Runes;
+    [NaughtyAttributes.OnValueChanged("NotifyObservers")]
+    public PlayerEffect Effects;
 
     [Header("Drag a Player Data here to copy values.")]
     public PlayerData SetValues;
