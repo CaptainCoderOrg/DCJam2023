@@ -180,7 +180,13 @@ public class PlayerMovementController : MonoBehaviour
     }
     private void PerformMove(Position p)
     {
-
+        if (_currentMap.MapData.TryGetEventsAt(Position, out MapData.EventEntry prevEvent))
+        {
+            foreach (MapEvent evt in prevEvent.EventHandlers)
+            {
+                evt.OnExit();
+            }
+        }
         Position += p;
         if (_currentMap.MapData.TryGetEventsAt(Position, out MapData.EventEntry mapEvent))
         {

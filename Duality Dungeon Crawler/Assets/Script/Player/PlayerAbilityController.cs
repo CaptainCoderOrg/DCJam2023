@@ -1,8 +1,10 @@
 using UnityEngine;
 using CaptainCoder.Core;
+using System;
 
 public class PlayerAbilityController : MonoBehaviour
 {
+    public event Action<AbilityDefinition> OnAbilityFinished;
     public bool IsCasting { get; private set; }
 
     private Coroutine _coroutine;
@@ -21,7 +23,7 @@ public class PlayerAbilityController : MonoBehaviour
             return;
         }
         IsCasting = true;
-        _coroutine = StartCoroutine(ability.OnUse(GameManager.Instance.Player, FinishCasting));
+        _coroutine = StartCoroutine(ability.OnUse(GameManager.Instance.Player, () => FinishCasting(ability)));
         RegisterInterrupt();
     }
 
@@ -42,14 +44,15 @@ public class PlayerAbilityController : MonoBehaviour
             StopCoroutine(_coroutine);
             _coroutine = null;
         }
-        FinishCasting();
+        FinishCasting(null);
     }
 
-    private void FinishCasting()
+    private void FinishCasting(AbilityDefinition ability)
     {
         IsCasting = false;
         PlayerMovementController.Instance.OnPositionChange -= CancelOnPositionChange;
         PlayerMovementController.Instance.OnDirectionChange -= CancelOnDirectionChange;
+        OnAbilityFinished?.Invoke(ability);
     }
 
 }

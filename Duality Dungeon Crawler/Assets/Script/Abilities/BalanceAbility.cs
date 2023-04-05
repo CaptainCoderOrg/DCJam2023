@@ -33,6 +33,11 @@ public class BalanceAbility : AbilityDefinition
     }
     public override bool CanCast(PlayerData player, out string message)
     {
+        if(PlayerMovementController.Instance.CurrentMap != GameManager.Instance.EntranceMap)
+        {
+            message = "It is too dangerous to harmonize here.";
+            return false;
+        }
         var stats = player.Stats;
         message = string.Empty;
         foreach (PlayerStat stat in stats.Stats)

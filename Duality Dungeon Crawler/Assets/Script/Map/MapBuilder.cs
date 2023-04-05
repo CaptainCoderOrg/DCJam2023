@@ -81,11 +81,6 @@ public class MapBuilder
         }
     }
 
-    private void BuildCeiling(Transform container)
-    {
-
-    }
-
     private void BuildFloors(Transform floorContainer, Transform ceilingContainer, Transform eventContainer)
     {
         foreach ((CaptainCoder.Core.Position position, ITile tile) in _map.Grid.Tiles)
@@ -101,8 +96,10 @@ public class MapBuilder
 
             if (_map.TryGetEventsAt(position, out MapData.EventEntry entry))
             {
+                Debug.Log($"Loading Event Prefab: {entry.Name}");
                 if (entry.Prefab == null) { continue; }
                 GameObject eventObj = PrefabUtility.InstantiatePrefab(entry.Prefab) as GameObject; //, eventContainer);
+                eventObj.name = $"{entry.Name} - {position}";
                 eventObj.transform.SetParent(eventContainer);
                 eventObj.transform.localPosition = new Vector3(position.Row * PlayerMovementController.GridCellSize, 0, position.Col * PlayerMovementController.GridCellSize);
             }
