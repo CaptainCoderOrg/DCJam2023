@@ -1,9 +1,12 @@
 using UnityEngine;
 using System;
+using CaptainCoder.Core;
 
 [CreateAssetMenu(fileName = "WallPressurePlate", menuName = "BodyMind/Events/Common/Wall Pressure Plate")]
 public class WallPressurePlate : MapEvent
 {
+    public MutablePosition Position;
+    public Direction Facing;
     public string GameObjectName;
     public string OpenMessage = "Click! The gate opens.";
     public string CloseMessage = "Click! The gate closes.";
@@ -31,7 +34,7 @@ public class WallPressurePlate : MapEvent
         {
             Wall.SetActive(false);
             MessageController.Display(OpenMessage);
-            IWall wall = GameManager.Instance.YangMap.MapData.Grid.WallAt((4, 13), Direction.West);
+            IWall wall = GameManager.Instance.YangMap.MapData.Grid.WallAt(Position.Freeze(), Facing);
             wall.IsPassable = true;
             GameManager.Instance.AbilityController.OnAbilityFinished += CheckForMoonBall;
         }
@@ -44,7 +47,7 @@ public class WallPressurePlate : MapEvent
         {
             Wall.SetActive(true);
             MessageController.Display(CloseMessage);
-            IWall wall = GameManager.Instance.YangMap.MapData.Grid.WallAt((4, 13), Direction.West);
+            IWall wall = GameManager.Instance.YangMap.MapData.Grid.WallAt(Position.Freeze(), Facing);
             wall.IsPassable = false;
         }
         GameManager.Instance.AbilityController.OnAbilityFinished -= CheckForMoonBall;

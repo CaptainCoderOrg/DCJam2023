@@ -9,7 +9,7 @@ public class TooDarkEvent : MapEvent
     public override bool OnEnter()
     {
         if (Player.Effects.HasFlag(PlayerEffect.Light)) { return false; }
-        MessageController.Display("There is an overwhelming darkness in this area.");
+        MessageController.Display("There is an overwhelming darkness in this area. Your Sun energy fades...");
         Player.Stats.Stat(DualStat.SunMoon).Value -= 10;
         return false;
     }

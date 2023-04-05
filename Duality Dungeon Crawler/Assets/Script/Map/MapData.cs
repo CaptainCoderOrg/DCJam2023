@@ -102,6 +102,7 @@ public class MapData : ScriptableObject
 
     public void OnValidate()
     {
+        _grid = null;
         _cellEntryDict = null;
         _wallEntryDict = null;
         _cellEventsDict = null;

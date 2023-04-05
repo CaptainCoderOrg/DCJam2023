@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <TextData>k__BackingField: {fileID: 4900000, guid: 3b599927e2ee7ca4295e622c6bf57325, type: 3}
   _cellEntries:
-  - <Key>k__BackingField: .PE
+  - <Key>k__BackingField: .PEO
     <Value>k__BackingField: {fileID: 2335308055764904564, guid: 84d23286dd51c9b498537e293b429918, type: 3}
   - <Key>k__BackingField: ',UG'
     <Value>k__BackingField: {fileID: 2335308055764904564, guid: f5c8dbd6cf8e99b43bd537567a85a4e9, type: 3}
@@ -26,6 +26,8 @@ MonoBehaviour:
   - <Key>k__BackingField: +
     <Value>k__BackingField: {fileID: 7744616278776981774, guid: 27249f5926fa62e41b579e993ef645cc, type: 3}
   - <Key>k__BackingField: '|'
+    <Value>k__BackingField: {fileID: 7744616278776981774, guid: 3283500875d58e44f86dd2216d8ed561, type: 3}
+  - <Key>k__BackingField: '-'
     <Value>k__BackingField: {fileID: 7744616278776981774, guid: 3283500875d58e44f86dd2216d8ed561, type: 3}
   _cellEvents:
   - <Name>k__BackingField: Acquire Yang Rune
@@ -54,4 +56,9 @@ MonoBehaviour:
     <Key>k__BackingField: P
     <EventHandlers>k__BackingField:
     - {fileID: 11400000, guid: 455fc3842cc1eb346a19d598862cf84c, type: 2}
+    <Prefab>k__BackingField: {fileID: 2524529364223263107, guid: 35d8c93f7b7477c49babd3b70e0bef23, type: 3}
+  - <Name>k__BackingField: Entrance Pressure Plate
+    <Key>k__BackingField: O
+    <EventHandlers>k__BackingField:
+    - {fileID: 11400000, guid: 6f0dac26cdcabc441a5302377721c29b, type: 2}
     <Prefab>k__BackingField: {fileID: 2524529364223263107, guid: 35d8c93f7b7477c49babd3b70e0bef23, type: 3}

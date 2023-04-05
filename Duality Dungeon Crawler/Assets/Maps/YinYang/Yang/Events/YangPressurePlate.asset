@@ -12,4 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 842d865f36915ef428cafc64054153ee, type: 3}
   m_Name: YangPressurePlate
   m_EditorClassIdentifier: 
+  Position:
+    Row: 4
+    Col: 13
+  Facing: 3
   GameObjectName: (4, 13, West) - GateWall(Clone)
+  OpenMessage: Click! The gate opens.
+  CloseMessage: Click! The gate closes.
