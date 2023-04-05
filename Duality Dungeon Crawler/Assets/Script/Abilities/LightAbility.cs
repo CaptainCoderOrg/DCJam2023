@@ -1,17 +1,12 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using System;
-using CaptainCoder.Core;
 
 [CreateAssetMenu(fileName = "LightAbility", menuName = "BodyMind/Ability/Light")]
 public class LightAbility : AbilityDefinition
 {
 
     private static readonly WaitForSeconds s_Delay = new (0.05f);
-    // private static readonly WaitForSeconds s_StartDelay = new (2f);
-    private Coroutine _coroutine;
-    private bool _isCasting = false;
     [field: SerializeField]
     public int SunCost { get; private set; } = 20;
 
@@ -32,6 +27,7 @@ public class LightAbility : AbilityDefinition
         }
         MessageController.Display("A ball of light is hovering with you.");
         GameManager.Instance.Player.Effects |= PlayerEffect.Light;
+        GameManager.Instance.Player.Effects &= ~PlayerEffect.Shade;
         OnFinish();
     }
 

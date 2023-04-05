@@ -40,6 +40,7 @@ public class BalanceAbility : AbilityDefinition
             if (stat.Value != 0) { return true; }
         }
         message = "You feel balanced.";
+        player.Effects = 0;
         return false;
     }
 }
