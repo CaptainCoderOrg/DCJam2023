@@ -35,39 +35,35 @@ MonoBehaviour:
     <EventHandlers>k__BackingField:
     - {fileID: 11400000, guid: 8dc2033d700f9c444ab79302767a97e4, type: 2}
     - {fileID: 11400000, guid: 04fbee3fd9b221648ae5f9d46202c8f8, type: 2}
-    <Prefab>k__BackingField: {fileID: 5722850626881981022, guid: a727d34ef0ff2f04192baa4555da63b5, type: 3}
+    <Prefabs>k__BackingField:
+    - {fileID: 5722850626881981022, guid: a727d34ef0ff2f04192baa4555da63b5, type: 3}
   - <Name>k__BackingField: Return to Entrance
     <Key>k__BackingField: U
     <EventHandlers>k__BackingField:
     - {fileID: 11400000, guid: 64e2a0a7de8432141981a7343a683da0, type: 2}
     - {fileID: 11400000, guid: f713a075f8e8f3845959c1cd77818254, type: 2}
-    <Prefab>k__BackingField: {fileID: 5722850626881981022, guid: a727d34ef0ff2f04192baa4555da63b5, type: 3}
+    <Prefabs>k__BackingField:
+    - {fileID: 5722850626881981022, guid: a727d34ef0ff2f04192baa4555da63b5, type: 3}
   - <Name>k__BackingField: Stairs Up
     <Key>k__BackingField: G
     <EventHandlers>k__BackingField:
     - {fileID: 11400000, guid: 9e1deffe6ad22684bab3805414d80152, type: 2}
-    <Prefab>k__BackingField: {fileID: 5722850626881981022, guid: a727d34ef0ff2f04192baa4555da63b5, type: 3}
+    <Prefabs>k__BackingField:
+    - {fileID: 5722850626881981022, guid: a727d34ef0ff2f04192baa4555da63b5, type: 3}
   - <Name>k__BackingField: Too Dark Event
     <Key>k__BackingField: .
     <EventHandlers>k__BackingField:
     - {fileID: 11400000, guid: 8e5ae601316d9d84f863277f81573e09, type: 2}
-    <Prefab>k__BackingField: {fileID: 0}
+    <Prefabs>k__BackingField: []
   - <Name>k__BackingField: Pressure Plate
     <Key>k__BackingField: P
     <EventHandlers>k__BackingField:
     - {fileID: 11400000, guid: 455fc3842cc1eb346a19d598862cf84c, type: 2}
-    <Prefab>k__BackingField: {fileID: 2524529364223263107, guid: 35d8c93f7b7477c49babd3b70e0bef23, type: 3}
+    <Prefabs>k__BackingField: []
   - <Name>k__BackingField: Entrance Pressure Plate
     <Key>k__BackingField: O
     <EventHandlers>k__BackingField:
     - {fileID: 11400000, guid: 6f0dac26cdcabc441a5302377721c29b, type: 2}
-    <Prefab>k__BackingField: {fileID: 2524529364223263107, guid: 35d8c93f7b7477c49babd3b70e0bef23, type: 3}
-  _positionEvent:
-  - <Name>k__BackingField: Paintings
-    <Position>k__BackingField:
-      Row: 11
-      Col: 8
-    <EventHandlers>k__BackingField:
-    - {fileID: 11400000, guid: 66d891f4b7d49454d8191029cfab04da, type: 2}
-    - {fileID: 11400000, guid: 1933ad33c5174ff4cb3e43aba401ee7d, type: 2}
-    <Prefab>k__BackingField: {fileID: 0}
+    <Prefabs>k__BackingField:
+    - {fileID: 2524529364223263107, guid: 35d8c93f7b7477c49babd3b70e0bef23, type: 3}
+  _positionEvent: []

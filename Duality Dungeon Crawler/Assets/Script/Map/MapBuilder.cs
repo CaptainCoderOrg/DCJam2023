@@ -28,12 +28,12 @@ public class MapBuilder
         eventContainer.transform.SetParent(container);
         eventContainer.transform.localPosition = default;
         BuildFloors(floorContainer.transform, ceilingContainer.transform, eventContainer.transform);
-        
+
         GameObject wallContainer = new("Walls");
         wallContainer.transform.SetParent(container);
         wallContainer.transform.localPosition = default;
         BuildWalls(wallContainer.transform);
-        
+
     }
 
     private float RowOffset(Direction direction)
@@ -96,11 +96,13 @@ public class MapBuilder
 
             if (_map.TryGetEventsAt(position, out MapData.IEventEntry entry))
             {
-                if (entry.Prefab == null) { continue; }
-                GameObject eventObj = PrefabUtility.InstantiatePrefab(entry.Prefab) as GameObject; //, eventContainer);
-                eventObj.name = $"{entry.Name} - {position}";
-                eventObj.transform.SetParent(eventContainer);
-                eventObj.transform.localPosition = new Vector3(position.Row * PlayerMovementController.GridCellSize, 0, position.Col * PlayerMovementController.GridCellSize);
+                foreach (GameObject prefab in entry.Prefabs)
+                {
+                    GameObject eventObj = PrefabUtility.InstantiatePrefab(prefab) as GameObject; //, eventContainer);
+                    eventObj.name = $"{entry.Name} - {position}";
+                    eventObj.transform.SetParent(eventContainer);
+                    eventObj.transform.localPosition = new Vector3(position.Row * PlayerMovementController.GridCellSize, 0, position.Col * PlayerMovementController.GridCellSize);
+                }
             }
         }
     }

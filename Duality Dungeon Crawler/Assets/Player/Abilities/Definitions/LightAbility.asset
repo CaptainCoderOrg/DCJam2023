@@ -15,6 +15,5 @@ MonoBehaviour:
   <Name>k__BackingField: Light
   <Description>k__BackingField: Using the power of the Sun, summons a ball of light
     to follow you.
-  <RunePhrase>k__BackingField: 1
-  <Modifiers>k__BackingField: []
+  <RunePhrase>k__BackingField: 51
   <SunCost>k__BackingField: 20

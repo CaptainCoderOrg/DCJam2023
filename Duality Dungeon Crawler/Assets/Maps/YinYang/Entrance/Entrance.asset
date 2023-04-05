@@ -25,28 +25,65 @@ MonoBehaviour:
     <EventHandlers>k__BackingField:
     - {fileID: 11400000, guid: bc722169b0efe4a4797decd4370b3ecb, type: 2}
     - {fileID: 11400000, guid: af6c598c51e3c5549ad56b9361228958, type: 2}
-    <Prefab>k__BackingField: {fileID: 5722850626881981022, guid: a727d34ef0ff2f04192baa4555da63b5, type: 3}
+    <Prefabs>k__BackingField: []
   - <Name>k__BackingField: Enter Sun Temple
     <Key>k__BackingField: ^
     <EventHandlers>k__BackingField:
     - {fileID: 11400000, guid: 2c034069adea63843a6fa9f6523a8c9f, type: 2}
     - {fileID: 11400000, guid: 7984328c5cd82864abb0b8b2bd3ef26a, type: 2}
-    <Prefab>k__BackingField: {fileID: 5722850626881981022, guid: a727d34ef0ff2f04192baa4555da63b5, type: 3}
+    <Prefabs>k__BackingField:
+    - {fileID: 5722850626881981022, guid: a727d34ef0ff2f04192baa4555da63b5, type: 3}
   - <Name>k__BackingField: Mentor
     <Key>k__BackingField: M
     <EventHandlers>k__BackingField:
     - {fileID: 11400000, guid: cdcd8f276bfbfa8438f3e0ff05c5ad06, type: 2}
     - {fileID: 11400000, guid: e1712382afc0dee45819c19d7c4095a9, type: 2}
-    <Prefab>k__BackingField: {fileID: 5722850626881981022, guid: a727d34ef0ff2f04192baa4555da63b5, type: 3}
+    <Prefabs>k__BackingField:
+    - {fileID: 5722850626881981022, guid: a727d34ef0ff2f04192baa4555da63b5, type: 3}
   - <Name>k__BackingField: Moon Statue
     <Key>k__BackingField: I
     <EventHandlers>k__BackingField:
     - {fileID: 11400000, guid: 04fbee3fd9b221648ae5f9d46202c8f8, type: 2}
     - {fileID: 11400000, guid: f4ebff15564caf5459842b0cd9f6b2f6, type: 2}
-    <Prefab>k__BackingField: {fileID: 5722850626881981022, guid: a727d34ef0ff2f04192baa4555da63b5, type: 3}
+    <Prefabs>k__BackingField:
+    - {fileID: 4860836494079287607, guid: bc70b116d266c12469305c676923b11c, type: 3}
   - <Name>k__BackingField: Sun Statue
     <Key>k__BackingField: O
     <EventHandlers>k__BackingField:
     - {fileID: 11400000, guid: 1d103cb18c45b204d953dcb5bade2e64, type: 2}
     - {fileID: 11400000, guid: 7d47d3db446263340b22d27d9bae0e0b, type: 2}
-    <Prefab>k__BackingField: {fileID: 5722850626881981022, guid: a727d34ef0ff2f04192baa4555da63b5, type: 3}
+    <Prefabs>k__BackingField:
+    - {fileID: 3928358897171807308, guid: 01d13ed0848c0214dae643acace4a5b8, type: 3}
+  _positionEvent:
+  - <Name>k__BackingField: Light Tapestry
+    <Position>k__BackingField:
+      Row: 1
+      Col: 4
+    <EventHandlers>k__BackingField:
+    - {fileID: 11400000, guid: 1933ad33c5174ff4cb3e43aba401ee7d, type: 2}
+    <Prefabs>k__BackingField:
+    - {fileID: 2893803233210529508, guid: 5b00721312d15df47b9225eba3fdb52b, type: 3}
+  - <Name>k__BackingField: Float Tapestry
+    <Position>k__BackingField:
+      Row: 3
+      Col: 4
+    <EventHandlers>k__BackingField:
+    - {fileID: 11400000, guid: 8780564e7a0f35d4eaa50ffff13348ab, type: 2}
+    <Prefabs>k__BackingField:
+    - {fileID: 2893803233210529508, guid: 118d1560b32907c4f9ac6467c635f645, type: 3}
+  - <Name>k__BackingField: Shade Tapestry
+    <Position>k__BackingField:
+      Row: 1
+      Col: 0
+    <EventHandlers>k__BackingField:
+    - {fileID: 11400000, guid: c62e55e7a905d164cbbae8dc5024e108, type: 2}
+    <Prefabs>k__BackingField:
+    - {fileID: 2893803233210529508, guid: 5b00721312d15df47b9225eba3fdb52b, type: 3}
+  - <Name>k__BackingField: MoonBall Tapestry
+    <Position>k__BackingField:
+      Row: 3
+      Col: 0
+    <EventHandlers>k__BackingField:
+    - {fileID: 11400000, guid: 66d891f4b7d49454d8191029cfab04da, type: 2}
+    <Prefabs>k__BackingField:
+    - {fileID: 2893803233210529508, guid: 118d1560b32907c4f9ac6467c635f645, type: 3}

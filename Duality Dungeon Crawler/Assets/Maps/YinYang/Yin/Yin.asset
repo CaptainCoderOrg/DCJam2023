@@ -35,20 +35,23 @@ MonoBehaviour:
     <EventHandlers>k__BackingField:
     - {fileID: 11400000, guid: 816f926229fbef84e831208549436f4a, type: 2}
     - {fileID: 11400000, guid: 1d103cb18c45b204d953dcb5bade2e64, type: 2}
-    <Prefab>k__BackingField: {fileID: 5722850626881981022, guid: a727d34ef0ff2f04192baa4555da63b5, type: 3}
+    <Prefabs>k__BackingField: []
   - <Name>k__BackingField: Stairs Down
     <Key>k__BackingField: H
     <EventHandlers>k__BackingField:
     - {fileID: 11400000, guid: 6ad82ab88bd94b046890b1442a2da7db, type: 2}
-    <Prefab>k__BackingField: {fileID: 5722850626881981022, guid: a727d34ef0ff2f04192baa4555da63b5, type: 3}
+    <Prefabs>k__BackingField:
+    - {fileID: 5722850626881981022, guid: a727d34ef0ff2f04192baa4555da63b5, type: 3}
   - <Name>k__BackingField: Return to Entrance
     <Key>k__BackingField: V
     <EventHandlers>k__BackingField:
     - {fileID: 11400000, guid: 9d250ea28209690498ce0ec9872de6c4, type: 2}
     - {fileID: 11400000, guid: bf44feb2a64d4314ab4fb82f374cbd0c, type: 2}
-    <Prefab>k__BackingField: {fileID: 5722850626881981022, guid: a727d34ef0ff2f04192baa4555da63b5, type: 3}
+    <Prefabs>k__BackingField:
+    - {fileID: 5722850626881981022, guid: a727d34ef0ff2f04192baa4555da63b5, type: 3}
   - <Name>k__BackingField: Too Bright
     <Key>k__BackingField: .
     <EventHandlers>k__BackingField:
     - {fileID: 11400000, guid: e299c4966452f834880b1c1d33533c79, type: 2}
-    <Prefab>k__BackingField: {fileID: 0}
+    <Prefabs>k__BackingField: []
+  _positionEvent: []

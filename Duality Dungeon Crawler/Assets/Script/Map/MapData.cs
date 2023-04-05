@@ -153,7 +153,7 @@ public class MapData : ScriptableObject
     public interface IEventEntry
     {
         public List<MapEvent> EventHandlers { get; }
-        public GameObject Prefab { get; }
+        public List<GameObject> Prefabs { get; }
         public string Name { get; }
     }
 
@@ -167,7 +167,7 @@ public class MapData : ScriptableObject
         [field: SerializeField]
         public List<MapEvent> EventHandlers { get; private set; }
         [field: SerializeField]
-        public GameObject Prefab { get; private set; }
+        public List<GameObject> Prefabs { get; private set; }
     }
 
     [System.Serializable]
@@ -180,7 +180,7 @@ public class MapData : ScriptableObject
         [field: SerializeField]
         public List<MapEvent> EventHandlers { get; private set; }
         [field: SerializeField]
-        public GameObject Prefab { get; private set; }
+        public List<GameObject> Prefabs { get; private set; }
     }
 
 }
