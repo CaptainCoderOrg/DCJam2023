@@ -43,6 +43,6 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 9d250ea28209690498ce0ec9872de6c4, type: 2}
     - {fileID: 11400000, guid: bf44feb2a64d4314ab4fb82f374cbd0c, type: 2}
   - <Name>k__BackingField: Too Bright
-    <Key>k__BackingField: L
+    <Key>k__BackingField: .
     <EventHandlers>k__BackingField:
     - {fileID: 11400000, guid: e299c4966452f834880b1c1d33533c79, type: 2}
