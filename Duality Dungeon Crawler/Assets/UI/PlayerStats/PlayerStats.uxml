@@ -1,8 +1,10 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <ui:Template name="StatMeter" src="project://database/Assets/UI/StatMeter.uxml?fileID=9197481963319205126&amp;guid=27e7a9a625500e040855e2a0ff1fdecc&amp;type=3#StatMeter" />
+    <ui:Template name="StatMeter" src="project://database/Assets/UI/PlayerStats/StatMeter.uxml?fileID=9197481963319205126&amp;guid=27e7a9a625500e040855e2a0ff1fdecc&amp;type=3#StatMeter" />
+    <Style src="project://database/Assets/UI/styles.uss?fileID=7433441132597879392&amp;guid=83ddee421334e8d41af0a574b07b9cf1&amp;type=3#styles" />
     <ui:VisualElement name="VisualElement" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
-        <ui:Instance template="StatMeter" name="BodyMindMeter" style="margin-bottom: 10px;" />
-        <ui:Instance template="StatMeter" name="SunMoonMeter" style="margin-bottom: 10px;" />
-        <ui:Instance template="StatMeter" name="YinYangMeter" />
+        <ui:Instance template="StatMeter" name="BodyMindMeter" class="stat-meter" style="margin-bottom: 10px;" />
+        <ui:Instance template="StatMeter" name="SunMoonMeter" class="stat-meter" style="margin-bottom: 10px;" />
+        <ui:Instance template="StatMeter" name="YinYangMeter" class="stat-meter" />
+        <ui:Instance template="StatMeter" name="RageCalmMeter" class="stat-meter" />
     </ui:VisualElement>
 </ui:UXML>

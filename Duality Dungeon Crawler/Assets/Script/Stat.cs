@@ -11,13 +11,16 @@ public enum Stat
     Moon = 8, //0b0000_1000,
     Yin  = 16, //0b0001_0000,
     Yang = 32, //0b0010_0000
+    Rage = 64, //0b0100_0000
+    Calm = 128,
 }
 
 public enum DualStat
 {
     BodyMind = Stat.Body | Stat.Mind,
     SunMoon = Stat.Sun | Stat.Moon,
-    YinYang = Stat.Yin | Stat.Yang
+    YinYang = Stat.Yin | Stat.Yang,
+    CalmRage = Stat.Calm | Stat.Rage,
 }
 
 public static class StatExtensions
@@ -29,6 +32,7 @@ public static class StatExtensions
             BodyMind => (Body, Mind),
             SunMoon => (Sun, Moon),
             YinYang => (Yin, Yang),
+            CalmRage => (Rage, Calm),
             _ => throw new NotImplementedException()
         };
     }

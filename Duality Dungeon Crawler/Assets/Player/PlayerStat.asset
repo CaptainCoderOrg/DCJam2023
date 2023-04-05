@@ -16,15 +16,20 @@ MonoBehaviour:
   - _value: 0
     <Max>k__BackingField: 100
     <Stat>k__BackingField: 3
-    _right: 65
-    _left: 135
+    _right: 100
+    _left: 100
   - _value: 0
-    <Max>k__BackingField: 50
+    <Max>k__BackingField: 100
     <Stat>k__BackingField: 12
-    _right: 77
-    _left: 23
+    _right: 100
+    _left: 100
   - _value: 0
     <Max>k__BackingField: 100
     <Stat>k__BackingField: 48
-    _right: 33
-    _left: 167
+    _right: 100
+    _left: 100
+  - _value: 0
+    <Max>k__BackingField: 100
+    <Stat>k__BackingField: 192
+    _right: 143
+    _left: 57
