@@ -8,12 +8,6 @@ public class YangRuneEvent : MapEvent
     private RuneData YangRune => GameManager.Instance.Runes.Yang;
     private DialogController Dialog => DialogController.Instance;
 
-    public override bool OnEnter()
-    {
-        MessageController.Display("A statue of the Moon diety Lun is here.");
-        return false;
-    }
-
     public override bool OnInteract()
     {
         if (!Player.Runes.HasRune(YangRune))

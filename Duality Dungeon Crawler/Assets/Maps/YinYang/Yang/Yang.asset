@@ -31,7 +31,11 @@ MonoBehaviour:
   - <Key>k__BackingField: E
     <EventHandlers>k__BackingField:
     - {fileID: 11400000, guid: 8dc2033d700f9c444ab79302767a97e4, type: 2}
+    - {fileID: 11400000, guid: 04fbee3fd9b221648ae5f9d46202c8f8, type: 2}
   - <Key>k__BackingField: U
     <EventHandlers>k__BackingField:
     - {fileID: 11400000, guid: 64e2a0a7de8432141981a7343a683da0, type: 2}
     - {fileID: 11400000, guid: f713a075f8e8f3845959c1cd77818254, type: 2}
+  - <Key>k__BackingField: G
+    <EventHandlers>k__BackingField:
+    - {fileID: 11400000, guid: 9e1deffe6ad22684bab3805414d80152, type: 2}

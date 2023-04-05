@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d55c1013468b0484f936dff190d90308, type: 3}
-  m_Name: EnterYin
+  m_Name: EntrancePortalTeleport
   m_EditorClassIdentifier: 
-  <Target>k__BackingField: 2
+  <Target>k__BackingField: 0
   <Position>k__BackingField:
-    Row: 4
-    Col: 8
-  <Facing>k__BackingField: 2
+    Row: 3
+    Col: 2
+  <Facing>k__BackingField: 0
   <Message>k__BackingField: A warm air envelopes you and you are surrounded by a
     blinding light. When your vision returns, you find yourself somewhere new.
