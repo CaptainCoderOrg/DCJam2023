@@ -3,6 +3,7 @@ using System.Linq;
 using System.Collections.Generic;
 using CaptainCoder.Core;
 using CaptainCoder.Dungeoneering;
+using UnityEditor;
 // using UnityEngine.ProBuilder.Shapes;
 // using CaptainCoder.Dungeoneering;
 
@@ -23,11 +24,16 @@ public class MapBuilder
         GameObject ceilingContainer = new("Ceiling");
         ceilingContainer.transform.SetParent(container);
         ceilingContainer.transform.localPosition = default;
-        BuildFloors(floorContainer.transform, ceilingContainer.transform);
+        GameObject eventContainer = new("Events");
+        eventContainer.transform.SetParent(container);
+        eventContainer.transform.localPosition = default;
+        BuildFloors(floorContainer.transform, ceilingContainer.transform, eventContainer.transform);
+        
         GameObject wallContainer = new("Walls");
         wallContainer.transform.SetParent(container);
         wallContainer.transform.localPosition = default;
         BuildWalls(wallContainer.transform);
+        
     }
 
     private float RowOffset(Direction direction)
@@ -80,7 +86,7 @@ public class MapBuilder
 
     }
 
-    private void BuildFloors(Transform floorContainer, Transform ceilingContainer)
+    private void BuildFloors(Transform floorContainer, Transform ceilingContainer, Transform eventContainer)
     {
         foreach ((CaptainCoder.Core.Position position, ITile tile) in _map.Grid.Tiles)
         {
@@ -92,6 +98,15 @@ public class MapBuilder
             GameObject ceiling = _map.InstantiateTile(tile.Symbol, ceilingContainer);
             ceiling.name = $"{position} - {obj.name}";
             ceiling.transform.localPosition = new Vector3(position.Row * PlayerMovementController.GridCellSize, 5, position.Col * PlayerMovementController.GridCellSize);
+
+            if (_map.TryGetEventsAt(position, out MapData.EventEntry entry))
+            {
+                if (entry.Prefab == null) { continue; }
+                GameObject eventObj = PrefabUtility.InstantiatePrefab(entry.Prefab) as GameObject; //, eventContainer);
+                eventObj.transform.SetParent(eventContainer);
+                eventObj.transform.localPosition = new Vector3(position.Row * PlayerMovementController.GridCellSize, 0, position.Col * PlayerMovementController.GridCellSize);
+            }
         }
     }
+
 }
