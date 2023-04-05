@@ -18,4 +18,6 @@ MonoBehaviour:
   Runes:
     _runes:
     - {fileID: 11400000, guid: ad5f57197cac8fa46bb92f7600608c29, type: 2}
+    - {fileID: 11400000, guid: 517bd012dbd56fa4c854016bc26be438, type: 2}
+    - {fileID: 11400000, guid: c5a8391593bedcc4ea15afd2cdd01280, type: 2}
   SetValues: {fileID: 0}

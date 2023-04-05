@@ -34,6 +34,7 @@ MonoBehaviour:
     <Key>k__BackingField: M
     <EventHandlers>k__BackingField:
     - {fileID: 11400000, guid: cdcd8f276bfbfa8438f3e0ff05c5ad06, type: 2}
+    - {fileID: 11400000, guid: e1712382afc0dee45819c19d7c4095a9, type: 2}
   - <Name>k__BackingField: Moon Statue
     <Key>k__BackingField: I
     <EventHandlers>k__BackingField:
