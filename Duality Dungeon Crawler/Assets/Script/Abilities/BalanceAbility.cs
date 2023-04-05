@@ -7,13 +7,15 @@ using CaptainCoder.Core;
 [CreateAssetMenu(fileName = "Balance", menuName = "BodyMind/Ability/Balance")]
 public class BalanceAbility : AbilityDefinition
 {
-    private static readonly WaitForSeconds s_Delay = new (0.1f);
+    private static readonly WaitForSeconds s_Delay = new (0.05f);
+    private static readonly WaitForSeconds s_StartDelay = new (2f);
     private Coroutine _coroutine;
-    private bool _isRegistered = false;
+    private bool _isBalancing = false;
 
     
     public override void OnUse(PlayerData player)
     {
+        if (_isBalancing) { return; }
         _coroutine = GameManager.Instance.StartCoroutine(Balance(player));
         RegisterInterrupt();
     }
@@ -35,8 +37,7 @@ public class BalanceAbility : AbilityDefinition
             GameManager.Instance.StopCoroutine(_coroutine);
             _coroutine = null;
         }
-        PlayerMovementController.Instance.OnPositionChange -= CancelOnPositionChange;
-        PlayerMovementController.Instance.OnDirectionChange -= CancelOnDirectionChange;
+        FinishBalance();
     }
 
     private IEnumerator Balance(PlayerData player)
@@ -46,9 +47,12 @@ public class BalanceAbility : AbilityDefinition
             MessageController.Display("You feel balanced.");
             yield break;
         }
-        MessageController.Display("You take a deep breath and begin to center yourself.");
+        _isBalancing = true;
+        MessageController.Display("You take a deep breath and focus inward.");
+        yield return s_StartDelay;
+        MessageController.Display("You energies begin to balance...");
         while (true)
-        {
+        {            
             yield return s_Delay;
             bool stop = true;
             foreach(PlayerStat stat in player.Stats.Stats)
@@ -62,15 +66,15 @@ public class BalanceAbility : AbilityDefinition
             if (stop) { break; }
         }
         MessageController.Display("You feel balanced.");
+        FinishBalance();
+    }
+
+    private void FinishBalance()
+    {
+        _isBalancing = false;
         PlayerMovementController.Instance.OnPositionChange -= CancelOnPositionChange;
         PlayerMovementController.Instance.OnDirectionChange -= CancelOnDirectionChange;
     }
-
-    public void OnEnable()
-    {
-        _isRegistered = false;
-    }
-
     private bool IsBalanced
     {
         get
