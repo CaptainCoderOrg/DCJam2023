@@ -1,0 +1,37 @@
+VisualElement {
+    -unity-font: url('project://database/Assets/UI/Fonts/Kingthings%20Petrock.ttf?fileID=12800000&guid=54ef9d49b1852844ca2751a5680d66ed&type=3#Kingthings Petrock');
+    -unity-font-definition: url('project://database/Assets/UI/Fonts/Kingthings%20Petrock%20SDF.asset?fileID=11400000&guid=acefd71c41da01f43bcdbc93e45f455d&type=2#Kingthings Petrock SDF');
+}
+
+Label {
+}
+
+.menu-title {
+    font-size: 36px;
+    -unity-text-align: upper-center;
+}
+
+.volume-slider {
+    font-size: 20px;
+}
+
+.menu {
+    flex-grow: 0;
+    background-color: rgba(0, 0, 0, 0);
+    width: 320px;
+    height: auto;
+    flex-shrink: 0;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    background-image: url('project://database/Assets/Sprites/Place%20Holder/Dialog/Dialog%20Box.png?fileID=21300000&guid=f8340e91d9dc4c948b248fee5d0117af&type=3#Dialog Box');
+    -unity-slice-left: 25;
+    -unity-slice-top: 25;
+    -unity-slice-right: 25;
+    -unity-slice-bottom: 25;
+}

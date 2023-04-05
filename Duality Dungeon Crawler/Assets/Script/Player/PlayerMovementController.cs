@@ -82,11 +82,11 @@ public class PlayerMovementController : MonoBehaviour
             _controlsEnabled = value;
             if (_controlsEnabled)
             {
-                _controls.Enable();                
+                _controls.PlayerMovement.Enable();                
             }
             else
             {
-                _controls.Disable();
+                _controls.PlayerMovement.Disable();
             }
         }
     }

@@ -4,6 +4,7 @@
     <ui:Template name="PlayerStats" src="project://database/Assets/UI/PlayerStats/PlayerStats.uxml?fileID=9197481963319205126&amp;guid=1a2386d7b1ddbd54fb7d1b3013f867e5&amp;type=3#PlayerStats" />
     <ui:Template name="DialogBox" src="project://database/Assets/UI/Dialog/DialogBox.uxml?fileID=9197481963319205126&amp;guid=47c2bc718e4dbe542a02bdfc1ccaddc2&amp;type=3#DialogBox" />
     <Style src="project://database/Assets/UI/message.uss?fileID=7433441132597879392&amp;guid=ce41e7ee686e4564eabd9933b7b6e257&amp;type=3#message" />
+    <Style src="project://database/Assets/UI/styles.uss?fileID=7433441132597879392&amp;guid=83ddee421334e8d41af0a574b07b9cf1&amp;type=3#styles" />
     <ui:VisualElement name="Screen" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
         <ui:Instance template="Compass" name="Compass" />
         <ui:VisualElement name="Spacer" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);" />
