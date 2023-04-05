@@ -20,20 +20,27 @@ MonoBehaviour:
   - <Key>k__BackingField: '#'
     <Value>k__BackingField: {fileID: 7744616278776981774, guid: a7d6ab8dbb6030f4daa102dd92afeda9, type: 3}
   _cellEvents:
-  - <Key>k__BackingField: V
+  - <Name>k__BackingField: Enter Moon Temple
+    <Key>k__BackingField: V
     <EventHandlers>k__BackingField:
     - {fileID: 11400000, guid: bc722169b0efe4a4797decd4370b3ecb, type: 2}
     - {fileID: 11400000, guid: af6c598c51e3c5549ad56b9361228958, type: 2}
-  - <Key>k__BackingField: ^
+  - <Name>k__BackingField: Enter Sun Temple
+    <Key>k__BackingField: ^
     <EventHandlers>k__BackingField:
     - {fileID: 11400000, guid: 2c034069adea63843a6fa9f6523a8c9f, type: 2}
     - {fileID: 11400000, guid: 7984328c5cd82864abb0b8b2bd3ef26a, type: 2}
-  - <Key>k__BackingField: M
+  - <Name>k__BackingField: Mentor
+    <Key>k__BackingField: M
     <EventHandlers>k__BackingField:
     - {fileID: 11400000, guid: cdcd8f276bfbfa8438f3e0ff05c5ad06, type: 2}
-  - <Key>k__BackingField: I
+  - <Name>k__BackingField: Moon Statue
+    <Key>k__BackingField: I
     <EventHandlers>k__BackingField:
     - {fileID: 11400000, guid: 04fbee3fd9b221648ae5f9d46202c8f8, type: 2}
-  - <Key>k__BackingField: O
+    - {fileID: 11400000, guid: f4ebff15564caf5459842b0cd9f6b2f6, type: 2}
+  - <Name>k__BackingField: Sun Statue
+    <Key>k__BackingField: O
     <EventHandlers>k__BackingField:
     - {fileID: 11400000, guid: 1d103cb18c45b204d953dcb5bade2e64, type: 2}
+    - {fileID: 11400000, guid: 7d47d3db446263340b22d27d9bae0e0b, type: 2}

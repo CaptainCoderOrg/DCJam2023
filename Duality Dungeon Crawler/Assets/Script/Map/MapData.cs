@@ -129,6 +129,8 @@ public class MapData : ScriptableObject
     public class EventEntry
     {
         [field: SerializeField]
+        public string Name { get; private set; }
+        [field: SerializeField]
         public string Key { get; private set; }
         [field: SerializeField]
         public List<MapEvent> EventHandlers { get; private set; }
