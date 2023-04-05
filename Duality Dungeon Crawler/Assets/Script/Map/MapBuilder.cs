@@ -94,9 +94,8 @@ public class MapBuilder
             ceiling.name = $"{position} - {obj.name}";
             ceiling.transform.localPosition = new Vector3(position.Row * PlayerMovementController.GridCellSize, 5, position.Col * PlayerMovementController.GridCellSize);
 
-            if (_map.TryGetEventsAt(position, out MapData.EventEntry entry))
+            if (_map.TryGetEventsAt(position, out MapData.IEventEntry entry))
             {
-                Debug.Log($"Loading Event Prefab: {entry.Name}");
                 if (entry.Prefab == null) { continue; }
                 GameObject eventObj = PrefabUtility.InstantiatePrefab(entry.Prefab) as GameObject; //, eventContainer);
                 eventObj.name = $"{entry.Name} - {position}";

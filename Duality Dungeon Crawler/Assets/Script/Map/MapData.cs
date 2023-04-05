@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using CaptainCoder.Core;
 using CaptainCoder.Dungeoneering;
 using UnityEngine;
 
@@ -14,8 +15,11 @@ public class MapData : ScriptableObject
         get => _grid ??= DungeonGrid.Load(TextData.text.Split("\n"));
     }
 
-    public bool TryGetEventsAt(CaptainCoder.Core.Position position, out EventEntry evt) =>
-        CellEventsDict.TryGetValue(Grid.TileAt(position).Symbol, out evt);
+    public bool TryGetEventsAt(CaptainCoder.Core.Position position, out IEventEntry evt)
+    {
+        if(CellEventsDict.TryGetValue(Grid.TileAt(position).Symbol, out evt)) { return true; }
+        return PositionEventsDict.TryGetValue(position, out evt);
+    }
 
     [SerializeField]
     private List<Entry> _cellEntries;
@@ -39,7 +43,7 @@ public class MapData : ScriptableObject
             return _cellEntryDict;
         }
     }
-    
+
 
     [SerializeField]
     private List<WallEntry> _wallEntries;
@@ -66,14 +70,14 @@ public class MapData : ScriptableObject
 
     [SerializeField]
     private List<EventEntry> _cellEvents;
-    private Dictionary<char, EventEntry> _cellEventsDict;
-    private Dictionary<char, EventEntry> CellEventsDict
+    private Dictionary<char, IEventEntry> _cellEventsDict;
+    private Dictionary<char, IEventEntry> CellEventsDict
     {
         get
         {
             if (_cellEventsDict == null)
             {
-                _cellEventsDict = new Dictionary<char, EventEntry>();
+                _cellEventsDict = new Dictionary<char, IEventEntry>();
                 foreach (EventEntry e in _cellEvents)
                 {
                     foreach (char ch in e.Key)
@@ -84,6 +88,26 @@ public class MapData : ScriptableObject
                 }
             }
             return _cellEventsDict;
+        }
+    }
+
+    [SerializeField]
+    private List<PositionEventEntry> _positionEvent;
+    private Dictionary<CaptainCoder.Core.Position, IEventEntry> _positionEvenDict;
+    private Dictionary<CaptainCoder.Core.Position, IEventEntry> PositionEventsDict
+    {
+        get
+        {
+            if (_positionEvenDict == null)
+            {
+                _positionEvenDict = new Dictionary<CaptainCoder.Core.Position, IEventEntry>();
+                foreach (PositionEventEntry entry in _positionEvent)
+                {
+                    Debug.Assert(!_positionEvenDict.ContainsKey(entry.Position.Freeze()), $"Event Entry List contains duplicate entry '{entry.Position.Freeze()}'");
+                    _positionEvenDict[entry.Position.Freeze()] = entry;
+                }
+            }
+            return _positionEvenDict;
         }
     }
 
@@ -126,13 +150,33 @@ public class MapData : ScriptableObject
         public WallTileInitializer Value { get; private set; }
     }
 
+    public interface IEventEntry
+    {
+        public List<MapEvent> EventHandlers { get; }
+        public GameObject Prefab { get; }
+        public string Name { get; }
+    }
+
     [System.Serializable]
-    public class EventEntry
+    public class EventEntry : IEventEntry
     {
         [field: SerializeField]
         public string Name { get; private set; }
         [field: SerializeField]
         public string Key { get; private set; }
+        [field: SerializeField]
+        public List<MapEvent> EventHandlers { get; private set; }
+        [field: SerializeField]
+        public GameObject Prefab { get; private set; }
+    }
+
+    [System.Serializable]
+    public class PositionEventEntry : IEventEntry
+    {
+        [field: SerializeField]
+        public string Name { get; private set; }
+        [field: SerializeField]
+        public MutablePosition Position { get; private set; }
         [field: SerializeField]
         public List<MapEvent> EventHandlers { get; private set; }
         [field: SerializeField]

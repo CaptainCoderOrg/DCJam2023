@@ -11,7 +11,24 @@ public class WallEvent : MapEvent
 
     public override bool OnEnter()
     {
-        MessageController.Display(Message);
+        CheckDirection();
+        PlayerMovementController.Instance.OnDirectionChange += CheckDirection;
         return false;
+    }
+
+    public override bool OnExit()
+    {
+        PlayerMovementController.Instance.OnDirectionChange -= CheckDirection;
+        return false;
+    }
+
+    private void CheckDirection(Direction _) => CheckDirection();
+
+    public void CheckDirection()
+    {
+        if (PlayerMovementController.Instance.Facing == Facing)
+        {
+            MessageController.Display(Message);
+        }
     }
 }
