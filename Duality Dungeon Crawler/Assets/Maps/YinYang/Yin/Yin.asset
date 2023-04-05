@@ -16,7 +16,7 @@ MonoBehaviour:
   _cellEntries:
   - <Key>k__BackingField: .
     <Value>k__BackingField: {fileID: 2335308055764904564, guid: f5c8dbd6cf8e99b43bd537567a85a4e9, type: 3}
-  - <Key>k__BackingField: ',HV'
+  - <Key>k__BackingField: ',HVL'
     <Value>k__BackingField: {fileID: 2335308055764904564, guid: 84d23286dd51c9b498537e293b429918, type: 3}
   - <Key>k__BackingField: D
     <Value>k__BackingField: {fileID: 2335308055764904564, guid: 84d23286dd51c9b498537e293b429918, type: 3}
@@ -28,14 +28,21 @@ MonoBehaviour:
   - <Key>k__BackingField: '*'
     <Value>k__BackingField: {fileID: 7744616278776981774, guid: cc9a260a1211b9f4aa7401f84a4c4388, type: 3}
   _cellEvents:
-  - <Key>k__BackingField: D
+  - <Name>k__BackingField: Yin Rune Statue
+    <Key>k__BackingField: D
     <EventHandlers>k__BackingField:
     - {fileID: 11400000, guid: 816f926229fbef84e831208549436f4a, type: 2}
     - {fileID: 11400000, guid: 1d103cb18c45b204d953dcb5bade2e64, type: 2}
-  - <Key>k__BackingField: H
+  - <Name>k__BackingField: Stairs Down
+    <Key>k__BackingField: H
     <EventHandlers>k__BackingField:
     - {fileID: 11400000, guid: 6ad82ab88bd94b046890b1442a2da7db, type: 2}
-  - <Key>k__BackingField: V
+  - <Name>k__BackingField: Return to Entrance
+    <Key>k__BackingField: V
     <EventHandlers>k__BackingField:
     - {fileID: 11400000, guid: 9d250ea28209690498ce0ec9872de6c4, type: 2}
     - {fileID: 11400000, guid: bf44feb2a64d4314ab4fb82f374cbd0c, type: 2}
+  - <Name>k__BackingField: Too Bright
+    <Key>k__BackingField: L
+    <EventHandlers>k__BackingField:
+    - {fileID: 11400000, guid: e299c4966452f834880b1c1d33533c79, type: 2}
