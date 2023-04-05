@@ -5,6 +5,7 @@ using UnityEngine;
 using CaptainCoder.Core;
 using Cinemachine;
 using static UnityEngine.InputSystem.InputAction;
+using CaptainCoder.Audio;
 
 public class PlayerMovementController : MonoBehaviour
 {
@@ -23,9 +24,16 @@ public class PlayerMovementController : MonoBehaviour
         get => _currentMap;
         set
         {
-            _currentMap = value;
-            transform.SetParent(_currentMap.gameObject.transform);
-            PositionCamera();
+            if (_currentMap != value)
+            {
+                MusicController.Instance.StartTrack(_currentMap.AmbientMusicTrack);
+                MapLoaderController oldMap = _currentMap;
+                _currentMap = value;
+                _currentMap.gameObject.SetActive(true);
+                transform.SetParent(_currentMap.gameObject.transform);
+                PositionCamera();
+                oldMap?.gameObject.SetActive(false);
+            }
         }
     }
     [SerializeField]
@@ -55,6 +63,14 @@ public class PlayerMovementController : MonoBehaviour
     public void Awake()
     {
         Instance = this;
+    }
+
+    public void Start()
+    {
+        MusicController.Instance.StartTrack(_currentMap.AmbientMusicTrack);
+        _currentMap.gameObject.SetActive(true);
+        transform.SetParent(_currentMap.gameObject.transform);
+        PositionCamera();
     }
 
     private bool _controlsEnabled = false;

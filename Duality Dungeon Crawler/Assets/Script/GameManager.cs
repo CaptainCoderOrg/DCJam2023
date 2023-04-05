@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System;
+using CaptainCoder.Audio;
 
 public class GameManager : MonoBehaviour
 {
@@ -20,7 +21,6 @@ public class GameManager : MonoBehaviour
         }
     }
     public static GameManager Instance { get; private set; }
-
     public event Action OnInterrupt;
     public MapLoaderController EntranceMap;
     public MapLoaderController YangMap;
@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
     public PlayerData Player;
     public AbilityManifest AbilityManifest;
     public RuneManifest Runes;
+    public MusicTrackDatabase MusicTracks;
 
     public void Awake()
     {

@@ -7,6 +7,9 @@ public class MapLoaderController : MonoBehaviour
     [field: SerializeField]
     public MapData MapData { get; private set; }
 
+    [field: SerializeField]
+    public AudioClip AmbientMusicTrack { get; private set; }
+
 
     [Button("Force Rebuild")]
     public void BuildMap()
