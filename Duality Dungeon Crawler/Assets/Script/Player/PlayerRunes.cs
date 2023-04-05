@@ -13,6 +13,14 @@ public class PlayerRunes : ISerializationCallbackReceiver
     private List<RuneData> _runes;
     private HashSet<RuneData> _runesSet;
 
+    [NaughtyAttributes.Button("Reset Data")]
+    public void ResetData()
+    {
+        _runes.Clear();
+        _runesSet.Clear();
+    }
+
+
     public bool HasRune(RuneData ability) => _runesSet.Contains(ability);
     
     // Hacky gross oh god no!

@@ -21,7 +21,7 @@ public class StatChangeEvent : MapEvent
     {
         return () =>
         {
-            GameManager.Instance.Player.Runes.AddRune(GameManager.Instance.Runes.Balance);
+            GameManager.Instance.Player.Runes.AddRune(GameManager.Instance.Runes.Harmony);
             GameManager.Instance.PlayerStats.Stat(stat).Value += change;
             DialogController.Instance.IsVisible = false;
             MessageController.Display("You feel your body grow!");

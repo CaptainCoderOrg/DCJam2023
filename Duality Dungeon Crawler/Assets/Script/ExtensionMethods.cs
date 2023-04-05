@@ -1,4 +1,5 @@
 using UnityEngine.UIElements;
+using System.Collections.Generic;
 using System.Linq;
 using System;
 
@@ -37,23 +38,35 @@ public class DialogChain
     private string _continueText;
     private DialogChain _next;
     private DialogChain _first;
-    private DialogChain(string message) => _message = message;
-    public static DialogChain Dialog(string message)
+    private Action _onFinish;
+
+    private DialogChain(string message, string continueText) => (_message, _continueText) = (message, continueText);
+    public static DialogChain Dialog(string message, string continueText = "Continue")
     {
-        DialogChain link = new (message);
+        DialogChain link = new (message, continueText);
         return link;
     }
 
     public DialogChain AndThen(string message, string continueText = "Continue")
     {
         if (_first == null) { _first = this; }
-        _next = Dialog(message);
-        _continueText = continueText;
+        _next = Dialog(message, continueText);
         _next._first = _first;
         return _next;
     }
 
-    public void Display() => _first.DisplayNext();
+    public DialogChain OnFinish(Action finishAction) 
+    {
+        _first._onFinish += finishAction;
+        return this;
+    }
+
+    public void Display() 
+    {
+        
+        _first ??= this;
+        _first.DisplayNext();
+    }
 
     private void DisplayNext()
     {
@@ -64,8 +77,9 @@ public class DialogChain
         diag.IsVisible = true;
     }
 
-    private static void Finish()
+    private void Finish()
     {
         DialogController.Instance.IsVisible = false;
+        _first._onFinish?.Invoke();
     }
 }

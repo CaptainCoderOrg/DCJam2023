@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0ac108eab5b7f0488f5a973bffcd1d7, type: 3}
   m_Name: ShadeTapestry
   m_EditorClassIdentifier: 
-  <Facing>k__BackingField: 1
+  <Facing>k__BackingField: 0
   <Message>k__BackingField: 'Harmony and Moon: A tapestry depicts a mage focusing
     Moon energy into a protective shade.'

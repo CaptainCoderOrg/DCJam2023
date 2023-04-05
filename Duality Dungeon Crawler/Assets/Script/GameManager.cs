@@ -5,6 +5,11 @@ using CaptainCoder.Audio;
 
 public class GameManager : MonoBehaviour
 {
+    #if UNITY_EDITOR
+    public bool _resetOnStart = false;
+    #else
+    public bool _resetOnStart = true;
+    #endif
     private static Queue<Action> OnReady = new();
 
     // This hack is insane, don't do this
@@ -39,16 +44,27 @@ public class GameManager : MonoBehaviour
         {
             OnReady.Dequeue().Invoke();
         }
+        
     }
 
     public void Start()
     {
+        if (_resetOnStart) { ResetData(); }
         Player.NotifyObservers();
         foreach (PlayerStat stat in PlayerStats.Stats)
         {
             stat.OnStatIsZero += HandleOutOfHarmony;
-        }
+        }        
     }
+
+    private void ResetData()
+    {
+        PlayerMovementController.Instance.CurrentMap = EntranceMap;
+        PlayerMovementController.Instance.Position = (2, 2);
+        PlayerMovementController.Instance.Facing = Direction.North;
+        Player.ResetData();
+    }
+
 
     public void InterruptAbilities() => OnInterrupt?.Invoke();
 

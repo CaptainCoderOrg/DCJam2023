@@ -20,4 +20,4 @@ MonoBehaviour:
   Mind: {fileID: 11400000, guid: 8647a1e10ec39e14a90965bf6bb886c8, type: 2}
   Fear: {fileID: 11400000, guid: ead3047c806aad6489b734bc1e06e0c9, type: 2}
   Calm: {fileID: 11400000, guid: 7399467beaf41584db2ebb37eea05eaf, type: 2}
-  Balance: {fileID: 11400000, guid: ad5f57197cac8fa46bb92f7600608c29, type: 2}
+  Harmony: {fileID: 11400000, guid: ad5f57197cac8fa46bb92f7600608c29, type: 2}

@@ -21,6 +21,13 @@ public class PlayerAbilities : ISerializationCallbackReceiver
         }
     }
 
+    [NaughtyAttributes.Button("Reset Data")]
+    public void ResetData()
+    {
+        _knownAbilities.Clear();
+        _abilities.Clear();
+    }
+
 
     public void OnAfterDeserialize()
     {

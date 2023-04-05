@@ -29,6 +29,16 @@ public class PlayerStats : ScriptableObject
         throw new System.ArgumentException($"Could not find stat {stat}.");
     }
 
+    [NaughtyAttributes.Button("Reset Data")]
+    public void ResetData()
+    {
+        foreach (PlayerStat playerStat in Stats)
+        {
+            playerStat.Value = UnityEngine.Random.Range(-75, 75);
+        }    
+    }
+
+
     internal void NotifyObservers()
     {
         foreach (PlayerStat stat in Stats)

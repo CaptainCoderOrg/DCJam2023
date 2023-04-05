@@ -70,7 +70,9 @@ public class PlayerMovementController : MonoBehaviour
         MusicController.Instance.StartTrack(_currentMap.AmbientMusicTrack);
         _currentMap.gameObject.SetActive(true);
         transform.SetParent(_currentMap.gameObject.transform);
+        Position = _position;
         PositionCamera();
+        PerformEnterEvents();
     }
 
     private bool _controlsEnabled = false;
@@ -180,14 +182,12 @@ public class PlayerMovementController : MonoBehaviour
     }
     private void PerformMove(Position p)
     {
-        if (_currentMap.MapData.TryGetEventsAt(Position, out MapData.IEventEntry prevEvent))
-        {
-            foreach (MapEvent evt in prevEvent.EventHandlers)
-            {
-                evt.OnExit();
-            }
-        }
+        if(PerformExitEvents()) { return; }
         Position += p;
+        PerformEnterEvents();        
+    }
+    private void PerformEnterEvents()
+    {
         if (_currentMap.MapData.TryGetEventsAt(Position, out MapData.IEventEntry mapEvent))
         {
             foreach (MapEvent evt in mapEvent.EventHandlers)
@@ -196,6 +196,19 @@ public class PlayerMovementController : MonoBehaviour
             }
         }
     }
+
+    private bool PerformExitEvents()
+    {
+        if (_currentMap.MapData.TryGetEventsAt(Position, out MapData.IEventEntry prevEvent))
+        {
+            foreach (MapEvent evt in prevEvent.EventHandlers)
+            {
+                if(evt.OnExit()) { return true; }
+            }
+        }
+        return false;
+    }
+
     private void IllegalMove()
     {
         // TODO: Play bump sound / animation

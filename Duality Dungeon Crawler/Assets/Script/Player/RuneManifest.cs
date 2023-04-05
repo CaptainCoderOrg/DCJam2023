@@ -11,5 +11,5 @@ public class RuneManifest : ScriptableObject
     public RuneData Mind;
     public RuneData Fear;
     public RuneData Calm;
-    public RuneData Balance;
+    public RuneData Harmony;
 }
