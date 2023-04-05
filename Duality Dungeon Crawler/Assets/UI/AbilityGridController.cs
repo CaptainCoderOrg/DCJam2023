@@ -43,11 +43,11 @@ public class AbilityGridController : MonoBehaviour
         
         if (AbilityManifest.TryLookup(RunePhrase, out AbilityDefinition definition))
         {
-            definition.OnUse(GameManager.Instance.Player);   
+            GameManager.Instance.AbilityController.UseAbility(definition);   
         }
         else
         {
-            
+            MessageController.Display("Nothing happens...");
         }
     }
 

@@ -16,63 +16,33 @@ public class LightAbility : AbilityDefinition
     public int SunCost { get; private set; } = 20;
 
 
-    public override void OnUse(PlayerData player)
+    public override IEnumerator OnUse(PlayerData player, Action OnFinish)
     {
-        if (!CanCast)
-        {
-            MessageController.Display("You do not have enough Sun energy.");
-            return;
-        }
-        if (_isCasting) { return; }
-        _coroutine = GameManager.Instance.StartCoroutine(Cast(player));
-        RegisterInterrupt();
-    }
-
-    public void RegisterInterrupt()
-    {
-        PlayerMovementController.Instance.OnPositionChange += CancelOnPositionChange;
-        PlayerMovementController.Instance.OnDirectionChange += CancelOnDirectionChange;
-    }
-
-    private void CancelOnPositionChange(Position p) => InterruptCasting();
-    private void CancelOnDirectionChange(Direction f) => InterruptCasting();
-
-    public void InterruptCasting()
-    {
-        if (_coroutine != null)
-        {
-            MessageController.Display("You lose concentration...");
-            GameManager.Instance.StopCoroutine(_coroutine);
-            _coroutine = null;
-        }
-        FinishCasting();
-    }
-
-    private IEnumerator Cast(PlayerData player)
-    {
-        _isCasting = true;
         MessageController.Display("You begin to concentrate...");
         for (int steps = 0; steps < SunCost; steps++)
         {   
             if (player.Stats.Stat(Stat.Sun) < (SunCost - steps))
             {
                 MessageController.Display("You don't have enough Sun energy.");
-                FinishCasting();
+                OnFinish();
                 yield break;
             }         
             yield return s_Delay;
             player.Stats.Stat(DualStat.SunMoon).Value--;
         }
         MessageController.Display("A ball of light is hovering with you.");
-        FinishCasting();
+        OnFinish();
     }
 
-    private void FinishCasting()
-    {
-        _isCasting = false;
-        PlayerMovementController.Instance.OnPositionChange -= CancelOnPositionChange;
-        PlayerMovementController.Instance.OnDirectionChange -= CancelOnDirectionChange;
+    public override bool CanCast(PlayerStats stats, out string message)
+    { 
+        message = string.Empty;
+        if(GameManager.Instance.PlayerStats.Stat(Stat.Sun) >= SunCost)
+        {
+            return true;
+        }
+        message = "You do not have enough Sun energy.";
+        return false;
     }
-    private bool CanCast => GameManager.Instance.PlayerStats.Stat(Stat.Sun) >= SunCost;
 
 }

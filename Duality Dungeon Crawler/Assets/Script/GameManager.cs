@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
     public PlayerData Player;
     public AbilityManifest AbilityManifest;
     public RuneManifest Runes;
+    public PlayerAbilityController AbilityController;
     public MusicTrackDatabase MusicTracks;
 
     public void Awake()
