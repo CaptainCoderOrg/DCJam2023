@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: ShadeTapestry
   m_EditorClassIdentifier: 
   <Facing>k__BackingField: 0
-  <Message>k__BackingField: 'Harmony and Moon: A tapestry depicts a mage focusing
-    Moon energy into a protective shade.'
+  <Message>k__BackingField: 'Harmony and Moon: A tapestry depicts Lun''s Eye'
+  <InteractText>k__BackingField: Close your eyes and focus Harmony into Lun's Shade
+    to sense the area around you.

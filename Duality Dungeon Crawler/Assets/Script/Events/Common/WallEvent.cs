@@ -8,6 +8,8 @@ public class WallEvent : MapEvent
     public Direction Facing { get; private set; }
     [field: SerializeField]
     public string Message { get; private set; }
+    [field: SerializeField]
+    public string InteractText { get; private set; }
 
     public override bool OnEnter()
     {
@@ -19,6 +21,15 @@ public class WallEvent : MapEvent
     public override bool OnExit()
     {
         PlayerMovementController.Instance.OnDirectionChange -= CheckDirection;
+        return false;
+    }
+
+    public override bool OnInteract()
+    {
+        if (PlayerMovementController.Instance.Facing == Facing && InteractText != string.Empty)
+        {
+            DialogChain.Dialog(InteractText, "Leave").Display();
+        }
         return false;
     }
 

@@ -27,6 +27,10 @@ public class AbilityGridController : MonoBehaviour
     private static bool _castLight = false;
     private static bool _castShade = false;
     private static bool _castHarmony = false;
+    private static bool _castFloat = false;
+    private static bool _castSphere = false;
+    private static bool _castEye = false;
+    private static bool _castShadeEye = false;
     // private static Label _abilityName;
     private static Label _abilityDescription;
     private static Label _runeName;
@@ -58,6 +62,10 @@ public class AbilityGridController : MonoBehaviour
         if (ability is BalanceAbility) { _castHarmony = true; }
         if (ability is LightAbility) { _castLight = true; }
         if (ability is ShadeAbility) { _castShade = true; }
+        if (ability is FloatAbility) { _castFloat = true; }
+        if (ability is LunsEyeAbility) { _castShadeEye = true; }
+        if (ability is MoonBallAbility) { _castSphere = true; }
+        if (ability is BirdsEyeAbility) { _castEye = true; }
     }
 
     private void HandleClick(PointerDownEvent evt)
@@ -148,17 +156,29 @@ public class AbilityGridController : MonoBehaviour
         {
             ShowHelpLabel("Click to Cast Light");
         }
+        else if (rune.Description == "Sun" && !_castFloat)
+        {
+            ShowHelpLabel("Drag to Combine with Harmony");
+        }
         else if (rune.Description == "Harmony" && !_castHarmony)
         {
             ShowHelpLabel("Click to Cast Harmony");
+        }
+        else if (rune.Description == "Harmony" && _castLight && !_castEye && GameManager.Instance.Player.Effects.HasFlag(PlayerEffect.Light))
+        {
+            ShowHelpLabel("Drag to Combine with Sun");
+        }
+        else if (rune.Description == "Harmony" && _castShade && !_castShadeEye && GameManager.Instance.Player.Effects.HasFlag(PlayerEffect.Shade))
+        {
+            ShowHelpLabel("Drag to Combine with Moon");
         }
         else if (rune.Description == "Moon" && !_castShade)
         {
             ShowHelpLabel("Click to Cast Shade");
         }
-        else if (_dragCount < 2 && GameManager.Instance.Player.Runes.Count > 1)
+        else if (rune.Description == "Moon" && !_castSphere)
         {
-            ShowHelpLabel("Drag to combine runes.");
+            ShowHelpLabel("Drag to Combine with Harmony");
         }
     }
 
