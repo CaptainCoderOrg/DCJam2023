@@ -1,3 +1,4 @@
+#if UNITY_EDITOR
 using UnityEngine;
 using System.Linq;
 using System.Collections.Generic;
@@ -108,3 +109,4 @@ public class MapBuilder
     }
 
 }
+#endif

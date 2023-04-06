@@ -11,6 +11,7 @@ public class MapLoaderController : MonoBehaviour
     public AudioClip AmbientMusicTrack { get; private set; }
 
 
+    #if UNITY_EDITOR
     [Button("Force Rebuild")]
     public void BuildMap()
     {
@@ -28,6 +29,7 @@ public class MapLoaderController : MonoBehaviour
         parent.transform.localPosition = new Vector3(0, 0, 0);
         builder.Build(parent.transform);
     }
+    #endif
 
     
 }
