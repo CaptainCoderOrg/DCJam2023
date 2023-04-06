@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 079a3bf309594434ca888605569f5099, type: 3}
   m_Name: LightAbility
   m_EditorClassIdentifier: 
-  <Name>k__BackingField: Light
-  <Description>k__BackingField: Using the power of the Sun, summons a ball of light
-    to follow you.
-  <RunePhrase>k__BackingField: 51
+  <Name>k__BackingField: Sol's Light
+  <Description>k__BackingField: Summons a ball of light
+  <RunePhrase>k__BackingField: 1
   <SunCost>k__BackingField: 20

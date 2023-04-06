@@ -11,6 +11,7 @@ public class AbilityGridCellElement : VisualElement
         AddToClassList(AbilityGridElementStyle);
         RegisterCallback<PointerEnterEvent>(HandleDrag);
         RegisterCallback<PointerDownEvent>(HandleClick);
+        RegisterCallback<PointerLeaveEvent>((_) => AbilityGridController.HideHelpText());
         AbilityGridController.OnDragEnd += () => IsSelected = false;
 
         // Crazy Hack...
@@ -41,6 +42,10 @@ public class AbilityGridCellElement : VisualElement
         if (AbilityGridController.IsDragging)
         {
             Select();
+        }
+        else
+        {
+            AbilityGridController.DisplayHelpText();
         }
     }
 

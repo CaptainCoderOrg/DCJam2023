@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4f3bb12489f6684394287320878cdba, type: 3}
   m_Name: Moon Ball Ability
   m_EditorClassIdentifier: 
-  <Name>k__BackingField: Moon Ball
-  <Description>k__BackingField: Focus the moon shade into a dense ball.
+  <Name>k__BackingField: Density
+  <Description>k__BackingField: Focus Lun's shade into a dense ball.
   <RunePhrase>k__BackingField: 95

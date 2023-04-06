@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 027a47e2d2b830f4ba7728074568bdda, type: 3}
   m_Name: Suns Eye Ability
   m_EditorClassIdentifier: 
-  <Name>k__BackingField: Suns Eye
-  <Description>k__BackingField: Expand a ball of light to sense the area around you.
-  <RunePhrase>k__BackingField: 1
+  <Name>k__BackingField: Sol's Eye
+  <Description>k__BackingField: Peer through Sol's light.
+  <RunePhrase>k__BackingField: 51
   SunCost: 5

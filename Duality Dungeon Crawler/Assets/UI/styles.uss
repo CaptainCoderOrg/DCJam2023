@@ -33,6 +33,7 @@ VisualElement {
 }
 
 Label {
+    font-size: 20px;
 }
 
 .menu-title {

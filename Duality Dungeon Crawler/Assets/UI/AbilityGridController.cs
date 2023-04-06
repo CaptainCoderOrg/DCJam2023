@@ -20,15 +20,19 @@ public class AbilityGridController : MonoBehaviour
 
     private VisualElement _root;
     private static VisualElement _selectedRunes;
+    private static VisualElement _helpLabel;
+    private static int _dragCount = 0;
     private static Label _abilityName;
 
 
     public void Awake()
     {
+        _dragCount = 0;
         _root = GetComponent<UIDocument>().rootVisualElement;
         VisualElement gridContainer = _root.Q<VisualElement>("GridContainer");
         _selectedRunes = _root.Q<VisualElement>("SelectedRunes");
         _abilityName = _root.Q<Label>("AbilityName");
+        _helpLabel = _root.Q<VisualElement>("DragHelpLabel");
         _root.RegisterCallback<PointerDownEvent>(HandleClick);
         _root.RegisterCallback<PointerUpEvent>(HandleRelease);
         _root.RegisterCallback<PointerLeaveEvent>(HandleLeave);
@@ -71,6 +75,11 @@ public class AbilityGridController : MonoBehaviour
             _selectedRunes.Clear();
             _abilityName.text = string.Empty;
         }
+        if (phrase.Length > 1)
+        {
+            _dragCount++;
+            _helpLabel.style.visibility = Visibility.Hidden;
+        }
         _selectedRunes.Clear();
         foreach(RuneData rune in GameManager.Instance.Runes.FromPhrase(phrase))
         {
@@ -90,4 +99,16 @@ public class AbilityGridController : MonoBehaviour
         }
     }
 
+    internal static void DisplayHelpText()
+    {
+        if (_dragCount < 5 && GameManager.Instance.Player.Runes.Count > 1)
+        {
+            _helpLabel.style.visibility = Visibility.Visible;
+        }
+    }
+
+    internal static void HideHelpText()
+    {
+        _helpLabel.style.visibility = Visibility.Hidden;
+    }
 }

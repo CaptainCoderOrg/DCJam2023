@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3441728137abed942a183f94f4c75456, type: 3}
   m_Name: ShadeAbility
   m_EditorClassIdentifier: 
-  <Name>k__BackingField: Shade
-  <Description>k__BackingField: Harness the power of the Moon to cast a protective
-    shade around yourself.
-  <RunePhrase>k__BackingField: 59
+  <Name>k__BackingField: Lun's Shade
+  <Description>k__BackingField: Summons a protective shade.
+  <RunePhrase>k__BackingField: 9
   <MoonCost>k__BackingField: 20

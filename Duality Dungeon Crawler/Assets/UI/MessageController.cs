@@ -47,7 +47,6 @@ public class MessageController : MonoBehaviour
     private static IEnumerator FadeLabel(Label label)
     {
         yield return new WaitForSeconds(10f);
-        Debug.Log($"Opacity: {label.style.opacity.value}");
         label.style.opacity = 1;
         while (label.style.opacity.value > 0)
         {

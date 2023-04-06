@@ -11,6 +11,7 @@ public class PlayerRunes : ISerializationCallbackReceiver
     public event Action<PlayerRunes> OnReady;
     [SerializeField]
     private List<RuneData> _runes;
+    public int Count => _runesSet.Count;
     private HashSet<RuneData> _runesSet;
 
     [NaughtyAttributes.Button("Reset Data")]
