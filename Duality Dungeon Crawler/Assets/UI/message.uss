@@ -4,3 +4,10 @@
     font-size: 20px;
     white-space: normal;
 }
+
+.effect-tool-tip {
+    position: absolute;
+    top: 20px;
+    font-size: 20px;
+    -unity-text-align: upper-center;
+}

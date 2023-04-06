@@ -22,7 +22,7 @@ public class AbilityGridController : MonoBehaviour
     private static VisualElement _selectedRunes;
     private static VisualElement _helpLabel;
     private static int _dragCount = 0;
-    private static Label _abilityName;
+    // private static Label _abilityName;
     private static Label _abilityDescription;
     private static Label _runeName;
 
@@ -33,7 +33,7 @@ public class AbilityGridController : MonoBehaviour
         _root = GetComponent<UIDocument>().rootVisualElement;
         VisualElement gridContainer = _root.Q<VisualElement>("GridContainer");
         _selectedRunes = _root.Q<VisualElement>("SelectedRunes");
-        _abilityName = _root.Q<Label>("AbilityName");
+        // _abilityName = _root.Q<Label>("AbilityName");
         _abilityDescription = _root.Q<Label>("AbilityDescription");
         _helpLabel = _root.Q<VisualElement>("DragHelpLabel");
         _runeName = _root.Q<Label>("RuneName");
@@ -77,7 +77,7 @@ public class AbilityGridController : MonoBehaviour
         if (phrase == string.Empty)
         {
             _selectedRunes.Clear();
-            _abilityName.text = string.Empty;
+            // _abilityName.text = string.Empty;
         }
         if (phrase.Length > 1)
         {
@@ -95,12 +95,12 @@ public class AbilityGridController : MonoBehaviour
         }
         if (AbilityManifest.TryLookup(RunePhrase, out AbilityDefinition definition))
         {
-            _abilityName.text = definition.Name;
-            _abilityDescription.text = definition.Description;
+            // _abilityName.text = definition.Name;
+            _abilityDescription.text = $"{definition.Name}: {definition.Description}";
         }
         else
         {
-            _abilityName.text = "";
+            // _abilityName.text = "";
             _abilityDescription.text = "";
         }
     }

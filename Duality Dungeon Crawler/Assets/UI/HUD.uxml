@@ -17,7 +17,12 @@
             </ui:VisualElement>
         </ui:VisualElement>
         <ui:VisualElement name="RightPanel" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0); width: 300px; flex-shrink: 0; align-items: flex-end; flex-direction: column; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px; justify-content: flex-start;">
-            <ui:Instance template="PlayerStats" name="PlayerStats" style="position: relative; height: 128px; width: 256px; top: auto; left: auto; flex-shrink: 0;" />
+            <ui:Instance template="PlayerStats" name="PlayerStats" style="position: relative; height: auto; width: 256px; top: auto; left: auto; flex-shrink: 0;" />
+            <ui:VisualElement name="EffectsContainer" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); align-self: auto; flex-direction: row; align-items: flex-start; height: 32px; max-height: 32px; min-height: 32px; width: 256px;">
+                <ui:VisualElement style="flex-grow: 0; background-color: rgba(0, 0, 0, 0); width: 32px; height: 32px;">
+                    <ui:Label tabindex="-1" text="Label" display-tooltip-when-elided="true" class="shadow-label effect-tool-tip" />
+                </ui:VisualElement>
+            </ui:VisualElement>
             <ui:Instance template="AbilityGrid" name="AbilityGrid" style="align-items: flex-end; flex-direction: column;">
                 <ui:VisualElement picking-mode="Ignore" name="DragHelpLabel" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); position: absolute; width: 100%; height: 100%; align-items: center; justify-content: center; visibility: hidden;">
                     <ui:Label tabindex="-1" text="Drag to Combine Runes" display-tooltip-when-elided="true" picking-mode="Ignore" class="shadow-label" style="font-size: 20px; -unity-text-align: upper-center;" />
@@ -25,7 +30,6 @@
             </ui:Instance>
             <ui:VisualElement picking-mode="Ignore" style="flex-grow: 1; background-color: rgba(255, 237, 0, 0); width: 100%;">
                 <ui:VisualElement name="RunePhrase" picking-mode="Ignore" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0); flex-direction: column; align-items: center; height: auto;">
-                    <ui:Label tabindex="-1" display-tooltip-when-elided="true" name="AbilityName" class="shadow-label ability-name" />
                     <ui:VisualElement name="SelectedRunes" picking-mode="Ignore" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-direction: row; width: auto; align-items: flex-start; justify-content: flex-start; height: 16px; flex-shrink: 1; max-height: 16px; min-height: 16px; align-self: center; flex-basis: 0;" />
                     <ui:Label tabindex="-1" display-tooltip-when-elided="true" name="AbilityDescription" picking-mode="Ignore" class="shadow-label ability-name" style="flex-wrap: wrap; white-space: normal; font-size: 20px; -unity-text-align: upper-left; justify-content: center; align-items: center;" />
                 </ui:VisualElement>
