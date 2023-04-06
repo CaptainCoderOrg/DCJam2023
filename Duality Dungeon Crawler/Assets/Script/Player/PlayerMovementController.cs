@@ -26,13 +26,14 @@ public class PlayerMovementController : MonoBehaviour
         {
             if (_currentMap != value)
             {
-                MusicController.Instance.StartTrack(_currentMap.AmbientMusicTrack);
+                
                 MapLoaderController oldMap = _currentMap;
                 _currentMap = value;
                 _currentMap.gameObject.SetActive(true);
                 transform.SetParent(_currentMap.gameObject.transform);
                 PositionCamera();
                 oldMap?.gameObject.SetActive(false);
+                MusicController.Instance.StartTrack(_currentMap.AmbientMusicTrack);
             }
         }
     }
