@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -20,8 +21,12 @@ public class AbilityGridController : MonoBehaviour
 
     private VisualElement _root;
     private static VisualElement _selectedRunes;
-    private static VisualElement _helpLabel;
+    private static VisualElement _helpLabelContainer;
+    private static Label _helpLabel;
     private static int _dragCount = 0;
+    private static bool _castLight = false;
+    private static bool _castShade = false;
+    private static bool _castHarmony = false;
     // private static Label _abilityName;
     private static Label _abilityDescription;
     private static Label _runeName;
@@ -35,11 +40,24 @@ public class AbilityGridController : MonoBehaviour
         _selectedRunes = _root.Q<VisualElement>("SelectedRunes");
         // _abilityName = _root.Q<Label>("AbilityName");
         _abilityDescription = _root.Q<Label>("AbilityDescription");
-        _helpLabel = _root.Q<VisualElement>("DragHelpLabel");
+        _helpLabelContainer = _root.Q<VisualElement>("DragHelpLabel");
+        _helpLabel = _root.Q<Label>("HelpLabel");
         _runeName = _root.Q<Label>("RuneName");
         _root.RegisterCallback<PointerDownEvent>(HandleClick);
         _root.RegisterCallback<PointerUpEvent>(HandleRelease);
         _root.RegisterCallback<PointerLeaveEvent>(HandleLeave);
+    }
+
+    public void Start()
+    {
+        GameManager.Instance.AbilityController.OnAbilityFinished += CheckSpells;
+    }
+
+    private void CheckSpells(AbilityDefinition ability)
+    {
+        if (ability is BalanceAbility) { _castHarmony = true; }
+        if (ability is LightAbility) { _castLight = true; }
+        if (ability is ShadeAbility) { _castShade = true; }
     }
 
     private void HandleClick(PointerDownEvent evt)
@@ -72,17 +90,27 @@ public class AbilityGridController : MonoBehaviour
         }
     }
 
+    private static IEnumerator HidePhrase()
+    {
+        yield return new WaitForSeconds(5f);
+        while (RunePhrase == string.Empty && _selectedRunes.style.opacity.value > 0)
+        {
+            _selectedRunes.style.opacity = _selectedRunes.style.opacity.value - 0.05f;
+            _abilityDescription.style.opacity = _abilityDescription.style.opacity.value - 0.05f;
+        }        
+    }
+
     private static void DisplayPhraseInfo(string phrase)
     {
         if (phrase == string.Empty)
         {
-            _selectedRunes.Clear();
-            // _abilityName.text = string.Empty;
+            GameManager.Instance.StartCoroutine(HidePhrase());
+            return;
         }
         if (phrase.Length > 1)
         {
             _dragCount++;
-            _helpLabel.style.visibility = Visibility.Hidden;
+            _helpLabelContainer.style.visibility = Visibility.Hidden;
         }
         _selectedRunes.Clear();
         foreach(RuneData rune in GameManager.Instance.Runes.FromPhrase(phrase))
@@ -91,12 +119,14 @@ public class AbilityGridController : MonoBehaviour
             Image image = new Image() { sprite = rune.sprite };
             image.AddToClassList("rune-phrase-element");
             _selectedRunes.Add(image);
+            _selectedRunes.style.opacity = 1;
             
         }
         if (AbilityManifest.TryLookup(RunePhrase, out AbilityDefinition definition))
         {
             // _abilityName.text = definition.Name;
             _abilityDescription.text = $"{definition.Name}: {definition.Description}";
+            _abilityDescription.style.opacity = 1;
         }
         else
         {
@@ -107,20 +137,40 @@ public class AbilityGridController : MonoBehaviour
     internal static void DisplayRuneName(RuneData rune)
     {
         _runeName.text = rune.Description;
+        _selectedRunes.Clear();
+        _abilityDescription.text = "";
     }
 
     internal static void DisplayHelpText(RuneData rune)
     {
         DisplayRuneName(rune);
-        if (_dragCount < 2 && GameManager.Instance.Player.Runes.Count > 1)
+        if (rune.Description == "Sun" && !_castLight)
         {
-            _helpLabel.style.visibility = Visibility.Visible;
+            ShowHelpLabel("Click to Cast Light");
         }
+        else if (rune.Description == "Harmony" && !_castHarmony)
+        {
+            ShowHelpLabel("Click to Cast Harmony");
+        }
+        else if (rune.Description == "Moon" && !_castShade)
+        {
+            ShowHelpLabel("Click to Cast Shade");
+        }
+        else if (_dragCount < 2 && GameManager.Instance.Player.Runes.Count > 1)
+        {
+            ShowHelpLabel("Drag to combine runes.");
+        }
+    }
+
+    private static void ShowHelpLabel(string text)
+    {
+        _helpLabelContainer.style.visibility = Visibility.Visible;
+        _helpLabel.text = text;
     }
 
     internal static void HideHelpText()
     {
-        _helpLabel.style.visibility = Visibility.Hidden;
+        _helpLabelContainer.style.visibility = Visibility.Hidden;
         _runeName.text = string.Empty;
     }
 }
