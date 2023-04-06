@@ -32,9 +32,10 @@ public class PlayerStats : ScriptableObject
     [NaughtyAttributes.Button("Reset Data")]
     public void ResetData()
     {
+        int i = 0;
         foreach (PlayerStat playerStat in Stats)
         {
-            playerStat.Value = UnityEngine.Random.Range(-75, 75);
+            playerStat.Value = i++ % 2 == 0 ? -90 : 90;
         }    
     }
 

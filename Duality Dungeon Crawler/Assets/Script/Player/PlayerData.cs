@@ -27,6 +27,7 @@ public class PlayerData : ScriptableObject
     [NaughtyAttributes.Button("Reset Data")]
     public void ResetData()
     {
+        Effects = 0;
         Abilities.ResetData();
         Runes.ResetData();
         Stats.ResetData();

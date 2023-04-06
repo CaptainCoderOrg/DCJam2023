@@ -35,7 +35,8 @@ MonoBehaviour:
     <EventHandlers>k__BackingField:
     - {fileID: 11400000, guid: 816f926229fbef84e831208549436f4a, type: 2}
     - {fileID: 11400000, guid: 1d103cb18c45b204d953dcb5bade2e64, type: 2}
-    <Prefabs>k__BackingField: []
+    <Prefabs>k__BackingField:
+    - {fileID: 3928358897171807308, guid: 01d13ed0848c0214dae643acace4a5b8, type: 3}
   - <Name>k__BackingField: Stairs Down
     <Key>k__BackingField: H
     <EventHandlers>k__BackingField:
