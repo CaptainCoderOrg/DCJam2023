@@ -112,7 +112,9 @@ public class PlayerMovementController : MonoBehaviour
         _controls.PlayerMovement.Interact.started -= HandleInteract;
     }
 
-    private void HandleInteract(CallbackContext ctx)
+    private void HandleInteract(CallbackContext ctx) => Interact();
+
+    public void Interact()
     {
         if (_currentMap.MapData.TryGetEventsAt(Position, out MapData.IEventEntry mapEvent))
         {

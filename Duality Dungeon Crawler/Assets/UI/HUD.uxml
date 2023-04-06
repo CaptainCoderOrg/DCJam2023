@@ -9,7 +9,7 @@
         <ui:Instance template="Compass" name="Compass" />
         <ui:VisualElement name="Spacer" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);" />
         <ui:Instance template="AbilityGrid" name="AbilityGrid" style="align-items: flex-end; flex-direction: column;" />
-        <ui:VisualElement style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); position: absolute; height: 100%; width: 711px; flex-direction: column-reverse; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+        <ui:VisualElement picking-mode="Ignore" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); position: absolute; height: 100%; width: 711px; flex-direction: column-reverse; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
             <ui:VisualElement name="Messages" style="flex-grow: 0; background-color: rgba(255, 255, 255, 0.38); position: relative; left: 0; top: 0; right: 0; bottom: 0; width: auto; height: 100px; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; flex-basis: auto; flex-shrink: 0;">
                 <ui:ScrollView name="MessageContainer" nested-interaction-kind="ForwardScrolling" vertical-scroller-visibility="Hidden" horizontal-scroller-visibility="Hidden" />
             </ui:VisualElement>
