@@ -1,10 +1,45 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <ui:Template name="StatMeter" src="project://database/Assets/UI/PlayerStats/StatMeter.uxml?fileID=9197481963319205126&amp;guid=27e7a9a625500e040855e2a0ff1fdecc&amp;type=3#StatMeter" />
     <Style src="project://database/Assets/UI/styles.uss?fileID=7433441132597879392&amp;guid=83ddee421334e8d41af0a574b07b9cf1&amp;type=3#styles" />
     <ui:VisualElement name="VisualElement" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
-        <ui:Instance template="StatMeter" name="BodyMindMeter" class="stat-meter" style="margin-bottom: 10px;" />
-        <ui:Instance template="StatMeter" name="SunMoonMeter" class="stat-meter" style="margin-bottom: 10px;" />
-        <ui:Instance template="StatMeter" name="YinYangMeter" class="stat-meter" />
-        <ui:Instance template="StatMeter" name="RageCalmMeter" class="stat-meter" />
+        <ui:VisualElement name="SunMoonMeter" style="margin-bottom: 10px;">
+            <ui:VisualElement style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-direction: row; align-items: center;">
+                <ui:VisualElement name="LeftImage" style="flex-grow: 0; background-color: rgba(83, 241, 255, 0); width: 24px; height: 24px; background-image: url(&apos;project://database/Assets/Sprites/Place%20Holder/Icons/SunAndMoon/SunAndMoon.png?fileID=-2076912&amp;guid=11b82251491008846b8efbf15be82bd9&amp;type=3#SunAndMoon_0&apos;); margin-left: 0; margin-right: 5px; margin-top: 0; margin-bottom: 0;" />
+                <ui:VisualElement name="Meter" style="flex-grow: 1; background-color: rgb(77, 77, 77); height: 10px; flex-direction: row;">
+                    <ui:VisualElement name="LeftElement" style="flex-grow: 0; background-color: rgba(255, 255, 0, 0.5); width: 50%;" />
+                    <ui:VisualElement name="RightElement" style="flex-grow: 1; background-color: rgba(0, 29, 255, 0.39); flex-direction: row; width: auto;" />
+                </ui:VisualElement>
+                <ui:VisualElement name="RightImage" style="flex-grow: 0; background-color: rgba(255, 241, 102, 0); width: 24px; height: 24px; background-image: url(&apos;project://database/Assets/Sprites/Place%20Holder/Icons/SunAndMoon/SunAndMoon.png?fileID=-449039209&amp;guid=11b82251491008846b8efbf15be82bd9&amp;type=3#SunAndMoon_1&apos;); margin-left: 5px;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="YinYangMeter" style="margin-bottom: 10px;">
+            <ui:VisualElement style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-direction: row; align-items: center;">
+                <ui:VisualElement name="LeftImage" style="flex-grow: 0; background-color: rgba(83, 241, 255, 0); width: 24px; height: 24px; padding-right: 0; margin-right: 5px; background-image: url(&apos;project://database/Assets/Sprites/CC%20Art/yin.png?fileID=2800000&amp;guid=90ed0d5109bb9974993f27683ecc0f55&amp;type=3#yin&apos;);" />
+                <ui:VisualElement name="Meter" style="flex-grow: 1; background-color: rgb(77, 77, 77); height: 10px; flex-direction: row;">
+                    <ui:VisualElement name="LeftElement" style="flex-grow: 0; background-color: rgba(255, 255, 255, 0.69); width: 50%;" />
+                    <ui:VisualElement name="RightElement" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0.69); flex-direction: row; width: auto;" />
+                </ui:VisualElement>
+                <ui:VisualElement name="RightImage" style="flex-grow: 0; background-color: rgba(255, 241, 102, 0); width: 24px; height: 24px; margin-left: 5px; background-image: url(&apos;project://database/Assets/Sprites/CC%20Art/yang.png?fileID=21300000&amp;guid=4136458999f67bd49910f3af5b1f1c95&amp;type=3#yang&apos;);" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="BodyMindMeter" style="margin-bottom: 10px;">
+            <ui:VisualElement style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-direction: row; align-items: center;">
+                <ui:VisualElement name="LeftImage" style="flex-grow: 0; background-color: rgba(83, 241, 255, 0); width: 24px; height: 24px; padding-right: 0; margin-right: 5px; background-image: url(&apos;project://database/Assets/Sprites/CC%20Art/fist.png?fileID=21300000&amp;guid=2cbc93e2c8d0fd146be9151698743e3c&amp;type=3#fist&apos;);" />
+                <ui:VisualElement name="Meter" style="flex-grow: 1; background-color: rgb(77, 77, 77); height: 10px; flex-direction: row;">
+                    <ui:VisualElement name="LeftElement" style="flex-grow: 0; background-color: rgba(62, 255, 0, 0.5); width: 50%;" />
+                    <ui:VisualElement name="RightElement" style="flex-grow: 1; background-color: rgba(255, 0, 198, 0.39); flex-direction: row; width: auto;" />
+                </ui:VisualElement>
+                <ui:VisualElement name="RightImage" style="flex-grow: 0; background-color: rgba(255, 241, 102, 0); width: 24px; height: 24px; margin-left: 5px; background-image: url(&apos;project://database/Assets/Sprites/CC%20Art/mind.png?fileID=21300000&amp;guid=0f7cb37fdc8d2024583dc81a7291c8ab&amp;type=3#mind&apos;);" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="RageCalmMeter">
+            <ui:VisualElement style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-direction: row; align-items: center;">
+                <ui:VisualElement name="LeftImage" style="flex-grow: 0; background-color: rgba(83, 241, 255, 0); width: 24px; height: 24px; padding-right: 0; margin-right: 5px; background-image: url(&apos;project://database/Assets/Sprites/CC%20Art/rage.png?fileID=128057815&amp;guid=d03b264bac05db54aa86d4057753067c&amp;type=3#explosion_atlas_0&apos;);" />
+                <ui:VisualElement name="Meter" style="flex-grow: 1; background-color: rgb(77, 77, 77); height: 10px; flex-direction: row;">
+                    <ui:VisualElement name="LeftElement" style="flex-grow: 0; background-color: rgba(255, 0, 0, 0.39); width: 50%;" />
+                    <ui:VisualElement name="RightElement" style="flex-grow: 1; background-color: rgba(165, 255, 244, 0.77); flex-direction: row; width: auto;" />
+                </ui:VisualElement>
+                <ui:VisualElement name="RightImage" style="flex-grow: 0; background-color: rgba(255, 241, 102, 0); width: 24px; height: 24px; margin-left: 5px; background-image: url(&apos;project://database/Assets/Sprites/CC%20Art/calm.png?fileID=2800000&amp;guid=6dec4130cb7d7c848b9c5bd2c5655851&amp;type=3#calm&apos;);" />
+            </ui:VisualElement>
+        </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>
