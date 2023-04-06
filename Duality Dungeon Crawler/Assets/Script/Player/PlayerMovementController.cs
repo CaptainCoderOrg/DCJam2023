@@ -116,6 +116,7 @@ public class PlayerMovementController : MonoBehaviour
 
     public void Interact()
     {
+        if (_controlsEnabled == false) { return; }
         if (_currentMap.MapData.TryGetEventsAt(Position, out MapData.IEventEntry mapEvent))
         {
             foreach (MapEvent evt in mapEvent.EventHandlers)

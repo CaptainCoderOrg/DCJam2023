@@ -7,15 +7,17 @@ using UnityEngine.UIElements;
 [RequireComponent(typeof(UIDocument))]
 public class InteractController : MonoBehaviour
 {
+    Button _interactButton;
     public void Awake()
     {
-        VisualElement root = GetComponent<UIDocument>().rootVisualElement;
-        root.RegisterCallback<PointerDownEvent>(Interact);
+        _interactButton = GetComponent<UIDocument>().rootVisualElement.Q<Button>("InteractButton");
+        Debug.Assert(_interactButton != null, "Interact button was null.");
+        _interactButton.clicked += Interact;
     }
 
-    private void Interact(PointerDownEvent evt)
+    private void Interact()
     {
-        // Debug.Log("Clicked");
+        PlayerMovementController.Instance.Interact();
     }
 
 }
