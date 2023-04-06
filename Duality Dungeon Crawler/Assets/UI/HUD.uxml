@@ -20,6 +20,12 @@
         <ui:VisualElement name="RightPanel" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0); width: 300px; flex-shrink: 0; align-items: flex-end; flex-direction: column; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px; justify-content: flex-start;">
             <ui:Instance template="PlayerStats" name="PlayerStats" style="position: relative; height: 128px; width: 256px; top: auto; left: auto; flex-shrink: 0;" />
             <ui:Instance template="AbilityGrid" name="AbilityGrid" style="align-items: flex-end; flex-direction: column;" />
+            <ui:VisualElement style="flex-grow: 1; background-color: rgba(255, 237, 0, 0); width: 100%;">
+                <ui:VisualElement name="RunePhrase" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0); flex-direction: column; align-items: center; height: auto;">
+                    <ui:Label tabindex="-1" display-tooltip-when-elided="true" name="AbilityName" class="shadow-label ability-name" />
+                    <ui:VisualElement name="SelectedRunes" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-direction: row; width: auto; align-items: flex-start; justify-content: flex-start; height: 32px; flex-shrink: 1; max-height: 32px; min-height: 32px; align-self: center; flex-basis: 0;" />
+                </ui:VisualElement>
+            </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>
     <ui:VisualElement name="MiniMapOverlay" picking-mode="Ignore" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); position: absolute; width: 100%; height: 100%; justify-content: center; display: flex; visibility: visible; opacity: 0;">

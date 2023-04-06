@@ -6,14 +6,14 @@ using System;
 public class BalanceAbility : AbilityDefinition
 {
     private static readonly WaitForSeconds s_Delay = new(0.05f);
-    private static readonly WaitForSeconds s_StartDelay = new(2f);
+    private static readonly WaitForSeconds s_StartDelay = new(1f);
 
     public override IEnumerator OnUse(PlayerData player, Action OnFinish)
     {
-        MessageController.Display("You take a deep breath and focus inward.");
+        MessageController.Display("You take a deep breath and focus.");
         yield return s_StartDelay;
         GameManager.Instance.Player.Effects = 0;
-        MessageController.Display("You energies begin to harmonize...");
+        MessageController.Display("Your energies begin to harmonize...");
         while (true)
         {
             yield return s_Delay;

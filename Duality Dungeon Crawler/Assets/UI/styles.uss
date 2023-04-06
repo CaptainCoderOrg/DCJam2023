@@ -1,3 +1,10 @@
+.rune-phrase-element {
+    height: 32px;
+    width: 32px;
+    align-self: center;
+    max-width: 32px;
+}
+
 .gear-button {
     position: absolute;
     width: 32px;
@@ -60,4 +67,19 @@ Label {
 
 .stat-meter {
     margin-bottom: 10px;
+}
+
+
+.shadow-label {
+    
+    -unity-text-outline-color: rgb(0, 0, 0);
+    -unity-text-outline-width: 0;
+    color: rgb(202, 202, 202);
+    text-shadow: -1px 1px 1px rgb(0, 0, 0);
+}
+
+.ability-name {
+    -unity-font-style: bold;
+    font-size: 32px;
+    align-self: center;
 }

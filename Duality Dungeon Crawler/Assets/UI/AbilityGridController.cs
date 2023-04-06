@@ -7,15 +7,28 @@ public class AbilityGridController : MonoBehaviour
 {
     public static bool IsDragging { get; private set; }
     public static event Action OnDragEnd;
-    public static string RunePhrase { get; set; } = string.Empty;
+    private static string _runePhrase = string.Empty;
+    public static string RunePhrase 
+    { 
+        get => _runePhrase; 
+        set
+        {
+            _runePhrase = value;
+            DisplayPhraseInfo(_runePhrase);
+        }
+    }
 
     private VisualElement _root;
+    private static VisualElement _selectedRunes;
+    private static Label _abilityName;
 
 
     public void Awake()
     {
         _root = GetComponent<UIDocument>().rootVisualElement;
         VisualElement gridContainer = _root.Q<VisualElement>("GridContainer");
+        _selectedRunes = _root.Q<VisualElement>("SelectedRunes");
+        _abilityName = _root.Q<Label>("AbilityName");
         _root.RegisterCallback<PointerDownEvent>(HandleClick);
         _root.RegisterCallback<PointerUpEvent>(HandleRelease);
         _root.RegisterCallback<PointerLeaveEvent>(HandleLeave);
@@ -48,6 +61,32 @@ public class AbilityGridController : MonoBehaviour
         else
         {
             MessageController.Display("Nothing happens...");
+        }
+    }
+
+    private static void DisplayPhraseInfo(string phrase)
+    {
+        if (phrase == string.Empty)
+        {
+            _selectedRunes.Clear();
+            _abilityName.text = string.Empty;
+        }
+        _selectedRunes.Clear();
+        foreach(RuneData rune in GameManager.Instance.Runes.FromPhrase(phrase))
+        {
+            Debug.Log(rune.name);
+            Image image = new Image() { sprite = rune.sprite };
+            image.AddToClassList("rune-phrase-element");
+            _selectedRunes.Add(image);
+            
+        }
+        if (AbilityManifest.TryLookup(RunePhrase, out AbilityDefinition definition))
+        {
+            _abilityName.text = definition.Name;
+        }
+        else
+        {
+            _abilityName.text = "";
         }
     }
 

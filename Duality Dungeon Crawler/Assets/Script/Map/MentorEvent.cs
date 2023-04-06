@@ -19,9 +19,18 @@ public class MentorEvent : MapEvent
         {
             _isFirst = false;
             First.Display();
+            GameManager.Instance.AbilityController.OnAbilityFinished += CheckHarmony;
         }
         
         return false;
+    }
+
+    private void CheckHarmony(AbilityDefinition ability)
+    {
+        if (ability is BalanceAbility)
+        {
+            _hasBalanced = true;
+        }
     }
 
     public override bool OnExit()
@@ -48,7 +57,18 @@ public class MentorEvent : MapEvent
 
     public override bool OnInteract()
     {
-        First.Display();
+        if (_isFirst)
+        {
+            First.Display();
+            _isFirst = false;
+        }
+        else
+        {
+            DialogChain.Dialog(@"
+            The necromancer's eyes open, 
+            ""Go forth and bring harmony to the Sun and Moon.""
+            ".TrimMultiLine(), "Leave").Display();
+        }
         return false;
     }
 
