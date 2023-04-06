@@ -41,33 +41,21 @@ public class MessageController : MonoBehaviour
             yield return CharDelay;
             ScrollLater();
         }
+        GameManager.Instance.StartCoroutine(FadeLabel(label));
     }
 
-    // public void DisplayDialog(string message)
-    // {
-    //     _dialogText.text = string.Empty;
-    //     _messageQueue.Clear();
-    //     message.ToList().ForEach(_messageQueue.Enqueue);
-    //     StartDisplayMessage();
-    // }
-
-    // private void StartDisplayMessage()
-    // {
-    //     if (_messagePrinter != null)
-    //     {
-    //         StopCoroutine(_messagePrinter);
-    //     }
-    //     _messagePrinter = StartCoroutine(DisplayMessage());
-    // }
-
-    // private IEnumerator DisplayMessage()
-    // {
-    //     while (_messageQueue.Count > 0)
-    //     {
-    //         _dialogText.text += _messageQueue.Dequeue();
-    //         yield return new WaitForSeconds(CharDelay);
-    //     }
-    // }
+    private static IEnumerator FadeLabel(Label label)
+    {
+        yield return new WaitForSeconds(10f);
+        Debug.Log($"Opacity: {label.style.opacity.value}");
+        label.style.opacity = 1;
+        while (label.style.opacity.value > 0)
+        {
+            label.style.opacity = label.style.opacity.value - 0.05f;
+            yield return new WaitForSeconds(0.05f);
+        }
+        label.parent.Remove(label);
+    }
 
     private static void ScrollLater()
     {
