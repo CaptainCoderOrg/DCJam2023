@@ -25,14 +25,15 @@ MonoBehaviour:
     <EventHandlers>k__BackingField:
     - {fileID: 11400000, guid: bc722169b0efe4a4797decd4370b3ecb, type: 2}
     - {fileID: 11400000, guid: af6c598c51e3c5549ad56b9361228958, type: 2}
-    <Prefabs>k__BackingField: []
+    <Prefabs>k__BackingField:
+    - {fileID: 6078349100696068221, guid: 4d3058f0136e2b34b894740f69b28dd1, type: 3}
   - <Name>k__BackingField: Enter Sun Temple
     <Key>k__BackingField: ^
     <EventHandlers>k__BackingField:
     - {fileID: 11400000, guid: 2c034069adea63843a6fa9f6523a8c9f, type: 2}
     - {fileID: 11400000, guid: 7984328c5cd82864abb0b8b2bd3ef26a, type: 2}
     <Prefabs>k__BackingField:
-    - {fileID: 5722850626881981022, guid: a727d34ef0ff2f04192baa4555da63b5, type: 3}
+    - {fileID: 6078349100696068221, guid: f61386325d6feae48ad077b4cc62e37d, type: 3}
   - <Name>k__BackingField: Mentor
     <Key>k__BackingField: M
     <EventHandlers>k__BackingField:

@@ -48,7 +48,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 9d250ea28209690498ce0ec9872de6c4, type: 2}
     - {fileID: 11400000, guid: bf44feb2a64d4314ab4fb82f374cbd0c, type: 2}
     <Prefabs>k__BackingField:
-    - {fileID: 5722850626881981022, guid: a727d34ef0ff2f04192baa4555da63b5, type: 3}
+    - {fileID: 6078349100696068221, guid: f61386325d6feae48ad077b4cc62e37d, type: 3}
   - <Name>k__BackingField: Too Bright
     <Key>k__BackingField: .
     <EventHandlers>k__BackingField:

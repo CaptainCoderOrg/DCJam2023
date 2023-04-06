@@ -43,7 +43,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 64e2a0a7de8432141981a7343a683da0, type: 2}
     - {fileID: 11400000, guid: f713a075f8e8f3845959c1cd77818254, type: 2}
     <Prefabs>k__BackingField:
-    - {fileID: 5722850626881981022, guid: a727d34ef0ff2f04192baa4555da63b5, type: 3}
+    - {fileID: 6078349100696068221, guid: 4d3058f0136e2b34b894740f69b28dd1, type: 3}
   - <Name>k__BackingField: Stairs Up
     <Key>k__BackingField: G
     <EventHandlers>k__BackingField:
