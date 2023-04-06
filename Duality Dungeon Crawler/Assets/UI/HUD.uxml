@@ -29,6 +29,9 @@
                     <ui:VisualElement name="SelectedRunes" picking-mode="Ignore" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-direction: row; width: auto; align-items: flex-start; justify-content: flex-start; height: 16px; flex-shrink: 1; max-height: 16px; min-height: 16px; align-self: center; flex-basis: 0;" />
                     <ui:Label tabindex="-1" display-tooltip-when-elided="true" name="AbilityDescription" picking-mode="Ignore" class="shadow-label ability-name" style="flex-wrap: wrap; white-space: normal; font-size: 20px; -unity-text-align: upper-left; justify-content: center; align-items: center;" />
                 </ui:VisualElement>
+                <ui:VisualElement name="RuneNameContainer" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); position: absolute; width: 100%; height: 100%;">
+                    <ui:Label tabindex="-1" display-tooltip-when-elided="true" name="RuneName" class="shadow-label ability-name" />
+                </ui:VisualElement>
             </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>

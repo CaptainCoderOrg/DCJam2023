@@ -17,6 +17,8 @@ public class RuneManifest : ScriptableObject
     private RuneData[] _runes;
     private RuneData[] Runes => _runes.Length == 9 ? _runes : _runes = new []{Yin, Yang, Sun, Moon, Body, Mind, Fear, Calm, Harmony}.OrderBy(rune => rune.RuneIndex).ToArray();
 
+    public RuneData ToRuneData(string phrase) => Runes[int.Parse(phrase)-1];
+
     public IEnumerable<RuneData> FromPhrase(string phrase)
     {
         foreach (char ch in phrase)

@@ -51,7 +51,7 @@ public class FloatAbility : AbilityDefinition
     { 
         if (!player.Effects.HasFlag(PlayerEffect.Light))
         {
-            message = "You must first summon a Light Ball.";
+            message = "You must first summon a Sol's Light.";
             return false;
         }
         message = string.Empty;

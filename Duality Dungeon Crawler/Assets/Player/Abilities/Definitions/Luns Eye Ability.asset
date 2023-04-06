@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e12650a6ddc8224b80de2d404e49b5f, type: 3}
-  m_Name: Float Ability
+  m_Script: {fileID: 11500000, guid: 710519308d097cd4fa76f55c2315f5a9, type: 3}
+  m_Name: Luns Eye Ability
   m_EditorClassIdentifier: 
-  <Name>k__BackingField: Float
-  <Description>k__BackingField: Focus Sol's light into a warm current.
-  <RunePhrase>k__BackingField: 15
-  FloatRemaining: 0
+  <Name>k__BackingField: Lun's Eye
+  <Description>k__BackingField: Peer through Lun's Shade.
+  <RunePhrase>k__BackingField: 59
+  MoonCost: 5

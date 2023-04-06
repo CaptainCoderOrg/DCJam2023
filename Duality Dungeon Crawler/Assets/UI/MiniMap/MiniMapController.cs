@@ -24,7 +24,7 @@ public class MiniMapController : MonoBehaviour
 
     void CheckDisplayMiniMap(AbilityDefinition ability)
     {
-        if (ability is BirdsEyeAbility)
+        if (ability is BirdsEyeAbility || ability is LunsEyeAbility)
         {
             StartCoroutine(FadeIn());
         }

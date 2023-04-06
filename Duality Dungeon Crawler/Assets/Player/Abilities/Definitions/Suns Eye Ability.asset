@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Suns Eye Ability
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Sol's Eye
-  <Description>k__BackingField: Peer through Sol's light.
+  <Description>k__BackingField: Peer through Sol's Light.
   <RunePhrase>k__BackingField: 51
   SunCost: 5

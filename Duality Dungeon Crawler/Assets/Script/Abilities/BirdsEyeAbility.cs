@@ -9,10 +9,11 @@ public class BirdsEyeAbility : AbilityDefinition
     public int SunCost = 5;
     public override IEnumerator OnUse(PlayerData player, Action OnFinish)
     {
-        MessageController.Display("You close your eyes and focus on the ball of light...");
+        MessageController.Display("You close your eyes and focus on the Sol's Light...");
         yield return new WaitForSeconds(1f);
         MessageController.Display("The ball of light expands outward and you can feel the walls nearby.");
         player.Effects |= PlayerEffect.SunsEye;
+        player.Stats.Stat(DualStat.SunMoon).Value -= 5;
         OnFinish();
         yield break;
     }
@@ -21,7 +22,13 @@ public class BirdsEyeAbility : AbilityDefinition
     { 
         if (!player.Effects.HasFlag(PlayerEffect.Light))
         {
-            message = "You must first summon a Light Ball.";
+            message = "You must first summon Sol's Light.";
+            return false;
+        }
+        
+        if (player.Stats.Stat(Stat.Sun) < SunCost)
+        {
+            message = "You do not have enough Moon energy.";
             return false;
         }
         message = string.Empty;

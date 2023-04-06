@@ -11,7 +11,7 @@ public class AbilityGridCellElement : VisualElement
         AddToClassList(AbilityGridElementStyle);
         RegisterCallback<PointerEnterEvent>(HandleDrag);
         RegisterCallback<PointerDownEvent>(HandleClick);
-        RegisterCallback<PointerLeaveEvent>((_) => AbilityGridController.HideHelpText());
+        RegisterCallback<PointerLeaveEvent>(HandleExit);
         AbilityGridController.OnDragEnd += () => IsSelected = false;
 
         // Crazy Hack...
@@ -45,13 +45,26 @@ public class AbilityGridCellElement : VisualElement
         }
         else
         {
-            AbilityGridController.DisplayHelpText();
+            RuneData rune = GameManager.Instance.Runes.ToRuneData(Rune);
+            if (GameManager.Instance.Player.Runes.HasRune(rune))
+            {
+                AbilityGridController.DisplayHelpText(rune);
+                AddToClassList("ability-grid-element-hover");
+            }
         }
+    }
+
+    private void HandleExit(PointerLeaveEvent evt)
+    {
+        AbilityGridController.HideHelpText();
+        RemoveFromClassList("ability-grid-element-hover");
     }
 
     private void Select()
     {
         if (!_isAvailable) { return; }
+        RemoveFromClassList("ability-grid-element-hover");
+        AbilityGridController.HideHelpText();
         AbilityGridController.RunePhrase += Rune;
         IsSelected = true;
     }
