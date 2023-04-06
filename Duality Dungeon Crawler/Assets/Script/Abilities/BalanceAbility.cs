@@ -13,7 +13,7 @@ public class BalanceAbility : AbilityDefinition
         MessageController.Display("You take a deep breath and focus inward.");
         yield return s_StartDelay;
         GameManager.Instance.Player.Effects = 0;
-        MessageController.Display("You energies begin to balance...");
+        MessageController.Display("You energies begin to harmonize...");
         while (true)
         {
             yield return s_Delay;
@@ -28,7 +28,7 @@ public class BalanceAbility : AbilityDefinition
             }
             if (stop) { break; }
         }
-        MessageController.Display("You feel balanced.");
+        MessageController.Display("You feel in harmony.");
         OnFinish();
     }
     public override bool CanCast(PlayerData player, out string message)
@@ -44,7 +44,7 @@ public class BalanceAbility : AbilityDefinition
         {
             if (stat.Value != 0) { return true; }
         }
-        message = "You feel balanced.";
+        message = "You feel in harmony.";
         player.Effects = 0;
         return false;
     }

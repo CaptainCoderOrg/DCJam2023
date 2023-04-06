@@ -1,21 +1,26 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <ui:Template name="Compass" src="project://database/Assets/UI/Compass.uxml?fileID=9197481963319205126&amp;guid=fb6109bdf1145e34b9767f6be89b7506&amp;type=3#Compass" />
-    <ui:Template name="AbilityGrid" src="project://database/Assets/UI/AbilityGrid.uxml?fileID=9197481963319205126&amp;guid=9c9f72a8fa076c546a2a868d15e106af&amp;type=3#AbilityGrid" />
     <ui:Template name="DialogBox" src="project://database/Assets/UI/Dialog/DialogBox.uxml?fileID=9197481963319205126&amp;guid=47c2bc718e4dbe542a02bdfc1ccaddc2&amp;type=3#DialogBox" />
     <ui:Template name="PlayerStats" src="project://database/Assets/UI/PlayerStats/PlayerStats.uxml?fileID=9197481963319205126&amp;guid=1a2386d7b1ddbd54fb7d1b3013f867e5&amp;type=3#PlayerStats" />
+    <ui:Template name="AbilityGrid" src="project://database/Assets/UI/AbilityGrid.uxml?fileID=9197481963319205126&amp;guid=9c9f72a8fa076c546a2a868d15e106af&amp;type=3#AbilityGrid" />
     <Style src="project://database/Assets/UI/message.uss?fileID=7433441132597879392&amp;guid=ce41e7ee686e4564eabd9933b7b6e257&amp;type=3#message" />
     <Style src="project://database/Assets/UI/styles.uss?fileID=7433441132597879392&amp;guid=83ddee421334e8d41af0a574b07b9cf1&amp;type=3#styles" />
     <ui:VisualElement name="Screen" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
         <ui:Instance template="Compass" name="Compass" />
         <ui:VisualElement name="Spacer" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);" />
-        <ui:Instance template="AbilityGrid" name="AbilityGrid" style="align-items: flex-end; flex-direction: column;" />
-        <ui:VisualElement picking-mode="Ignore" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); position: absolute; height: 100%; width: 711px; flex-direction: column-reverse; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+        <ui:Button display-tooltip-when-elided="true" name="OptionsButton" focusable="false" class="gear-button" />
+    </ui:VisualElement>
+    <ui:VisualElement name="RightPanelWrapper" picking-mode="Ignore" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); position: absolute; width: 100%; height: 100%; flex-direction: row;">
+        <ui:VisualElement picking-mode="Ignore" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); position: relative; height: 100%; width: 711px; flex-direction: column-reverse; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
             <ui:VisualElement name="Messages" style="flex-grow: 0; background-color: rgba(255, 255, 255, 0.38); position: relative; left: 0; top: 0; right: 0; bottom: 0; width: auto; height: 100px; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; flex-basis: auto; flex-shrink: 0;">
                 <ui:ScrollView name="MessageContainer" nested-interaction-kind="ForwardScrolling" vertical-scroller-visibility="Hidden" horizontal-scroller-visibility="Hidden" />
             </ui:VisualElement>
             <ui:Instance template="DialogBox" name="DialogBox" style="position: relative; height: 300px; width: auto; left: auto; top: auto; display: none; visibility: visible; flex-basis: auto; flex-grow: 0; flex-shrink: 0; margin-bottom: 10px;" />
         </ui:VisualElement>
-        <ui:Instance template="PlayerStats" name="PlayerStats" style="position: absolute; height: 128px; width: 256px; top: 19px; left: 689px;" />
-        <ui:Button display-tooltip-when-elided="true" name="OptionsButton" focusable="false" class="gear-button" />
+        <ui:VisualElement name="RightPanel" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0); width: 300px; flex-shrink: 0; align-items: flex-end; flex-direction: column; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px; justify-content: space-between;">
+            <ui:Instance template="PlayerStats" name="PlayerStats" style="position: relative; height: 128px; width: 256px; top: auto; left: auto; flex-shrink: 0;" />
+            <ui:VisualElement name="MiniMapTexture" picking-mode="Ignore" style="flex-grow: 0; background-color: rgb(0, 0, 0); width: 128px; height: 128px; flex-basis: auto; flex-shrink: 0; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; background-image: url(&apos;project://database/Assets/Maps/MiniMap.renderTexture?fileID=8400000&amp;guid=6a883a073ea61494eb019d09bfd8fb92&amp;type=2#MiniMap&apos;); align-self: center; opacity: 1; border-left-width: 5px; border-right-width: 5px; border-top-width: 5px; border-bottom-width: 5px; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); border-top-left-radius: 0; border-bottom-left-radius: 0; border-top-right-radius: 0; border-bottom-right-radius: 0; -unity-background-image-tint-color: rgb(255, 255, 255);" />
+            <ui:Instance template="AbilityGrid" name="AbilityGrid" style="align-items: flex-end; flex-direction: column;" />
+        </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>
