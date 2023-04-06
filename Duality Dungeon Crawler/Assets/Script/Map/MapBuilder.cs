@@ -11,6 +11,9 @@ using UnityEditor;
 public class MapBuilder
 {
     private MapData _map;
+    private int MiniMapLayer = LayerMask.NameToLayer("MiniMap");
+    private int WallLayer = LayerMask.NameToLayer("Walls");
+    private int FloorLayer = LayerMask.NameToLayer("Floors");
 
     public MapBuilder(MapData database)
     {
@@ -29,12 +32,29 @@ public class MapBuilder
         eventContainer.transform.SetParent(container);
         eventContainer.transform.localPosition = default;
         BuildFloors(floorContainer.transform, ceilingContainer.transform, eventContainer.transform);
+        SetLayer(floorContainer, FloorLayer);
+
+        GameObject miniMapFloors = GameObject.Instantiate(floorContainer);
+        miniMapFloors.name = "MiniMap Floors";
+        miniMapFloors.transform.SetParent(container);
+        miniMapFloors.transform.localPosition = default;
+        SetLayer(miniMapFloors, MiniMapLayer);
+
 
         GameObject wallContainer = new("Walls");
         wallContainer.transform.SetParent(container);
         wallContainer.transform.localPosition = default;
         BuildWalls(wallContainer.transform);
+        SetLayer(wallContainer, WallLayer);
 
+    }
+    private void SetLayer(GameObject go, int layer)
+    {
+        go.layer = layer;
+        foreach (Transform child in go.transform)
+        {
+            SetLayer(child.gameObject, layer);
+        }
     }
 
     private float RowOffset(Direction direction)
