@@ -5,11 +5,8 @@ using CaptainCoder.Audio;
 
 public class GameManager : MonoBehaviour
 {
-    #if UNITY_EDITOR
+    
     public bool _resetOnStart = false;
-    #else
-    public bool _resetOnStart = true;
-    #endif
     private static Queue<Action> OnReady = new();
 
     // This hack is insane, don't do this
@@ -49,7 +46,12 @@ public class GameManager : MonoBehaviour
 
     public void Start()
     {
-        if (_resetOnStart) { ResetData(); }
+        #if UNITY_EDITOR
+            if (_resetOnStart) { ResetData(); }
+        #else
+            ResetData();
+        #endif
+        
         Player.NotifyObservers();
         foreach (PlayerStat stat in PlayerStats.Stats)
         {
@@ -61,7 +63,7 @@ public class GameManager : MonoBehaviour
     {
         PlayerMovementController.Instance.CurrentMap = EntranceMap;
         PlayerMovementController.Instance.Position = (2, 2);
-        PlayerMovementController.Instance.Facing = Direction.North;
+        PlayerMovementController.Instance.Facing = Direction.East;
         Player.ResetData();
     }
 
