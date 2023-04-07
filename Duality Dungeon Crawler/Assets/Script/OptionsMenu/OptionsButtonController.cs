@@ -7,6 +7,7 @@ using static UnityEngine.InputSystem.InputAction;
 public class OptionsButtonController : MonoBehaviour
 {
     public OptionsMenuController OptionsMenu;
+    public SpellBookController SpellBook;
     private UIDocument _document;
     
     
@@ -14,9 +15,19 @@ public class OptionsButtonController : MonoBehaviour
     public void Awake()
     {
         _document = GetComponent<UIDocument>();
-        Button optionsButton = _document.rootVisualElement.Q<Button>("OptionsButton");
-        optionsButton.clicked += OptionsMenu.ToggleMenu;
+        RegisterButton("OptionsButton", "OptionsLabel", OptionsMenu.ToggleMenu);
+        RegisterButton("SpellsButton", "SpellsLabel", SpellBook.ToggleSpellBook);
 
+    }
+
+    public void RegisterButton(string buttonName, string labelName, System.Action action)
+    {
+        Button button = _document.rootVisualElement.Q<Button>(buttonName);
+        button.clicked += action;
+        Label label = _document.rootVisualElement.Q<Label>(labelName);
+        label.style.display = DisplayStyle.None;
+        button.RegisterCallback<PointerEnterEvent>((_) => label.style.display = DisplayStyle.Flex);
+        button.RegisterCallback<PointerLeaveEvent>((_) => label.style.display = DisplayStyle.None);
     }
 
 }
