@@ -20,3 +20,5 @@ MonoBehaviour:
   <LunsEye>k__BackingField: {fileID: 8300000, guid: 02f8837b93755ef4a9bbcd694ebe47a4, type: 3}
   <SolsEye>k__BackingField: {fileID: 8300000, guid: 349d73bc1c1135c4f883fc926d5eb39d, type: 3}
   <DensitySpell>k__BackingField: {fileID: 8300000, guid: 02f8837b93755ef4a9bbcd694ebe47a4, type: 3}
+  <SpikesExtend>k__BackingField: {fileID: 8300000, guid: 29364babfa0111240b259d7b35739e4b, type: 3}
+  <SpikesRetract>k__BackingField: {fileID: 8300000, guid: 88f62ee71822705458e8c50f105b6ee6, type: 3}

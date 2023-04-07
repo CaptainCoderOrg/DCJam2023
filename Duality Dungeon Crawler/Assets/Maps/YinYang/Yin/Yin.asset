@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <TextData>k__BackingField: {fileID: 4900000, guid: 73736449d0d777b409a457565e5ceaef, type: 3}
   _cellEntries:
-  - <Key>k__BackingField: .
+  - <Key>k__BackingField: .S
     <Value>k__BackingField: {fileID: 2335308055764904564, guid: f5c8dbd6cf8e99b43bd537567a85a4e9, type: 3}
   - <Key>k__BackingField: ',HVL'
     <Value>k__BackingField: {fileID: 2335308055764904564, guid: 84d23286dd51c9b498537e293b429918, type: 3}
@@ -27,7 +27,7 @@ MonoBehaviour:
     <Value>k__BackingField: {fileID: 7744616278776981774, guid: 48fd737bc39773148a783bd4c11e5812, type: 3}
   - <Key>k__BackingField: '*'
     <Value>k__BackingField: {fileID: 7744616278776981774, guid: cc9a260a1211b9f4aa7401f84a4c4388, type: 3}
-  - <Key>k__BackingField: '|'
+  - <Key>k__BackingField: '|-'
     <Value>k__BackingField: {fileID: 7744616278776981774, guid: 3283500875d58e44f86dd2216d8ed561, type: 3}
   _cellEvents:
   - <Name>k__BackingField: Yin Rune Statue
@@ -55,4 +55,9 @@ MonoBehaviour:
     <EventHandlers>k__BackingField:
     - {fileID: 11400000, guid: e299c4966452f834880b1c1d33533c79, type: 2}
     <Prefabs>k__BackingField: []
+  - <Name>k__BackingField: Spike
+    <Key>k__BackingField: S
+    <EventHandlers>k__BackingField: []
+    <Prefabs>k__BackingField:
+    - {fileID: 5663278329609582704, guid: eb2bb48ca602a8c488396eec9a2dccfe, type: 3}
   _positionEvent: []

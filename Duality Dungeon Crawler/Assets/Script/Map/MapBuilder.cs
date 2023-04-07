@@ -120,6 +120,13 @@ public class MapBuilder
                 foreach (GameObject prefab in entry.Prefabs)
                 {
                     GameObject eventObj = PrefabUtility.InstantiatePrefab(prefab) as GameObject; //, eventContainer);
+                    SpikeTrapController c = eventObj.GetComponent<SpikeTrapController>();
+                    if (c != null)
+                    {
+                        // c.Position = new MutablePosition();
+                        c.Position.Row = position.Row;
+                        c.Position.Col = position.Col;
+                    }
                     eventObj.name = $"{entry.Name} - {position}";
                     eventObj.transform.SetParent(eventContainer);
                     eventObj.transform.localPosition = new Vector3(position.Row * PlayerMovementController.GridCellSize, 0, position.Col * PlayerMovementController.GridCellSize);

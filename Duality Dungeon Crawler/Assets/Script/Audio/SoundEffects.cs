@@ -24,5 +24,9 @@ public class SoundEffects : ScriptableObject
     public AudioClip SolsEye { get; private set; }
     [field: SerializeField]
     public AudioClip DensitySpell { get; private set; }
+    [field: SerializeField]
+    public AudioClip SpikesExtend { get; private set; }
+    [field: SerializeField]
+    public AudioClip SpikesRetract { get; private set; }
 
 }

@@ -47,7 +47,7 @@ namespace CaptainCoder.Audio
             }
         }
 
-        private event System.Action<float> OnSFXVolumeChange;
+        public event System.Action<float> OnSFXVolumeChange;
 
         private float? _sfxVolume;
         public float SFXVolume 
