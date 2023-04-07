@@ -12,9 +12,11 @@ public class TeleportEvent : MapEvent
     public Direction Facing { get; private set; }
     [field: SerializeField]
     public string Message { get; private set; }
+    public AudioClip TeleportSound;
 
     public override bool OnInteract()
     {
+        SoundEffectController.PlaySFX(TeleportSound);
         var player = PlayerMovementController.Instance;
         player.CurrentMap = GameManager.Instance.GetMap(Target);
         player.Position = Position.Freeze();

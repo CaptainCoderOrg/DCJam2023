@@ -18,13 +18,18 @@ public class OptionsMenuController : MonoBehaviour
         musicVolume.value = MusicController.Instance.MusicVolume * 100;
         musicVolume.RegisterValueChangedCallback(UpdateMusicVolume);
         Slider soundVolume = _document.rootVisualElement.Q<Slider>("SoundVolume");
-        // soundVolume.RegisterValueChangedCallback(UpdateSoundVolume);
+        soundVolume.RegisterValueChangedCallback(UpdateSoundVolume);
         Button quitButton = _document.rootVisualElement.Q<Button>("QuitButton");
     }
 
     private void UpdateMusicVolume(ChangeEvent<float> evt)
     {
         MusicController.Instance.MusicVolume = evt.newValue / 100;
+    }
+
+    private void UpdateSoundVolume(ChangeEvent<float> evt)
+    {
+        MusicController.Instance.SFXVolume = evt.newValue / 100;
     }
 
     public void OnEnable()

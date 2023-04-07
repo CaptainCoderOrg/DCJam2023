@@ -47,6 +47,27 @@ namespace CaptainCoder.Audio
             }
         }
 
+        private event System.Action<float> OnSFXVolumeChange;
+
+        private float? _sfxVolume;
+        public float SFXVolume 
+        { 
+            get 
+            {
+                if (_sfxVolume == null)
+                {
+                    _sfxVolume = PlayerPrefs.GetFloat("SFXVolume", .5f);
+                }
+                return _sfxVolume.Value; 
+            } 
+            set
+            {
+                _sfxVolume = Mathf.Clamp(value, 0, 1);
+                PlayerPrefs.SetFloat("SFXVolume", _sfxVolume.Value);
+                OnSFXVolumeChange?.Invoke(_sfxVolume.Value);
+            }
+        }
+
         public int MenuTrack = 0;
         public int VictoryTrack = 1;
 
@@ -92,6 +113,29 @@ namespace CaptainCoder.Audio
                 _playingAudio = _queuedAudio;
                 _queuedAudio = temp;
             }
+        }
+
+        public AudioSource PlaySFX(AudioClip clip)
+        {
+            GameObject sfx = new (clip.name);
+            AudioSource source = sfx.AddComponent<AudioSource>();
+            source.clip = clip;
+            source.volume = SFXVolume;
+            source.Play();
+            void AdjustVolume(float volume)
+            {
+                source.volume = volume;
+            }
+            OnSFXVolumeChange += AdjustVolume;
+            source.loop = false;
+            IEnumerator DestroySource()
+            {
+                yield return new WaitForSeconds(clip.length + 0.05f);
+                OnSFXVolumeChange -= AdjustVolume;
+                GameObject.Destroy(sfx);
+            }
+            StartCoroutine(DestroySource());            
+            return source;
         }
 
         protected void Awake()

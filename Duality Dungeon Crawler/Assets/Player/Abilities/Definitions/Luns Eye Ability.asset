@@ -15,4 +15,5 @@ MonoBehaviour:
   <Name>k__BackingField: Lun's Eye
   <Description>k__BackingField: Peer through Lun's Shade.
   <RunePhrase>k__BackingField: 59
+  <CastSound>k__BackingField: {fileID: 8300000, guid: 02f8837b93755ef4a9bbcd694ebe47a4, type: 3}
   MoonCost: 5

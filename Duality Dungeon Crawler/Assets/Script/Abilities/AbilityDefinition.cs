@@ -11,6 +11,8 @@ public class AbilityDefinition : ScriptableObject
     public string Description { get; private set; }
     [field: SerializeField]
     public string RunePhrase { get; private set; }
+    [field: SerializeField]
+    public AudioClip CastSound { get; private set; }
 
     public virtual IEnumerator OnUse(PlayerData player, System.Action OnFinish)
     {

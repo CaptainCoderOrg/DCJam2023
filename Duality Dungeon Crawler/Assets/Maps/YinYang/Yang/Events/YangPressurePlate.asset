@@ -19,3 +19,4 @@ MonoBehaviour:
   GameObjectName: (4, 13, West) - GateWall(Clone)
   OpenMessage: Click! The gate opens.
   CloseMessage: Click! The gate closes.
+  ClickSound: {fileID: 8300000, guid: 89a7748179df2244daaaf12faea692e3, type: 3}

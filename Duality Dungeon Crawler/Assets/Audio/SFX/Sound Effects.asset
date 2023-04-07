@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3371a3927017eec49aad12adde55b728, type: 3}
+  m_Name: Sound Effects
+  m_EditorClassIdentifier: 
+  <WallBump>k__BackingField: {fileID: 8300000, guid: 9977a9487637c104a99bbcdf24a641bd, type: 3}
+  <HarmonySpell>k__BackingField: {fileID: 8300000, guid: 94cee5ac3e3b94e4f818c16b927786dc, type: 3}
+  <ShadeSpell>k__BackingField: {fileID: 8300000, guid: 02f8837b93755ef4a9bbcd694ebe47a4, type: 3}
+  <LightSpell>k__BackingField: {fileID: 8300000, guid: 349d73bc1c1135c4f883fc926d5eb39d, type: 3}
+  <FloatSpell>k__BackingField: {fileID: 8300000, guid: 349d73bc1c1135c4f883fc926d5eb39d, type: 3}
+  <LunsEye>k__BackingField: {fileID: 8300000, guid: 02f8837b93755ef4a9bbcd694ebe47a4, type: 3}
+  <SolsEye>k__BackingField: {fileID: 8300000, guid: 349d73bc1c1135c4f883fc926d5eb39d, type: 3}
+  <DensitySpell>k__BackingField: {fileID: 8300000, guid: 02f8837b93755ef4a9bbcd694ebe47a4, type: 3}

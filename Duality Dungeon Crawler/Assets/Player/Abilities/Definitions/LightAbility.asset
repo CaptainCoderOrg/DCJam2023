@@ -15,4 +15,5 @@ MonoBehaviour:
   <Name>k__BackingField: Sol's Light
   <Description>k__BackingField: Summons a ball of light
   <RunePhrase>k__BackingField: 1
+  <CastSound>k__BackingField: {fileID: 8300000, guid: 349d73bc1c1135c4f883fc926d5eb39d, type: 3}
   <SunCost>k__BackingField: 20

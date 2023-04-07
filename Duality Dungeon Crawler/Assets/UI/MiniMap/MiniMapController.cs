@@ -18,8 +18,9 @@ public class MiniMapController : MonoBehaviour
     void Start()
     {
         GameManager.Instance.AbilityController.OnAbilityFinished += CheckDisplayMiniMap;
-        PlayerMovementController.Instance.OnPositionChange += (_) => HideOverlay();
-        PlayerMovementController.Instance.OnDirectionChange += (_) => HideOverlay();
+        PlayerMovementController.Instance.OnPositionChange += (_) => CheckFlag();
+        PlayerMovementController.Instance.OnDirectionChange += (_) => CheckFlag();
+        // GameManager.Instance.Player.OnEffectChange += (_) => CheckFlag();
     }
 
     void CheckDisplayMiniMap(AbilityDefinition ability)
@@ -52,12 +53,21 @@ public class MiniMapController : MonoBehaviour
 
     void HideOverlay()
     {
+        if (Opacity > 0)
+        {
+            StartCoroutine(FadeOut());
+        }
+    }
+
+    private void CheckFlag()
+    {
         if (Player.Effects.HasFlag(PlayerEffect.SunsEye))
         {
             Player.Effects &= ~PlayerEffect.SunsEye;
             MessageController.Display("You open your eyes.");
-            StartCoroutine(FadeOut());
+            
         }
+        HideOverlay();
     }
 
     private float Opacity 

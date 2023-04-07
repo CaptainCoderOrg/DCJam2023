@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,16 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "PlayerData", menuName = "BodyMind/Player Data")]
 public class PlayerData : ScriptableObject
 {
+    public event System.Action<PlayerEffect> OnEffectChange;
+    public void OnEnable()
+    {
+        if (OnEffectChange == null) { return; }
+        foreach (Delegate d in OnEffectChange.GetInvocationList())
+        {
+            OnEffectChange -= (Action<PlayerEffect>)d;
+        }
+    }
+
     [NaughtyAttributes.OnValueChanged("NotifyObservers")]
     public PlayerStats Stats;
     [NaughtyAttributes.OnValueChanged("NotifyObservers")]
@@ -12,13 +23,23 @@ public class PlayerData : ScriptableObject
     [NaughtyAttributes.OnValueChanged("NotifyObservers")]
     public PlayerRunes Runes;
     [NaughtyAttributes.OnValueChanged("NotifyObservers")]
-    public PlayerEffect Effects;
+    [SerializeField]
+    private PlayerEffect _effects;
+    public PlayerEffect Effects { 
+        get => _effects; 
+        set
+        {
+            _effects = value;
+            OnEffectChange?.Invoke(_effects);
+        }
+    }
 
     [Header("Drag a Player Data here to copy values.")]
     public PlayerData SetValues;
 
     public void NotifyObservers()
     {
+        OnEffectChange?.Invoke(_effects);
         Stats?.NotifyObservers();
         Abilities?.NotifyObservers();
         Runes?.NotifyObservers();

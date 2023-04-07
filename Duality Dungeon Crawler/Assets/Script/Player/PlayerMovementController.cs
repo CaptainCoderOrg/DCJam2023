@@ -216,7 +216,9 @@ public class PlayerMovementController : MonoBehaviour
     private void IllegalMove()
     {
         // TODO: Play bump sound / animation
+        GameManager.Instance.SoundEffects.WallBump.Play();
     }
+    
     private Position MovePosition(InputType type)
     {
         return type switch

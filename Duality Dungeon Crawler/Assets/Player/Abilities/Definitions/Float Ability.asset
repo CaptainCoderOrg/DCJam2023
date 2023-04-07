@@ -15,4 +15,5 @@ MonoBehaviour:
   <Name>k__BackingField: Float
   <Description>k__BackingField: Focus Sol's light into a warm current.
   <RunePhrase>k__BackingField: 15
+  <CastSound>k__BackingField: {fileID: 8300000, guid: 349d73bc1c1135c4f883fc926d5eb39d, type: 3}
   FloatRemaining: 0

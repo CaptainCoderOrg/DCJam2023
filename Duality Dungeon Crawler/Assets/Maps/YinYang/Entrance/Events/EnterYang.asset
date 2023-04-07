@@ -19,3 +19,4 @@ MonoBehaviour:
   <Facing>k__BackingField: 0
   <Message>k__BackingField: A cold air envelopes you and you are surrounded by darkness.
     After a moment, you find yourself somewhere new.
+  TeleportSound: {fileID: 8300000, guid: 153f241bed648f04fb31aa1ab7bdb751, type: 3}

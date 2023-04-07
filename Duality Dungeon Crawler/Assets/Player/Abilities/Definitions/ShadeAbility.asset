@@ -15,4 +15,5 @@ MonoBehaviour:
   <Name>k__BackingField: Lun's Shade
   <Description>k__BackingField: Summons a protective shade.
   <RunePhrase>k__BackingField: 9
+  <CastSound>k__BackingField: {fileID: 8300000, guid: 02f8837b93755ef4a9bbcd694ebe47a4, type: 3}
   <MoonCost>k__BackingField: 20

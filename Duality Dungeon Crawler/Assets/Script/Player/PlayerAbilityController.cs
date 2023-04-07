@@ -8,6 +8,7 @@ public class PlayerAbilityController : MonoBehaviour
     public bool IsCasting { get; private set; }
 
     private Coroutine _coroutine;
+    private AudioSource _currentClip;
 
     public void UseAbility(AbilityDefinition ability)
     {
@@ -23,8 +24,15 @@ public class PlayerAbilityController : MonoBehaviour
             return;
         }
         IsCasting = true;
+        PlayAudio(ability);
         _coroutine = StartCoroutine(ability.OnUse(GameManager.Instance.Player, () => FinishCasting(ability)));
         RegisterInterrupt();
+    }
+
+    private void PlayAudio(AbilityDefinition ability)
+    {
+        if (ability.CastSound == null) { Debug.LogWarning($"No cast sound on {ability.Name}");}
+        _currentClip = ability.CastSound?.Play();
     }
 
     private void CancelOnPositionChange(Position p) => InterruptCasting();
@@ -41,6 +49,7 @@ public class PlayerAbilityController : MonoBehaviour
         if (_coroutine != null)
         {
             MessageController.Display("You lose concentration...");
+            _currentClip?.Stop();
             StopCoroutine(_coroutine);
             _coroutine = null;
         }

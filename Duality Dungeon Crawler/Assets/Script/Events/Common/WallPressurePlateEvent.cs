@@ -14,6 +14,7 @@ public class WallPressurePlate : MapEvent
     private DialogController Dialog => DialogController.Instance;
     private GameObject _gate;
     private bool _isHeld = false;
+    public AudioClip ClickSound;
     private GameObject Wall
     {
         get
@@ -34,6 +35,7 @@ public class WallPressurePlate : MapEvent
         {
             Wall.SetActive(false);
             MessageController.Display(OpenMessage);
+            SoundEffectController.PlaySFX(ClickSound);
             IWall wall = GameManager.Instance.YangMap.MapData.Grid.WallAt(Position.Freeze(), Facing);
             wall.IsPassable = true;
             GameManager.Instance.AbilityController.OnAbilityFinished += CheckForMoonBall;
@@ -47,6 +49,7 @@ public class WallPressurePlate : MapEvent
         {
             Wall.SetActive(true);
             MessageController.Display(CloseMessage);
+            SoundEffectController.PlaySFX(ClickSound);
             IWall wall = GameManager.Instance.YangMap.MapData.Grid.WallAt(Position.Freeze(), Facing);
             wall.IsPassable = false;
         }

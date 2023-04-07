@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour
     public RuneManifest Runes;
     public PlayerAbilityController AbilityController;
     public MusicTrackDatabase MusicTracks;
+    public SoundEffects SoundEffects;
 
     public void Awake()
     {
