@@ -11,6 +11,7 @@ public class TooBrightEvent : MapEvent
         if (Player.Effects.HasFlag(PlayerEffect.Shade)) { return false; }
         MessageController.Display("There is a blinding light in this area that is overwhelming.");
         Player.Stats.Stat(DualStat.SunMoon).Value += 10;        
+        GameManager.Instance.PainFlashController.ShowPain(Color.black, Color.white);
         return false;
     }
 

@@ -64,8 +64,8 @@ public class SpikeTrapController : MonoBehaviour
         if (PlayerMovementController.Instance.Position == Position.Freeze())
         {
             MessageController.Display("Ouch!");
-            GameManager.Instance.PlayerStats.Stat(DualStat.BodyMind).Value -= 10;
-            
+            GameManager.Instance.PlayerStats.Stat(DualStat.BodyMind).Value -= 20;
+            GameManager.Instance.Hurt();
         }
     }
 

@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
     public PlayerAbilityController AbilityController;
     public MusicTrackDatabase MusicTracks;
     public SoundEffects SoundEffects;
+    public PainFlashController PainFlashController;
 
     public void Awake()
     {
@@ -64,7 +65,7 @@ public class GameManager : MonoBehaviour
     {
         PlayerMovementController.Instance.CurrentMap = EntranceMap;
         PlayerMovementController.Instance.Position = (2, 2);
-        PlayerMovementController.Instance.Facing = Direction.East;
+        PlayerMovementController.Instance.Facing = Direction.East; 
         Player.ResetData();
     }
 
@@ -96,6 +97,11 @@ public class GameManager : MonoBehaviour
             Location.Yin => YinMap,
             _ => throw new NotImplementedException($"Could not load map {target}"),
         };
+    }
+
+    public void Hurt()
+    {
+        PainFlashController.ShowPain(Color.white, Color.red);
     }
 }
 

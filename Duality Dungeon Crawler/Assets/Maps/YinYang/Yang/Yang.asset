@@ -51,7 +51,7 @@ MonoBehaviour:
     <Prefabs>k__BackingField:
     - {fileID: 5722850626881981022, guid: a727d34ef0ff2f04192baa4555da63b5, type: 3}
   - <Name>k__BackingField: Too Dark Event
-    <Key>k__BackingField: .
+    <Key>k__BackingField: .P
     <EventHandlers>k__BackingField:
     - {fileID: 11400000, guid: 8e5ae601316d9d84f863277f81573e09, type: 2}
     <Prefabs>k__BackingField: []

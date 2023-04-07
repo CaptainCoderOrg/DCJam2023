@@ -82,8 +82,12 @@ public class MapData : ScriptableObject
                 {
                     foreach (char ch in e.Key)
                     {
-                        Debug.Assert(!_cellEventsDict.ContainsKey(ch), $"Event Entry List contains duplicate entry for character '{ch}'");
-                        _cellEventsDict[ch] = e;
+                        // Debug.Assert(!_cellEventsDict.ContainsKey(ch), $"Event Entry List contains duplicate entry for character '{ch}'");
+                        IEventEntry entry = _cellEventsDict.GetValueOrDefault(ch, new CompoundIEventEntry());
+                        (entry as CompoundIEventEntry).Name += $"{e.Name} ";
+                        (entry as CompoundIEventEntry).EventHandlers.AddRange(e.EventHandlers);
+                        (entry as CompoundIEventEntry).Prefabs.AddRange(e.Prefabs);
+                        _cellEventsDict[ch] = entry;
                     }
                 }
             }
@@ -155,6 +159,13 @@ public class MapData : ScriptableObject
         public List<MapEvent> EventHandlers { get; }
         public List<GameObject> Prefabs { get; }
         public string Name { get; }
+    }
+
+    public class CompoundIEventEntry : IEventEntry
+    {
+        public List<MapEvent> EventHandlers { get; set; } = new();
+        public List<GameObject> Prefabs { get; set; } = new();
+        public string Name { get; set; } = string.Empty;
     }
 
     [System.Serializable]

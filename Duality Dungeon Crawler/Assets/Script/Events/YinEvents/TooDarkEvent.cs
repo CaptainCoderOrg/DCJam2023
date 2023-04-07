@@ -11,6 +11,7 @@ public class TooDarkEvent : MapEvent
         if (Player.Effects.HasFlag(PlayerEffect.Light)) { return false; }
         MessageController.Display("There is an overwhelming darkness in this area. Your Sun energy fades...");
         Player.Stats.Stat(DualStat.SunMoon).Value -= 10;
+        GameManager.Instance.PainFlashController.ShowPain(Color.white, Color.black);
         return false;
     }
 

@@ -14,11 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <TextData>k__BackingField: {fileID: 4900000, guid: 73736449d0d777b409a457565e5ceaef, type: 3}
   _cellEntries:
-  - <Key>k__BackingField: .S
+  - <Key>k__BackingField: .SD
     <Value>k__BackingField: {fileID: 2335308055764904564, guid: f5c8dbd6cf8e99b43bd537567a85a4e9, type: 3}
   - <Key>k__BackingField: ',HVL'
-    <Value>k__BackingField: {fileID: 2335308055764904564, guid: 84d23286dd51c9b498537e293b429918, type: 3}
-  - <Key>k__BackingField: D
     <Value>k__BackingField: {fileID: 2335308055764904564, guid: 84d23286dd51c9b498537e293b429918, type: 3}
   _wallEntries:
   - <Key>k__BackingField: '#'
@@ -51,7 +49,7 @@ MonoBehaviour:
     <Prefabs>k__BackingField:
     - {fileID: 6078349100696068221, guid: f61386325d6feae48ad077b4cc62e37d, type: 3}
   - <Name>k__BackingField: Too Bright
-    <Key>k__BackingField: .
+    <Key>k__BackingField: .S
     <EventHandlers>k__BackingField:
     - {fileID: 11400000, guid: e299c4966452f834880b1c1d33533c79, type: 2}
     <Prefabs>k__BackingField: []
