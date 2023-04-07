@@ -14,7 +14,6 @@ public class StatMeterController : MonoBehaviour
         RegisterMeter("BodyMindMeter", GameManager.Instance.PlayerStats.Stat(DualStat.BodyMind));
         RegisterMeter("SunMoonMeter", GameManager.Instance.PlayerStats.Stat(DualStat.SunMoon));
         RegisterMeter("YinYangMeter", GameManager.Instance.PlayerStats.Stat(DualStat.YinYang));
-        RegisterMeter("RageCalmMeter", GameManager.Instance.PlayerStats.Stat(DualStat.RageCalm));
     }
 
     private void RegisterMeter(string label, PlayerStat toObserve)

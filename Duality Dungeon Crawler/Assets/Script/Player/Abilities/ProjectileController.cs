@@ -5,8 +5,10 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class ProjectileController : MonoBehaviour
 {
+    private static int _playerLayer = 0;
     private static int _wallLayer = 0;
     private static int WallLayer => _wallLayer == 0 ? (_wallLayer = LayerMask.NameToLayer("Walls")) : _wallLayer;
+    private static int PlayerLayer => _playerLayer == 0 ? (_playerLayer = LayerMask.NameToLayer("Player")) : _playerLayer;
     [field: SerializeField]
     public bool IsFire { get; set; } = false;
     [field: SerializeField]
@@ -40,9 +42,19 @@ public class ProjectileController : MonoBehaviour
         {
             Explode();
         }
+        if (collider.gameObject.layer == PlayerLayer && IsEnergy)
+        {
+            Explode();
+            MessageController.Display("Ouch!");
+            GameManager.Instance.Hurt();
+            GameManager.Instance.Player.Stats.Stat(DualStat.BodyMind).Value -= 10;
+            GameManager.Instance.Player.Stats.Stat(DualStat.SunMoon).Value += 15;
+            GameManager.Instance.Player.Stats.Stat(DualStat.YinYang).Value += 5;
+            SoundEffectController.PlaySFX(GameManager.Instance.SoundEffects.Hurt);    
+        }
     }
 
-    private void Explode()
+    public void Explode()
     {
         Velocity = 0;
         ExplodeSound?.Play();

@@ -23,7 +23,7 @@ public class PedestalPressurePlate : MapEvent
             PedestalController.Pedestals[PedestalPosition.Freeze()].IsFiring = true;
             GameManager.Instance.AbilityController.OnAbilityFinished += CheckForMoonBall;
         }
-        return false;   
+        return false;
     }
 
     public override bool OnExit()
@@ -33,6 +33,7 @@ public class PedestalPressurePlate : MapEvent
             MessageController.Display("Click!");
             SoundEffectController.PlaySFX(ClickSound);
             PedestalController.Pedestals[PedestalPosition.Freeze()].IsFiring = false;
+            PedestalController.Pedestals[PedestalPosition.Freeze()].DestroyBalls();
         }
         GameManager.Instance.AbilityController.OnAbilityFinished -= CheckForMoonBall;
         return false;
@@ -43,7 +44,19 @@ public class PedestalPressurePlate : MapEvent
         if (ability is MoonBallAbility)
         {
             MessageController.Display($"The ball holds the pressure plate in place.");
+            GameManager.Instance.AbilityController.OnAbilityFinished += RemoveMoonBall;
             _isHeld = true;
+        }
+    }
+
+    private void RemoveMoonBall(AbilityDefinition ability)
+    {
+        if (ability is MoonBallAbility)
+        {
+            _isHeld = false;
+            GameManager.Instance.AbilityController.OnAbilityFinished -= RemoveMoonBall;
+            PedestalController.Pedestals[PedestalPosition.Freeze()].IsFiring = false;
+            PedestalController.Pedestals[PedestalPosition.Freeze()].DestroyBalls();
         }
     }
 

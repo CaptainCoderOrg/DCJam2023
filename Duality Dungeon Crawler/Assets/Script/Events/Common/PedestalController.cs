@@ -63,11 +63,24 @@ public class PedestalController : MonoBehaviour
         }
     }
 
+    private ProjectileController _toDestroy;
+
+    public void DestroyBalls()
+    {
+        if (_toDestroy != null)
+        {
+            _toDestroy.Explode();
+            _toDestroy = null;
+        }
+    }
+
     public IEnumerator Fire()
     {
         ProjectileController ball = Instantiate(EnergyBall);
+        _toDestroy = ball;
         ball.transform.SetParent(PlayerMovementController.Instance.CurrentMap.transform);
-        Vector3 p = transform.position;
+        Position pos = Direction.MovePosition();
+        Vector3 p = transform.position + new Vector3(pos.Row, 0, pos.Col);
         // p.y = 2.5f;
         // p.x += 
         ball.transform.position = p;

@@ -11,7 +11,8 @@ public class PedestalEvent : MapEvent
 
     public override bool OnEnter()
     {
-        
+        CheckFacing();
+        PlayerMovementController.Instance.OnDirectionChange += CheckFacing;
         if (Controller.IsLit)
         {
             MessageController.Display($"This pedestal is lit!");
@@ -20,6 +21,12 @@ public class PedestalEvent : MapEvent
         {
             MessageController.Display($"A pedestal with a carving of a flame on it is here.");
         }
+        return false;
+    }
+
+    public override bool OnExit()
+    {
+        PlayerMovementController.Instance.OnDirectionChange -= CheckFacing;
         return false;
     }
 
@@ -36,8 +43,23 @@ public class PedestalEvent : MapEvent
 
     private Action RotatePedestal => () => 
     {
+        CheckFacing();
         Controller.Rotate();
     };
+
+    private void CheckFacing(Direction d) => CheckFacing();
+
+    private void CheckFacing()
+    {
+        if (PlayerMovementController.Instance.Facing != Controller.Direction.RotateClockwise().RotateClockwise())
+        {
+            PlayerMovementController.Instance.PlayerCollider.gameObject.SetActive(false);
+        }
+        else
+        {
+            PlayerMovementController.Instance.PlayerCollider.gameObject.SetActive(true);
+        }
+    }
     private Action Nothing => () => {};
 
 }

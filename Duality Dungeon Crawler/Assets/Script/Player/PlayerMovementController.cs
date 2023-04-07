@@ -9,6 +9,7 @@ using CaptainCoder.Audio;
 
 public class PlayerMovementController : MonoBehaviour
 {
+    public Collider PlayerCollider;
     public event Action<Direction> OnDirectionChange;
     public event Action<Position> OnPositionChange;
     public static PlayerMovementController Instance { get; private set; }
@@ -44,6 +45,7 @@ public class PlayerMovementController : MonoBehaviour
         get => _position.Freeze();
         set
         {
+            PlayerCollider.gameObject.SetActive(true);
             _position = new MutablePosition { Row = value.Row, Col = value.Col };
             PositionCamera();
             OnPositionChange?.Invoke(_position);
