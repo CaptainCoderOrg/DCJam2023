@@ -22,6 +22,7 @@ public class TeleportEvent : MapEvent
         player.CurrentMap = GameManager.Instance.GetMap(Target);
         player.Position = Position.Freeze();
         player.Facing = Facing;
+        GameManager.Instance.Player.Effects &= ~SetEffect;
         if (Message != null && Message != string.Empty)
         {
             MessageController.Display(Message);

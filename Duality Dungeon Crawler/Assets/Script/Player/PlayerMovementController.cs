@@ -37,7 +37,7 @@ public class PlayerMovementController : MonoBehaviour
             }
         }
     }
-    [SerializeField]
+    [SerializeField] 
     private MutablePosition _position;
     public Position Position
     {

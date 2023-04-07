@@ -37,6 +37,7 @@ public class YinYangAbility : AbilityDefinition
                     PlayerMovementController.Instance.CurrentMap = GameManager.Instance.BodyMap;
                     PlayerMovementController.Instance.Position = (5, 1);
                     PlayerMovementController.Instance.Facing = Direction.East;
+                    GameManager.Instance.Player.Effects &= ~PlayerEffect.OnSolPortal;
                 };
                 DialogController.Instance.SetOptions(
                     ("Enter Portal", Enter.ThenCloseDialog()),

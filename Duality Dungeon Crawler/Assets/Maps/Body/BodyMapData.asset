@@ -53,7 +53,7 @@ MonoBehaviour:
     <EventHandlers>k__BackingField:
     - {fileID: 11400000, guid: 82b753acdc1c9714896937a6b8d93e1d, type: 2}
     <Prefabs>k__BackingField:
-    - {fileID: 3928358897171807308, guid: b05377fbc651bdd478289259430a5604, type: 3}
+    - {fileID: 3928358897171807308, guid: 01d13ed0848c0214dae643acace4a5b8, type: 3}
   _positionEvent:
   - <Name>k__BackingField: Pressure Plate (4,2)
     <Position>k__BackingField:

@@ -16,7 +16,7 @@ MonoBehaviour:
   _cellEntries:
   - <Key>k__BackingField: .PEO
     <Value>k__BackingField: {fileID: 2335308055764904564, guid: 84d23286dd51c9b498537e293b429918, type: 3}
-  - <Key>k__BackingField: ',UG'
+  - <Key>k__BackingField: ',GU'
     <Value>k__BackingField: {fileID: 2335308055764904564, guid: f5c8dbd6cf8e99b43bd537567a85a4e9, type: 3}
   _wallEntries:
   - <Key>k__BackingField: '#'
@@ -44,12 +44,6 @@ MonoBehaviour:
     - {fileID: 11400000, guid: f713a075f8e8f3845959c1cd77818254, type: 2}
     <Prefabs>k__BackingField:
     - {fileID: 6078349100696068221, guid: 4d3058f0136e2b34b894740f69b28dd1, type: 3}
-  - <Name>k__BackingField: Stairs Up
-    <Key>k__BackingField: G
-    <EventHandlers>k__BackingField:
-    - {fileID: 11400000, guid: 9e1deffe6ad22684bab3805414d80152, type: 2}
-    <Prefabs>k__BackingField:
-    - {fileID: 5722850626881981022, guid: a727d34ef0ff2f04192baa4555da63b5, type: 3}
   - <Name>k__BackingField: Too Dark Event
     <Key>k__BackingField: .P
     <EventHandlers>k__BackingField:
@@ -60,11 +54,11 @@ MonoBehaviour:
     <EventHandlers>k__BackingField:
     - {fileID: 11400000, guid: 455fc3842cc1eb346a19d598862cf84c, type: 2}
     <Prefabs>k__BackingField:
-    - {fileID: 2524529364223263107, guid: 35d8c93f7b7477c49babd3b70e0bef23, type: 3}
+    - {fileID: 3000006383214854087, guid: 35d8c93f7b7477c49babd3b70e0bef23, type: 3}
   - <Name>k__BackingField: Entrance Pressure Plate
     <Key>k__BackingField: O
     <EventHandlers>k__BackingField:
     - {fileID: 11400000, guid: 6f0dac26cdcabc441a5302377721c29b, type: 2}
     <Prefabs>k__BackingField:
-    - {fileID: 2524529364223263107, guid: 35d8c93f7b7477c49babd3b70e0bef23, type: 3}
+    - {fileID: 3000006383214854087, guid: 35d8c93f7b7477c49babd3b70e0bef23, type: 3}
   _positionEvent: []
