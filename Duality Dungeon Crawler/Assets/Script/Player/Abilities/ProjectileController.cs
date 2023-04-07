@@ -28,7 +28,7 @@ public class ProjectileController : MonoBehaviour
     void Awake()
     {
         _rigidBody = GetComponent<Rigidbody>();
-    }
+    } 
 
     void OnTriggerEnter(Collider collider)
     {  
