@@ -59,11 +59,13 @@ public class SpikeTrapController : MonoBehaviour
     {
         Spikes.transform.localScale = new Vector3(1, 2, 1);
         PopOutAudio.Play();
-        Debug.Log(Position);
+        if (GameManager.Instance.Player.Effects.HasFlag(PlayerEffect.Float)) { return; }
+
         if (PlayerMovementController.Instance.Position == Position.Freeze())
         {
             MessageController.Display("Ouch!");
             GameManager.Instance.PlayerStats.Stat(DualStat.BodyMind).Value -= 10;
+            
         }
     }
 

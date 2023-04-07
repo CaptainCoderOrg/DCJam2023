@@ -71,10 +71,14 @@ public class GameManager : MonoBehaviour
 
     public void InterruptAbilities() => OnInterrupt?.Invoke();
 
+    private bool _isKnockedOut = false;
     public void HandleOutOfHarmony(Stat zeroStat)
     {
+        if (_isKnockedOut) { return; }
+        _isKnockedOut = true;
         DialogController.Instance.DisplayDialog(@"Your body is out of harmony... You can no longer continue. You feint.");
         Action WakeUp = () => {
+            _isKnockedOut = false;
             PlayerMovementController.Instance.Position = (2,2);
             PlayerMovementController.Instance.Facing = Direction.North;
             PlayerMovementController.Instance.CurrentMap = EntranceMap;

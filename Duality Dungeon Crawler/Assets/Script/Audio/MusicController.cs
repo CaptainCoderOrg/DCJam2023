@@ -56,7 +56,7 @@ namespace CaptainCoder.Audio
             {
                 if (_sfxVolume == null)
                 {
-                    _sfxVolume = PlayerPrefs.GetFloat("SFXVolume", .5f);
+                    _sfxVolume = PlayerPrefs.GetFloat("SFXVolume", .5f); 
                 }
                 return _sfxVolume.Value; 
             } 
