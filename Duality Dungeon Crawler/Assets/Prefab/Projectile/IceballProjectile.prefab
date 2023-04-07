@@ -8,10 +8,66 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 284378133645038937, guid: 2a7952912d82b6f4ea3da534036c3d7e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 789602650573328703, guid: 2a7952912d82b6f4ea3da534036c3d7e, type: 3}
       propertyPath: m_Name
       value: IceballProjectile
       objectReference: {fileID: 0}
+    - target: {fileID: 1017727614926630316, guid: 2a7952912d82b6f4ea3da534036c3d7e, type: 3}
+      propertyPath: m_Range
+      value: 7.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017727614926630316, guid: 2a7952912d82b6f4ea3da534036c3d7e, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017727614926630316, guid: 2a7952912d82b6f4ea3da534036c3d7e, type: 3}
+      propertyPath: m_Color.g
+      value: 0.22227097
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017727614926630316, guid: 2a7952912d82b6f4ea3da534036c3d7e, type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017727614926630316, guid: 2a7952912d82b6f4ea3da534036c3d7e, type: 3}
+      propertyPath: m_Intensity
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3199561769191051122, guid: 2a7952912d82b6f4ea3da534036c3d7e, type: 3}
+      propertyPath: LightsModule.light
+      value: 
+      objectReference: {fileID: 4454429861502625686, guid: 2cf065767036b754ba353c87c42c999a, type: 3}
+    - target: {fileID: 3199561769191051122, guid: 2a7952912d82b6f4ea3da534036c3d7e, type: 3}
+      propertyPath: LightsModule.ratio
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3199561769191051122, guid: 2a7952912d82b6f4ea3da534036c3d7e, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3199561769191051122, guid: 2a7952912d82b6f4ea3da534036c3d7e, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.25365853
+      objectReference: {fileID: 0}
+    - target: {fileID: 3199561769191051122, guid: 2a7952912d82b6f4ea3da534036c3d7e, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5562175959379422933, guid: 2a7952912d82b6f4ea3da534036c3d7e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 5562175959379422933, guid: 2a7952912d82b6f4ea3da534036c3d7e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 7601767433732578951, guid: 2a7952912d82b6f4ea3da534036c3d7e, type: 3}
+      propertyPath: LightsModule.light
+      value: 
+      objectReference: {fileID: 4454429861502625686, guid: 2cf065767036b754ba353c87c42c999a, type: 3}
     - target: {fileID: 7601767433732578951, guid: 2a7952912d82b6f4ea3da534036c3d7e, type: 3}
       propertyPath: ColorModule.enabled
       value: 1

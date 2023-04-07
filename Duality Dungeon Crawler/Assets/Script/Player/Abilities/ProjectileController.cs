@@ -5,6 +5,11 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class ProjectileController : MonoBehaviour
 {
+    private static int _wallLayer = 0;
+    private static int WallLayer => _wallLayer == 0 ? (_wallLayer = LayerMask.NameToLayer("Walls")) : _wallLayer;
+    public AudioSource ExplodeSound;
+    public GameObject Projectile;
+    public GameObject ExplodeObject;
     [SerializeField]
     private Direction _direction;
     public Direction Direction 
@@ -24,10 +29,39 @@ public class ProjectileController : MonoBehaviour
     {
         _rigidBody = GetComponent<Rigidbody>();
     }
-    // Start is called before the first frame update
-    void Start()
+
+    void OnTriggerEnter(Collider collider)
+    {  
+        if (collider.gameObject.layer == WallLayer)
+        {
+            Debug.Log("Wall Collision");
+            Explode();
+        }
+    }
+
+    private void Explode()
     {
-        
+        Velocity = 0;
+        ExplodeSound?.Play();
+        Projectile.SetActive(false);
+        ExplodeObject.transform.rotation = DirectionToQuaternion(Direction);
+        ExplodeObject.SetActive(true);
+        StartCoroutine(RemoveFromScene(1));
+    }
+
+    private Quaternion DirectionToQuaternion(Direction d)
+    {
+        return d switch
+        {
+            Direction.North or Direction.South => Quaternion.Euler(90, 90, 0),
+            Direction.East or Direction.West => Quaternion.Euler(90, 0, 0),
+        };
+    }
+
+    private IEnumerator RemoveFromScene(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        Destroy(this.gameObject);
     }
 
     void FixedUpdate()
