@@ -8,7 +8,7 @@ public class ProjectileController : MonoBehaviour
     private static int _playerLayer = 0;
     private static int _wallLayer = 0;
     private static int WallLayer => _wallLayer == 0 ? (_wallLayer = LayerMask.NameToLayer("Walls")) : _wallLayer;
-    private static int PlayerLayer => _playerLayer == 0 ? (_playerLayer = LayerMask.NameToLayer("Player")) : _playerLayer;
+    public static int PlayerLayer => _playerLayer == 0 ? (_playerLayer = LayerMask.NameToLayer("Player")) : _playerLayer;
     [field: SerializeField]
     public bool IsFire { get; set; } = false;
     [field: SerializeField]

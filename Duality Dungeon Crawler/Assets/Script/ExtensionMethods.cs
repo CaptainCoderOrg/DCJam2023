@@ -17,9 +17,9 @@ public static class ExtensionMethods
     {
         return () =>
         {
-            action.Invoke();  
+            action.Invoke();
             DialogController.Instance.IsVisible = false;
-        };        
+        };
     }
     public static Action AndThen(this Action current, string message, string buttonText = "Continue")
     {
@@ -40,7 +40,18 @@ public static class ExtensionMethods
         MusicController.Instance.OnSFXVolumeChange -= action;
     }
 
-    
+    public static Quaternion ToQuaternion(this Direction direction)
+    {
+        return direction switch
+        {
+            Direction.North => Quaternion.Euler(0, 270, 0),
+            Direction.East => Quaternion.Euler(0, 0, 0),
+            Direction.South => Quaternion.Euler(0, 90, 0),
+            _ => Quaternion.Euler(0, 180, 0),
+        };
+    }
+
+
 
 }
 
@@ -55,7 +66,7 @@ public class DialogChain
     private DialogChain(string message, string continueText) => (_message, _continueText) = (message, continueText);
     public static DialogChain Dialog(string message, string continueText = "Continue")
     {
-        DialogChain link = new (message, continueText);
+        DialogChain link = new(message, continueText);
         return link;
     }
 
@@ -67,15 +78,15 @@ public class DialogChain
         return _next;
     }
 
-    public DialogChain OnFinish(Action finishAction) 
+    public DialogChain OnFinish(Action finishAction)
     {
         _first._onFinish += finishAction;
         return this;
     }
 
-    public void Display() 
+    public void Display()
     {
-        
+
         _first ??= this;
         _first.DisplayNext();
     }
