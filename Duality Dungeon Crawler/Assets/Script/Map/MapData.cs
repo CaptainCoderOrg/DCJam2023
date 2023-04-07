@@ -17,7 +17,11 @@ public class MapData : ScriptableObject
 
     public bool TryGetEventsAt(CaptainCoder.Core.Position position, out IEventEntry evt)
     {
-        if(CellEventsDict.TryGetValue(Grid.TileAt(position).Symbol, out evt)) { return true; }
+        if(CellEventsDict.TryGetValue(Grid.TileAt(position).Symbol, out evt)) 
+        { 
+            if (evt.EventHandlers.Count == 0) { return PositionEventsDict.TryGetValue(position, out evt); }
+            return true; 
+        }
         return PositionEventsDict.TryGetValue(position, out evt);
     }
 

@@ -10,7 +10,7 @@ public class YinYangAbility : AbilityDefinition
     public string EnergyName;
     public PlayerEffect RequiredFlag;
     public bool isBodyTemple;
-
+ 
     public override IEnumerator OnUse(PlayerData player, Action OnFinish)
     {
         MessageController.Display($"You close your eyes and concentrate your {EnergyName} energy.");

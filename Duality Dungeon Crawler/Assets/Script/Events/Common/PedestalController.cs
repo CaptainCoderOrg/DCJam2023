@@ -57,7 +57,7 @@ public class PedestalController : MonoBehaviour
 
     public void Update()
     {
-        if (IsFiring && routine == null)
+        if (IsLit && IsFiring && routine == null)
         {
             routine = StartCoroutine(Fire());
         }

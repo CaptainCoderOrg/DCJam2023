@@ -42,4 +42,44 @@ MonoBehaviour:
     - {fileID: 11400000, guid: bf44feb2a64d4314ab4fb82f374cbd0c, type: 2}
     <Prefabs>k__BackingField:
     - {fileID: 6078349100696068221, guid: d5cd5fbadf615ca4895d05a763a5196d, type: 3}
-  _positionEvent: []
+  _positionEvent:
+  - <Name>k__BackingField: Pressure Plate (4,2)
+    <Position>k__BackingField:
+      Row: 4
+      Col: 2
+    <EventHandlers>k__BackingField:
+    - {fileID: 11400000, guid: dfea5df9c4881ec4eac5b98662a27e70, type: 2}
+    <Prefabs>k__BackingField:
+    - {fileID: 3000006383214854087, guid: 35d8c93f7b7477c49babd3b70e0bef23, type: 3}
+  - <Name>k__BackingField: Pressure Plate (6,2)
+    <Position>k__BackingField:
+      Row: 6
+      Col: 2
+    <EventHandlers>k__BackingField:
+    - {fileID: 11400000, guid: 5eb390eac0c4f6a47bd561cd3623a355, type: 2}
+    <Prefabs>k__BackingField:
+    - {fileID: 3000006383214854087, guid: 35d8c93f7b7477c49babd3b70e0bef23, type: 3}
+  - <Name>k__BackingField: Pressure Plate (6,4)
+    <Position>k__BackingField:
+      Row: 6
+      Col: 4
+    <EventHandlers>k__BackingField:
+    - {fileID: 11400000, guid: 5ca95da92cb6e844b99a200306ed1dc8, type: 2}
+    <Prefabs>k__BackingField:
+    - {fileID: 3000006383214854087, guid: 35d8c93f7b7477c49babd3b70e0bef23, type: 3}
+  - <Name>k__BackingField: Pressure Plate (2,9)
+    <Position>k__BackingField:
+      Row: 2
+      Col: 9
+    <EventHandlers>k__BackingField:
+    - {fileID: 11400000, guid: 911eabc6be10ee640971fc625cbcae2d, type: 2}
+    <Prefabs>k__BackingField:
+    - {fileID: 3000006383214854087, guid: 35d8c93f7b7477c49babd3b70e0bef23, type: 3}
+  - <Name>k__BackingField: Pressure Plate (8,10)
+    <Position>k__BackingField:
+      Row: 8
+      Col: 10
+    <EventHandlers>k__BackingField:
+    - {fileID: 11400000, guid: 80b629b19d9976245b416da998c2c3c8, type: 2}
+    <Prefabs>k__BackingField:
+    - {fileID: 3000006383214854087, guid: 35d8c93f7b7477c49babd3b70e0bef23, type: 3}
