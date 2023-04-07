@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7150700001237795431}
   - component: {fileID: 8076903519459030399}
   - component: {fileID: 3087052107378032526}
-  m_Layer: 12
+  m_Layer: 0
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -683,7 +683,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5411656548307646479}
-  m_Layer: 12
+  m_Layer: 0
   m_Name: Pedestal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -716,7 +716,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 173208583281653626}
-  m_Layer: 12
+  m_Layer: 0
   m_Name: Fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -752,7 +752,7 @@ GameObject:
   - component: {fileID: 7888998565386428556}
   - component: {fileID: 2413481657655067237}
   - component: {fileID: 4831769774253452049}
-  m_Layer: 12
+  m_Layer: 0
   m_Name: EnergyPedestal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -848,7 +848,7 @@ GameObject:
   - component: {fileID: 4276660300031959198}
   - component: {fileID: 8634703667322599383}
   - component: {fileID: 5317803104114826151}
-  m_Layer: 12
+  m_Layer: 0
   m_Name: FireSound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1016,7 +1016,7 @@ GameObject:
   - component: {fileID: 9162643364003928429}
   - component: {fileID: 4856707609440013486}
   - component: {fileID: 32070670483984712}
-  m_Layer: 12
+  m_Layer: 0
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5847,7 +5847,7 @@ GameObject:
   - component: {fileID: 1278651281341682930}
   - component: {fileID: 9089870163555802394}
   - component: {fileID: 938055496798862935}
-  m_Layer: 12
+  m_Layer: 0
   m_Name: Pipe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6743,7 +6743,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2335308055764904564, guid: f5c8dbd6cf8e99b43bd537567a85a4e9, type: 3}
       propertyPath: m_Layer
-      value: 12
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2335308055764904564, guid: f5c8dbd6cf8e99b43bd537567a85a4e9, type: 3}
       propertyPath: m_IsActive
@@ -6751,7 +6751,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6131952975648138897, guid: f5c8dbd6cf8e99b43bd537567a85a4e9, type: 3}
       propertyPath: m_Layer
-      value: 12
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9006005386980049640, guid: f5c8dbd6cf8e99b43bd537567a85a4e9, type: 3}
       propertyPath: m_RootOrder

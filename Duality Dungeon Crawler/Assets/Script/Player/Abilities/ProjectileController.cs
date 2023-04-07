@@ -7,7 +7,10 @@ public class ProjectileController : MonoBehaviour
 {
     private static int _wallLayer = 0;
     private static int WallLayer => _wallLayer == 0 ? (_wallLayer = LayerMask.NameToLayer("Walls")) : _wallLayer;
+    [field: SerializeField]
     public bool IsFire { get; set; } = false;
+    [field: SerializeField]
+    public bool IsEnergy { get; set; } = false;
     public AudioSource ExplodeSound;
     public GameObject Projectile;
     public GameObject ExplodeObject;

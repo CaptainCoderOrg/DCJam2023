@@ -13,6 +13,7 @@ public class TeleportEvent : MapEvent
     [field: SerializeField]
     public string Message { get; private set; }
     public AudioClip TeleportSound;
+    public PlayerEffect SetEffect;
 
     public override bool OnInteract()
     {
@@ -27,4 +28,17 @@ public class TeleportEvent : MapEvent
         }
         return true;
     }
+
+    public override bool OnEnter()
+    {
+        GameManager.Instance.Player.Effects |= SetEffect;
+        return false;
+    }
+
+    public override bool OnExit()
+    {
+        GameManager.Instance.Player.Effects &= ~SetEffect;
+        return false;
+    }
+
 }

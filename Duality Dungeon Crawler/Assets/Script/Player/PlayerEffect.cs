@@ -7,4 +7,6 @@ public enum PlayerEffect
     Shade = 2,
     Float = 4,
     SunsEye = 8,
+    OnLunPortal = 16,
+    OnSolPortal = 32,
 }

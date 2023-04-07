@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b8ba438dd1e8764187675d5b2ac97db, type: 3}
+  m_Name: YangAbility
+  m_EditorClassIdentifier: 
+  <Name>k__BackingField: Focus Yang
+  <Description>k__BackingField: Focuses Yang energy into a Lun portal.
+  <RunePhrase>k__BackingField: 8
+  <CastSound>k__BackingField: {fileID: 8300000, guid: 02f8837b93755ef4a9bbcd694ebe47a4, type: 3}
+  YangCost: 0
+  YinCost: 1
+  EnergyName: Yang
+  RequiredFlag: 16
+  isBodyTemple: 0

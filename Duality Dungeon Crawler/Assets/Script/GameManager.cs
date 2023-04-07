@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
     public MapLoaderController EntranceMap;
     public MapLoaderController YangMap;
     public MapLoaderController YinMap;
+    public MapLoaderController BodyMap;
     public PlayerStats PlayerStats;
     public PlayerData Player;
     public AbilityManifest AbilityManifest;

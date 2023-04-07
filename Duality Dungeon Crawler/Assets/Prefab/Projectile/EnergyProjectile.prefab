@@ -68,6 +68,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 5681807304382894120, guid: 2a7952912d82b6f4ea3da534036c3d7e, type: 3}
+      propertyPath: <IsEnergy>k__BackingField
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7601767433732578951, guid: 2a7952912d82b6f4ea3da534036c3d7e, type: 3}
       propertyPath: LightsModule.light
       value: 

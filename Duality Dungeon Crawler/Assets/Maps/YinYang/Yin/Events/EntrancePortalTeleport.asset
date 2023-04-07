@@ -20,3 +20,4 @@ MonoBehaviour:
   <Message>k__BackingField: A warm air envelopes you and you are surrounded by a
     blinding light. When your vision returns, you find yourself somewhere new.
   TeleportSound: {fileID: 8300000, guid: 153f241bed648f04fb31aa1ab7bdb751, type: 3}
+  SetEffect: 32
