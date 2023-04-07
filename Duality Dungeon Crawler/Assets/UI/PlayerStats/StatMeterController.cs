@@ -11,7 +11,6 @@ public class StatMeterController : MonoBehaviour
     {
         _root = GetComponent<UIDocument>().rootVisualElement;
         Debug.Assert(_root != null, "Could not find root element");
-        Debug.Log($"GameManager: {GameManager.Instance}");
         RegisterMeter("BodyMindMeter", GameManager.Instance.PlayerStats.Stat(DualStat.BodyMind));
         RegisterMeter("SunMoonMeter", GameManager.Instance.PlayerStats.Stat(DualStat.SunMoon));
         RegisterMeter("YinYangMeter", GameManager.Instance.PlayerStats.Stat(DualStat.YinYang));

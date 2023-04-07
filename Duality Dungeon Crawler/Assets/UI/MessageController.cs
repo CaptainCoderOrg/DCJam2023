@@ -24,7 +24,6 @@ public class MessageController : MonoBehaviour
 
     public static void Display(string message)
     {
-        // Debug.Log(message);
         Label label = new ();
         _last = label;
         label.AddToClassList("message-label");

@@ -29,4 +29,10 @@ MonoBehaviour:
     <EventHandlers>k__BackingField: []
     <Prefabs>k__BackingField:
     - {fileID: 3000006383214854087, guid: 35d8c93f7b7477c49babd3b70e0bef23, type: 3}
+  - <Name>k__BackingField: Pedetal
+    <Key>k__BackingField: X
+    <EventHandlers>k__BackingField:
+    - {fileID: 11400000, guid: 133bb3b1160627a4dafbc965201809f6, type: 2}
+    <Prefabs>k__BackingField:
+    - {fileID: 6486324884956912891, guid: c23162dac7213bb41a9029a7033d7ed3, type: 3}
   _positionEvent: []

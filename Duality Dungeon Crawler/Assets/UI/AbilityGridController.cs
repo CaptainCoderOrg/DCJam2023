@@ -123,7 +123,6 @@ public class AbilityGridController : MonoBehaviour
         _selectedRunes.Clear();
         foreach(RuneData rune in GameManager.Instance.Runes.FromPhrase(phrase))
         {
-            Debug.Log(rune.name);
             Image image = new Image() { sprite = rune.sprite };
             image.AddToClassList("rune-phrase-element");
             _selectedRunes.Add(image);

@@ -7,6 +7,7 @@ public class ProjectileController : MonoBehaviour
 {
     private static int _wallLayer = 0;
     private static int WallLayer => _wallLayer == 0 ? (_wallLayer = LayerMask.NameToLayer("Walls")) : _wallLayer;
+    public bool IsFire { get; set; } = false;
     public AudioSource ExplodeSound;
     public GameObject Projectile;
     public GameObject ExplodeObject;
@@ -34,7 +35,6 @@ public class ProjectileController : MonoBehaviour
     {  
         if (collider.gameObject.layer == WallLayer)
         {
-            Debug.Log("Wall Collision");
             Explode();
         }
     }

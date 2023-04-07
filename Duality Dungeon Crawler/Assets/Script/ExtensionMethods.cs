@@ -2,6 +2,8 @@ using UnityEngine.UIElements;
 using System.Collections.Generic;
 using System.Linq;
 using System;
+using UnityEngine;
+using CaptainCoder.Audio;
 
 public static class ExtensionMethods
 {
@@ -26,6 +28,16 @@ public static class ExtensionMethods
             current.Invoke();
             DialogController.Instance.SetOptions((buttonText, () => DialogController.Instance.DisplayDialog(message)));
         };
+    }
+
+    public static void AddListener(this AudioSource source, Action<float> action)
+    {
+        MusicController.Instance.OnSFXVolumeChange += action;
+    }
+
+    public static void RemoveListener(this AudioSource source, Action<float> action)
+    {
+        MusicController.Instance.OnSFXVolumeChange -= action;
     }
 
     

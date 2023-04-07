@@ -19,7 +19,7 @@ public class AbilityManifest : ScriptableObject, ISerializationCallbackReceiver
     public void OnEnable()
     {
         Instance = this;
-        Debug.Log("Ability Manifest Loaded");
+        // Debug.Log("Ability Manifest Loaded");
     }
     
 

@@ -102,6 +102,7 @@ public class PlayerMovementController : MonoBehaviour
         _controls.PlayerMovement.Step.started += HandleMoveInput;
         _controls.PlayerMovement.Rotate.started += HandleRotateInput;
         _controls.PlayerMovement.Interact.started += HandleInteract;
+        ControlsEnabled = true;
     }
 
     public void OnDisable()

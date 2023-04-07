@@ -16,6 +16,7 @@ public class FireballAbility : AbilityDefinition
         MessageController.Display("You focus your energies into a Fireball.");
         ProjectileController projectile = Instantiate<ProjectileController>(Projectile);
         projectile.Direction = PlayerMovementController.Instance.Facing;
+        projectile.IsFire = true;
         GameObject map = PlayerMovementController.Instance.CurrentMap.gameObject;
         projectile.transform.SetParent(map.transform);
         projectile.transform.localPosition = PlayerMovementController.Instance.gameObject.transform.localPosition;

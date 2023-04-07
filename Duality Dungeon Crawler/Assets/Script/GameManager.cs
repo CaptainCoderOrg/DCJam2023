@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     {
         if (Instance == null)
         {
-            Debug.Log($"Action Enqueued: {details}");
+            // Debug.Log($"Action Enqueued: {details}");
             OnReady.Enqueue(toEnqueue);
         }
         else
@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
         {
             OnReady.Dequeue().Invoke();
         }
-        
+        PedestalController.Pedestals = new Dictionary<CaptainCoder.Core.Position, PedestalController>();
     }
 
     public void Start()

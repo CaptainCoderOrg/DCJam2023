@@ -127,6 +127,14 @@ public class MapBuilder
                         c.Position.Row = position.Row;
                         c.Position.Col = position.Col;
                     }
+
+                    PositionController positionController = eventObj.GetComponent<PositionController>();
+                    if (positionController != null)
+                    {
+                        // c.Position = new MutablePosition();
+                        positionController.Position.Row = position.Row;
+                        positionController.Position.Col = position.Col;
+                    }
                     eventObj.name = $"{entry.Name} - {position}";
                     eventObj.transform.SetParent(eventContainer);
                     eventObj.transform.localPosition = new Vector3(position.Row * PlayerMovementController.GridCellSize, 0, position.Col * PlayerMovementController.GridCellSize);
