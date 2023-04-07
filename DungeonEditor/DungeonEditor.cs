@@ -22,12 +22,12 @@ public class DungeonEditor
     public DungeonEditor()
     {
         _inputs = new();
-        _inputs[ConsoleKey.W] = () => Cursor -= (1, 0);
-        _inputs[ConsoleKey.S] = () => Cursor += (1, 0);
-        _inputs[ConsoleKey.D] = () => Cursor += (0, 1);
-        _inputs[ConsoleKey.A] = () => Cursor -= (0, 1);
-        _inputs[ConsoleKey.E] = () => Facing = Facing.RotateClockwise();
-        _inputs[ConsoleKey.Q] = () => Facing = Facing.RotateCounterClockwise();
+        _inputs[ConsoleKey.W] = () => Cursor += Facing.MovePosition();
+        _inputs[ConsoleKey.S] = () => Cursor -= Facing.MovePosition();
+        _inputs[ConsoleKey.E] = () => Cursor += Facing.RotateClockwise().MovePosition();
+        _inputs[ConsoleKey.Q] = () => Cursor -= Facing.RotateClockwise().MovePosition();
+        _inputs[ConsoleKey.D] = () => Facing = Facing.RotateClockwise();
+        _inputs[ConsoleKey.A] = () => Facing = Facing.RotateCounterClockwise();
         _inputs[ConsoleKey.Delete] = () => WallMode.Instance.Delete(this);
         _inputs[ConsoleKey.Backspace] = () => WallMode.Instance.Delete(this);
         _inputs[ConsoleKey.Spacebar] = () => Mode.Draw(this);
