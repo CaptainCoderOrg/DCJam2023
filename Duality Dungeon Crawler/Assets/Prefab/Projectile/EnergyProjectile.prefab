@@ -39,18 +39,18 @@ PrefabInstance:
     - target: {fileID: 3199561769191051122, guid: 2a7952912d82b6f4ea3da534036c3d7e, type: 3}
       propertyPath: LightsModule.light
       value: 
-      objectReference: {fileID: 4454429861502625686, guid: 6ea0fd823877324439991a2dedfcfc49, type: 3}
+      objectReference: {fileID: 4454429861502625686, guid: afe4f56cdc8163f43811e2de2f0921ac, type: 3}
     - target: {fileID: 3199561769191051122, guid: 2a7952912d82b6f4ea3da534036c3d7e, type: 3}
       propertyPath: LightsModule.ratio
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3199561769191051122, guid: 2a7952912d82b6f4ea3da534036c3d7e, type: 3}
       propertyPath: InitialModule.startColor.maxColor.b
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3199561769191051122, guid: 2a7952912d82b6f4ea3da534036c3d7e, type: 3}
       propertyPath: InitialModule.startColor.maxColor.g
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3199561769191051122, guid: 2a7952912d82b6f4ea3da534036c3d7e, type: 3}
       propertyPath: InitialModule.startColor.maxColor.r
@@ -71,7 +71,7 @@ PrefabInstance:
     - target: {fileID: 7601767433732578951, guid: 2a7952912d82b6f4ea3da534036c3d7e, type: 3}
       propertyPath: LightsModule.light
       value: 
-      objectReference: {fileID: 4454429861502625686, guid: 6ea0fd823877324439991a2dedfcfc49, type: 3}
+      objectReference: {fileID: 4454429861502625686, guid: afe4f56cdc8163f43811e2de2f0921ac, type: 3}
     - target: {fileID: 7601767433732578951, guid: 2a7952912d82b6f4ea3da534036c3d7e, type: 3}
       propertyPath: LightsModule.ratio
       value: 0

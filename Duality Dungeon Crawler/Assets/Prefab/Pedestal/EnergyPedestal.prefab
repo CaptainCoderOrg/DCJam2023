@@ -774,7 +774,7 @@ Transform:
   - {fileID: 6122968462345196540}
   - {fileID: 5411656548307646479}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7888998565386428556
 MonoBehaviour:
@@ -2313,16 +2313,16 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 1, g: 0.901886, b: 0, a: 1}
-        key1: {r: 1, g: 0, b: 0.029988289, a: 1}
-        key2: {r: 1, g: 0.920817, b: 0, a: 0}
+        key0: {r: 1, g: 0, b: 0, a: 1}
+        key1: {r: 1, g: 0.84843576, b: 0, a: 1}
+        key2: {r: 1, g: 1, b: 1, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
         key5: {r: 0, g: 0, b: 0, a: 0}
         key6: {r: 0, g: 0, b: 0, a: 0}
         key7: {r: 0, g: 0, b: 0, a: 0}
         ctime0: 0
-        ctime1: 65535
+        ctime1: 36044
         ctime2: 65535
         ctime3: 0
         ctime4: 0
@@ -2339,7 +2339,7 @@ ParticleSystem:
         atime7: 0
         m_Mode: 0
         m_ColorSpace: 0
-        m_NumColorKeys: 2
+        m_NumColorKeys: 3
         m_NumAlphaKeys: 2
       minGradient:
         serializedVersion: 2
@@ -4826,7 +4826,7 @@ ParticleSystem:
   LightsModule:
     enabled: 1
     ratio: 1
-    light: {fileID: 3350560973513365617, guid: aea8ae4d787e8ec4b9dd6e4e9c48390c, type: 3}
+    light: {fileID: 4454429861502625686, guid: 6ea0fd823877324439991a2dedfcfc49, type: 3}
     randomDistribution: 1
     color: 1
     range: 1
