@@ -24,6 +24,11 @@ public class FireballAbility : AbilityDefinition
     }
     public override bool CanCast(PlayerData player, out string message)
     {
+        if(!player.Effects.HasFlag(PlayerEffect.Light))
+        {
+            message = "You must first summon Sol's Light.";
+            return false;
+        }
         if(player.Stats.Stat(Stat.Sun) < SunCost)
         {
             message = "You do not have enough Sun energy.";

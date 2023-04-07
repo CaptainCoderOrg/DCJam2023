@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182500ccfb277bf42a7f881e2d12b3a0, type: 3}
+  m_Name: Iceball Ability
+  m_EditorClassIdentifier: 
+  <Name>k__BackingField: Iceball
+  <Description>k__BackingField: Using Sol's Shade, focus Yang and Moon energy into
+    a icy projectile.
+  <RunePhrase>k__BackingField: 89
+  <CastSound>k__BackingField: {fileID: 8300000, guid: 02f8837b93755ef4a9bbcd694ebe47a4, type: 3}
+  MoonCost: 15
+  YangCost: 10
+  Projectile: {fileID: 1317378841969782042, guid: b2be4cc4bdd284a4690770a122bdab04, type: 3}
