@@ -42,6 +42,11 @@ MonoBehaviour:
     - {fileID: 11400000, guid: bf44feb2a64d4314ab4fb82f374cbd0c, type: 2}
     <Prefabs>k__BackingField:
     - {fileID: 6078349100696068221, guid: d5cd5fbadf615ca4895d05a763a5196d, type: 3}
+  - <Name>k__BackingField: Barrier
+    <Key>k__BackingField: B
+    <EventHandlers>k__BackingField:
+    - {fileID: 11400000, guid: 0e8531cdebfb7134f881b540a509df2c, type: 2}
+    <Prefabs>k__BackingField: []
   _positionEvent:
   - <Name>k__BackingField: Pressure Plate (4,2)
     <Position>k__BackingField:

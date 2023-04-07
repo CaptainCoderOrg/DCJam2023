@@ -28,5 +28,7 @@ public class SoundEffects : ScriptableObject
     public AudioClip SpikesExtend { get; private set; }
     [field: SerializeField]
     public AudioClip SpikesRetract { get; private set; }
+    [field: SerializeField]
+    public AudioClip Hurt { get; private set; }
 
 }

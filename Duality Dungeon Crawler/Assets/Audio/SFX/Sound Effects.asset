@@ -22,3 +22,4 @@ MonoBehaviour:
   <DensitySpell>k__BackingField: {fileID: 8300000, guid: 02f8837b93755ef4a9bbcd694ebe47a4, type: 3}
   <SpikesExtend>k__BackingField: {fileID: 8300000, guid: 29364babfa0111240b259d7b35739e4b, type: 3}
   <SpikesRetract>k__BackingField: {fileID: 8300000, guid: 88f62ee71822705458e8c50f105b6ee6, type: 3}
+  <Hurt>k__BackingField: {fileID: 8300000, guid: 273dc74ba97dbe04ca9413b7a0fd2640, type: 3}

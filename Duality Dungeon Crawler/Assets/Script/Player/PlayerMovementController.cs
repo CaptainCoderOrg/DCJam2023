@@ -185,9 +185,11 @@ public class PlayerMovementController : MonoBehaviour
         }
         return true;
     }
+    private Position _lastPosition;
     private void PerformMove(Position p)
     {
         if(PerformExitEvents()) { return; }
+        _lastPosition = Position;
         Position += p;
         PerformEnterEvents();        
     }
@@ -197,7 +199,10 @@ public class PlayerMovementController : MonoBehaviour
         {
             foreach (MapEvent evt in mapEvent.EventHandlers)
             {
-                evt.OnEnter();
+                if(evt.OnEnter())
+                {
+                    Position = _lastPosition;
+                }
             }
         }
     }
