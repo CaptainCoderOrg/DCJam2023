@@ -20,6 +20,8 @@ public class FloatAbility : AbilityDefinition
         MessageController.Display("You reach toward the ball of light and focus...");
         yield return new WaitForSeconds(1f);
         MessageController.Display("The air beneath your feet begins to warm and swirl, raising you into the air.");
+        PlayerFloatController.Instance.OffsetY = 1.5f;
+        PlayerFloatController.Instance.BobSpeed = 3f;        
         player.Effects &= ~PlayerEffect.Light;
         player.Effects |= PlayerEffect.Float;
         FloatRemaining = FloatDuration;
@@ -43,6 +45,8 @@ public class FloatAbility : AbilityDefinition
         else if (FloatRemaining == 5)
         {
             MessageController.Display("The air beneath you slows...");
+            PlayerFloatController.Instance.OffsetY = .75f;
+            PlayerFloatController.Instance.BobSpeed = 1f;        
         }
         FloatRemaining--;
     }
