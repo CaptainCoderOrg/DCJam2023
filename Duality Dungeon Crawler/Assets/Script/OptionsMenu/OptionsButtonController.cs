@@ -9,15 +9,12 @@ public class OptionsButtonController : MonoBehaviour
     public OptionsMenuController OptionsMenu;
     public SpellBookController SpellBook;
     private UIDocument _document;
-    
-    
 
     public void Awake()
     {
         _document = GetComponent<UIDocument>();
         RegisterButton("OptionsButton", "OptionsLabel", OptionsMenu.ToggleMenu);
         RegisterButton("SpellsButton", "SpellsLabel", SpellBook.ToggleSpellBook);
-
     }
 
     public void RegisterButton(string buttonName, string labelName, System.Action action)
@@ -29,5 +26,4 @@ public class OptionsButtonController : MonoBehaviour
         button.RegisterCallback<PointerEnterEvent>((_) => label.style.display = DisplayStyle.Flex);
         button.RegisterCallback<PointerLeaveEvent>((_) => label.style.display = DisplayStyle.None);
     }
-
 }

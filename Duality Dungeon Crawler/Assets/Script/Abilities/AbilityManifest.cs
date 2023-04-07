@@ -72,6 +72,7 @@ public class AbilityManifest : ScriptableObject, ISerializationCallbackReceiver
         {
             Abilities.Add(AssetDatabase.LoadAssetAtPath<AbilityDefinition>(path));
         }
+        Abilities = Abilities.OrderBy(a => a.RunePhrase).ToList();
         Debug.Log($"Found {Abilities.Count()} abilities!");
     }
     #endregion

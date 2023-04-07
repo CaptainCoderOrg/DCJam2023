@@ -33,7 +33,6 @@ VisualElement {
 }
 
 Label {
-    font-size: 20px;
 }
 
 .menu-title {
@@ -70,17 +69,30 @@ Label {
     margin-bottom: 10px;
 }
 
-
 .shadow-label {
-    
     -unity-text-outline-color: rgb(0, 0, 0);
     -unity-text-outline-width: 0;
     color: rgb(202, 202, 202);
     text-shadow: -1px 1px 1px rgb(0, 0, 0);
+    font-size: 24px;
 }
 
 .ability-name {
     -unity-font-style: bold;
     font-size: 32px;
     align-self: center;
+}
+
+.spell-book-rune-element {
+    flex-basis:auto;
+    flex-shrink: 0;
+    flex-grow: 0;
+    background-color: rgba(0, 0, 0, 0);
+    width: 64px;
+    height: 64px;
+    min-width: 64px;
+    min-height: 64px;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
 }

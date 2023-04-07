@@ -1,0 +1,9 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/styles.uss?fileID=7433441132597879392&amp;guid=83ddee421334e8d41af0a574b07b9cf1&amp;type=3#styles" />
+    <ui:VisualElement name="SpellEntry" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0); min-width: auto; min-height: auto; flex-basis: auto; flex-shrink: 0; width: 100%;">
+        <ui:Label tabindex="-1" text="Spell Name" display-tooltip-when-elided="true" name="SpellDescription" class="shadow-label" />
+        <ui:VisualElement style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-direction: row; align-items: center;">
+            <ui:VisualElement name="RunePhrase" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0); align-items: flex-start; flex-basis: auto; height: auto; justify-content: flex-start; min-height: auto; flex-direction: row; flex-shrink: 0;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

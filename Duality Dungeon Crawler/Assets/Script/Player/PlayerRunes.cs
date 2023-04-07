@@ -13,6 +13,7 @@ public class PlayerRunes : ISerializationCallbackReceiver
     private List<RuneData> _runes;
     public int Count => _runesSet.Count;
     private HashSet<RuneData> _runesSet;
+    public IEnumerable<RuneData> Runes => _runesSet;
 
     [NaughtyAttributes.Button("Reset Data")]
     public void ResetData()
