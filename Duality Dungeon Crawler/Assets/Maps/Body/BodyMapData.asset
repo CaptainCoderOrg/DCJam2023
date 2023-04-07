@@ -46,7 +46,14 @@ MonoBehaviour:
     <Key>k__BackingField: B
     <EventHandlers>k__BackingField:
     - {fileID: 11400000, guid: 0e8531cdebfb7134f881b540a509df2c, type: 2}
-    <Prefabs>k__BackingField: []
+    <Prefabs>k__BackingField:
+    - {fileID: 106113713120992728, guid: e46fa4226c8b5f94d86526aea0ac9445, type: 3}
+  - <Name>k__BackingField: Body Rune
+    <Key>k__BackingField: U
+    <EventHandlers>k__BackingField:
+    - {fileID: 11400000, guid: 82b753acdc1c9714896937a6b8d93e1d, type: 2}
+    <Prefabs>k__BackingField:
+    - {fileID: 3928358897171807308, guid: b05377fbc651bdd478289259430a5604, type: 3}
   _positionEvent:
   - <Name>k__BackingField: Pressure Plate (4,2)
     <Position>k__BackingField:
