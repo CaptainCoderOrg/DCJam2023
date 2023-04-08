@@ -167,6 +167,10 @@ public class MentorEvent : MapEvent
 
     private DialogChain FloatHint =
         DialogChain.Dialog(@"Channeling Sol's Light into Harmony will allow you to float.".TrimMultiLine());
+    private DialogChain EyeHint =
+        DialogChain.Dialog(@"Channeling Harmony into Sun allows you to see through Sol's Eye.".TrimMultiLine());
+    private DialogChain EyeHint2 =
+        DialogChain.Dialog(@"Channeling Harmony into Moon allows you to see through Lun's Eye.".TrimMultiLine());
 
     private DialogChain ChannelHint =
         DialogChain.Dialog(@"Yin energy can be converted into Sun energy.".TrimMultiLine());
@@ -199,10 +203,12 @@ public class MentorEvent : MapEvent
         var runes = GameManager.Instance.Player.Runes;
         var runeManifest = GameManager.Instance.Runes;
         hints.Add((True, SpellBookHint));
-        hints.Add((True, DensityHint));
-        hints.Add((True, ShadeHint));
-        hints.Add((True, LightHint));
-        hints.Add((True, FloatHint));
+        hints.Add((() => !runes.HasRune(runeManifest.Yang), DensityHint));
+        hints.Add((() => !runes.HasRune(runeManifest.Yin), ShadeHint));
+        hints.Add((() => !runes.HasRune(runeManifest.Yang), LightHint));
+        hints.Add((() => !runes.HasRune(runeManifest.Yin), FloatHint));
+        hints.Add((True, EyeHint));
+        hints.Add((True, EyeHint2));
         hints.Add((() => runes.HasRune(runeManifest.Yin), ChannelHint));
         hints.Add((() => runes.HasRune(runeManifest.Yang), ChannelHint2));
         hints.Add((() => runes.HasRune(runeManifest.Yin) || runes.HasRune(runeManifest.Yang), BodyMindHint));
