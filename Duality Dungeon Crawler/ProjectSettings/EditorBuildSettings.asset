@@ -6,12 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/TitleScreen.unity
+    guid: e08e406e9d78ff045a8db4dc9ae00a8f
+  - enabled: 1
     path: Assets/Scenes/YinYangTemple.unity
     guid: a50881d3347601046b429d3e02a07fb5
   - enabled: 1
     path: Assets/Scenes/Credits.unity
     guid: 5a3117b612bbc7a4f9877ee9dc6c600a
-  - enabled: 1
-    path: Assets/Scenes/TitleScreen.unity
-    guid: e08e406e9d78ff045a8db4dc9ae00a8f
   m_configObjects: {}
