@@ -6,6 +6,10 @@ using System.Collections;
 
 public class EnemyController : MonoBehaviour
 {
+    public static List<EnemyController> CurrentEnemies = new ();
+    public MutablePosition ResetPosition { get; set; }
+    public Direction ResetDirection { get; set; }
+
     public MutablePosition Position;
     public Direction Facing;
     public float BobbleAmount;
@@ -22,7 +26,24 @@ public class EnemyController : MonoBehaviour
 
     public void Awake()
     {
+        ResetPosition = Position;
+        ResetDirection = Facing;
         BaseY = transform.position.y;
+    }
+
+    public void StartCombat()
+    {
+        IsActing = true;
+        CurrentEnemies.Add(this);
+    }
+
+    public void ResetEnemy()
+    {
+        StopCoroutine(routine);
+        IsActing = false;        
+        IsAlive = true;
+        Position = ResetPosition;
+        Facing = ResetDirection;
     }
 
     public void OnEnable()

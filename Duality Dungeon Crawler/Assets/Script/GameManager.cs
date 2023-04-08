@@ -85,6 +85,12 @@ public class GameManager : MonoBehaviour
             PlayerMovementController.Instance.Position = (2,2);
             PlayerMovementController.Instance.Facing = Direction.North;
             PlayerMovementController.Instance.CurrentMap = EntranceMap;
+            MusicController.Instance.StopSecondTrack();
+            foreach (EnemyController enemy in EnemyController.CurrentEnemies)
+            {
+                enemy.ResetEnemy();
+            }
+            EnemyController.CurrentEnemies.Clear();
         };
         DialogController.Instance.SetOptions(("Wake up", WakeUp.ThenCloseDialog()));
         DialogController.Instance.IsVisible = true;

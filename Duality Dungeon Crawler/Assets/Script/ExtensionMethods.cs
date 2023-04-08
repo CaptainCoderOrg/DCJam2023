@@ -30,14 +30,24 @@ public static class ExtensionMethods
         };
     }
 
-    public static void AddListener(this AudioSource source, Action<float> action)
+    public static void AddSFXListener(this AudioSource source, Action<float> action)
     {
         MusicController.Instance.OnSFXVolumeChange += action;
     }
 
-    public static void RemoveListener(this AudioSource source, Action<float> action)
+    public static void RemoveSFXListener(this AudioSource source, Action<float> action)
     {
         MusicController.Instance.OnSFXVolumeChange -= action;
+    }
+
+    public static void AddMusicListener(this AudioSource source, Action<float> action)
+    {
+        MusicController.Instance.OnMusicVolumeChange += action;
+    }
+
+    public static void RemoveMusicListener(this AudioSource source, Action<float> action)
+    {
+        MusicController.Instance.OnMusicVolumeChange -= action;
     }
 
     public static Quaternion ToQuaternion(this Direction direction)

@@ -20,8 +20,8 @@ public class SFXAdjuster : MonoBehaviour
         _audio.volume = volume;
     }
 
-    public void OnEnable() => _audio?.AddListener(UpdateVolume);
+    public void OnEnable() => _audio?.AddSFXListener(UpdateVolume);
 
-    public void OnDisable() => _audio?.RemoveListener(UpdateVolume);
+    public void OnDisable() => _audio?.RemoveSFXListener(UpdateVolume);
 
 }

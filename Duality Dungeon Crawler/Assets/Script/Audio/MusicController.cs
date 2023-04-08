@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -26,8 +27,10 @@ namespace CaptainCoder.Audio
         private MusicTrackDatabase _tracks;
         private AudioSource _playingAudio;
         private AudioSource _queuedAudio;
+        private AudioSource _secondTrack;
         private float _fadeTime = 0;
         private bool _swapQueued;
+        public event System.Action<float> OnMusicVolumeChange;
         private float? _musicVolume;
         public float MusicVolume 
         { 
@@ -43,7 +46,9 @@ namespace CaptainCoder.Audio
             {
                 _musicVolume = Mathf.Clamp(value, 0, 1);
                 _playingAudio.volume = _musicVolume.Value;
+                _secondTrack.volume = _musicVolume.Value;
                 PlayerPrefs.SetFloat("MusicVolume", _musicVolume.Value);
+                OnMusicVolumeChange?.Invoke(_musicVolume.Value);
             }
         }
 
@@ -138,6 +143,21 @@ namespace CaptainCoder.Audio
             return source;
         }
 
+
+
+        public void StartSecondTrack(AudioClip clip)
+        {
+            _secondTrack.clip = clip;
+            _secondTrack.Play();
+        }
+
+        public void StopSecondTrack()
+        {
+            _secondTrack.Stop();
+        }
+
+        
+
         protected void Awake()
         {
             Init();
@@ -155,6 +175,9 @@ namespace CaptainCoder.Audio
                 _playingAudio = gameObject.AddComponent<AudioSource>();
                 _playingAudio.volume = MusicVolume;
                 _playingAudio.loop = true;
+                _secondTrack = gameObject.AddComponent<AudioSource>();
+                _secondTrack.volume = MusicVolume;
+                _secondTrack.loop = true;
                 _queuedAudio = gameObject.AddComponent<AudioSource>();
                 _queuedAudio.loop = true;
                 // _tracks = Resources.Load<MusicTrackDatabase>("Prefabs/MusicTrackDatabase");
