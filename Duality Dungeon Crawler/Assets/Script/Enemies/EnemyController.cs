@@ -45,7 +45,7 @@ public class EnemyController : MonoBehaviour
         CurrentEnemies.Add(this);
     }
 
-    public void ResetEnemy()
+    public virtual void ResetEnemy()
     {
         StopCoroutine(routine);
         IsActing = false;        

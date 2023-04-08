@@ -23,7 +23,7 @@ public class CombatStartEvent : MapEvent
             GameObject enemy = GameObject.Find(enemyName);
             EnemyController controller = enemy.GetComponent<EnemyController>();
             controller.StartCombat();
-            MusicController.Instance.StartSecondTrack(SecondTrack);
+            if (SecondTrack != null) { MusicController.Instance.StartSecondTrack(SecondTrack); }
         }
         return false;   
     }

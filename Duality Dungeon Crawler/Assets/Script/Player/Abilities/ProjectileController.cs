@@ -5,6 +5,9 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class ProjectileController : MonoBehaviour
 {
+    public int SunMoonDamage = 15;
+    public int BodyMindDamage = -10;
+    public int YinYangDamage = 5;
     private static int _playerLayer = 0;
     private static int _wallLayer = 0;
     private static int _enemyLayer = 0;
@@ -50,9 +53,9 @@ public class ProjectileController : MonoBehaviour
             Explode();
             MessageController.Display("Ouch!");
             GameManager.Instance.Hurt();
-            GameManager.Instance.Player.Stats.Stat(DualStat.BodyMind).Value -= 10;
-            GameManager.Instance.Player.Stats.Stat(DualStat.SunMoon).Value += 15;
-            GameManager.Instance.Player.Stats.Stat(DualStat.YinYang).Value += 5;
+            GameManager.Instance.Player.Stats.Stat(DualStat.BodyMind).Value += BodyMindDamage;
+            GameManager.Instance.Player.Stats.Stat(DualStat.SunMoon).Value += SunMoonDamage;
+            GameManager.Instance.Player.Stats.Stat(DualStat.YinYang).Value += YinYangDamage;
             SoundEffectController.PlaySFX(GameManager.Instance.SoundEffects.Hurt);
             return;
         }
