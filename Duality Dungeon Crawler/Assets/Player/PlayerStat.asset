@@ -13,18 +13,18 @@ MonoBehaviour:
   m_Name: PlayerStat
   m_EditorClassIdentifier: 
   Stats:
-  - _value: 0
+  - _value: 1
     <Max>k__BackingField: 100
     <Stat>k__BackingField: 3
-    _right: 100
-    _left: 100
-  - _value: 0
+    _right: 99
+    _left: 101
+  - _value: 90
     <Max>k__BackingField: 100
     <Stat>k__BackingField: 12
-    _right: 100
-    _left: 100
-  - _value: 0
+    _right: 10
+    _left: 190
+  - _value: 90
     <Max>k__BackingField: 100
     <Stat>k__BackingField: 48
-    _right: 100
-    _left: 100
+    _right: 10
+    _left: 190

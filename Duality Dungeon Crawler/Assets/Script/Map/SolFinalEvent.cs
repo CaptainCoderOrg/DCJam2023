@@ -11,9 +11,9 @@ public class SolFinalEvent : MapEvent
         _isInCombat = false;
     }
 
-    public override bool OnEnter()
+    public override bool OnExit()
     {
-        Debug.Log("Entered?");
+        // Debug.Log("Entered?");
         if (_isInCombat) { return false; }
         DialogChain.Dialog("Before you is a blinding light... It is Sol, the Sun Diety!")
         .AndThen(@"Sol speaks, ""So, my son has sent you to kill me. If only he understood the love I have for 

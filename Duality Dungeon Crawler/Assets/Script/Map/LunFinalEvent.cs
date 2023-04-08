@@ -11,9 +11,8 @@ public class LunFinalEvent : MapEvent
         _isInCombat = false;
     }
 
-    public override bool OnEnter()
+    public override bool OnExit()
     {
-        Debug.Log("Entered?");
         if (_isInCombat) { return false; }
         DialogChain.Dialog("Before you is a dark shadow... It is Lun, the Moon Diety!")
         .AndThen(@"Lun speaks, ""So, my son has sent you to kill me. If only he understood the love I have for 

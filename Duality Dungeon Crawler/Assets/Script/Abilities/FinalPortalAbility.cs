@@ -5,54 +5,41 @@ using System;
 [CreateAssetMenu(fileName = "FinalPortal", menuName = "BodyMind/Ability/Final Portal")]
 public class FinalPortalAbility : AbilityDefinition
 {
-    public int Change = 0;
-    public int Check = 0;
+    public int SunMoonChange = 0;
+    public int YingYangChange = 0;
+    public int BodyMindChange = 0;
+    public int SunMoonCheck = 0;
+    public int YinYangCheck = 0;
+    public int BodyMindCheck = 0;
     public WhereTo Destination;
-    
+
     public enum WhereTo
     {
         Sol, Lun, Death
     }
 
 
-    
-    public static WaitForSeconds _delay = new (.05f);
- 
+
+    public static WaitForSeconds _delay = new(.05f);
+
     public override IEnumerator OnUse(PlayerData player, Action OnFinish)
     {
-        MessageController.Display("You begin to channel your energy...");
-        while (CheckStats(player))
-        {
-            if (player.Stats.Stat(DualStat.SunMoon).Value != Check) 
-            { 
-                player.Stats.Stat(DualStat.SunMoon).Value += Change;
-            }
-            if (player.Stats.Stat(DualStat.YinYang).Value != Check) 
-            { 
-                player.Stats.Stat(DualStat.YinYang).Value += Change;
-            }
-            if (player.Stats.Stat(DualStat.BodyMind).Value != Check) 
-            { 
-                player.Stats.Stat(DualStat.BodyMind).Value += Check;
-            }
-            yield return _delay;
-        }
-        DialogChain.Dialog("A portal opens before you and you enter.")
-        .OnFinish(Teleport)
-        .Display();
+        
+        Teleport();
         OnFinish();
+        yield break;
 
     }
 
     public void Teleport()
     {
-        if (Destination== WhereTo.Sol)
+        if (Destination == WhereTo.Sol)
         {
             PlayerMovementController.Instance.CurrentMap = GameManager.Instance.SolFinal;
             PlayerMovementController.Instance.Position = (3, 3);
             PlayerMovementController.Instance.Facing = Direction.North;
         }
-        if (Destination== WhereTo.Lun)
+        if (Destination == WhereTo.Lun)
         {
             PlayerMovementController.Instance.CurrentMap = GameManager.Instance.LunFinal;
             PlayerMovementController.Instance.Position = (3, 3);
@@ -62,14 +49,20 @@ public class FinalPortalAbility : AbilityDefinition
 
     public bool CheckStats(PlayerData player)
     {
-        if (player.Stats.Stat(DualStat.SunMoon).Value != Check) { return true; }
-        if (player.Stats.Stat(DualStat.YinYang).Value != Check) { return true; }
-        if (player.Stats.Stat(DualStat.BodyMind).Value != Check) { return true; }
+        if (player.Stats.Stat(DualStat.SunMoon).Value != SunMoonCheck) { return true; }
+        if (player.Stats.Stat(DualStat.YinYang).Value != YinYangCheck) { return true; }
+        if (player.Stats.Stat(DualStat.BodyMind).Value != BodyMindChange) { return true; }
         return false;
     }
 
     public override bool CanCast(PlayerData player, out string message)
     {
+        if (PlayerMovementController.Instance.CurrentMap == GameManager.Instance.LunFinal ||
+            PlayerMovementController.Instance.CurrentMap == GameManager.Instance.SolFinal)
+        {
+            message = "The energies of this place prevent you from casting that spell.";
+            return false;
+        }
         message = string.Empty;
         return true;
     }
