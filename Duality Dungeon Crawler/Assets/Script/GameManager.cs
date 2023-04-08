@@ -69,8 +69,15 @@ public class GameManager : MonoBehaviour
     {
         PlayerMovementController.Instance.CurrentMap = EntranceMap;
         PlayerMovementController.Instance.Position = (2, 2);
-        PlayerMovementController.Instance.Facing = Direction.East; 
+        PlayerMovementController.Instance.Facing = Direction.East;
         Player.ResetData();
+        foreach(RuneData rune in Runes.Runes)
+        {
+            if(PlayerPrefs.GetInt(rune.Description, 0) == 1)
+            {
+                Player.Runes.AddRune(rune);
+            }
+        }
     }
 
 

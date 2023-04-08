@@ -14880,6 +14880,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2b8cf9536050ab45b39f3afb7934e2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Runes: {fileID: 11400000, guid: 5c6fdfb65cc789344a5d15d30e8cb62c, type: 2}
+  Player: {fileID: 11400000, guid: 76cbd45379e55a3408fe52319527af06, type: 2}
   Music: {fileID: 8300000, guid: f1f418d4621ff714490a3cb8cbc0f2c8, type: 3}
   Options: {fileID: 987919449}
 --- !u!1 &511631982

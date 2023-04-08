@@ -15,7 +15,7 @@ public class RuneManifest : ScriptableObject
     public RuneData Calm;
     public RuneData Harmony;
     private RuneData[] _runes;
-    private RuneData[] Runes => _runes.Length == 9 ? _runes : _runes = new []{Yin, Yang, Sun, Moon, Body, Mind, Fear, Calm, Harmony}.OrderBy(rune => rune.RuneIndex).ToArray();
+    public RuneData[] Runes => _runes.Length == 9 ? _runes : _runes = new []{Yin, Yang, Sun, Moon, Body, Mind, Fear, Calm, Harmony}.OrderBy(rune => rune.RuneIndex).ToArray();
 
     public RuneData ToRuneData(string phrase) => Runes[int.Parse(phrase)-1];
 
@@ -26,4 +26,5 @@ public class RuneManifest : ScriptableObject
             yield return Runes[int.Parse($"{ch}")-1];
         }
     }
+
 }

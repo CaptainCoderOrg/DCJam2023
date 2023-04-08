@@ -45,6 +45,7 @@ public class PlayerRunes : ISerializationCallbackReceiver
         if (_runesSet.Add(ability))
         {
             _runes.Add(ability);
+            PlayerPrefs.SetInt(ability.Description, 1);
         }
         OnRuneAdded?.Invoke(ability);
     }
