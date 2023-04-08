@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <TextData>k__BackingField: {fileID: 4900000, guid: 418c2ffcee5e41e4091455269bbc3357, type: 3}
   _cellEntries:
-  - <Key>k__BackingField: V.PSIM
+  - <Key>k__BackingField: V.PSIN
     <Value>k__BackingField: {fileID: 2335308055764904564, guid: 84d23286dd51c9b498537e293b429918, type: 3}
   _wallEntries:
   - <Key>k__BackingField: '#'
@@ -24,18 +24,12 @@ MonoBehaviour:
   - <Key>k__BackingField: '|-'
     <Value>k__BackingField: {fileID: 7744616278776981774, guid: 3283500875d58e44f86dd2216d8ed561, type: 3}
   _cellEvents:
-  - <Name>k__BackingField: Mind Rune
-    <Key>k__BackingField: M
-    <EventHandlers>k__BackingField:
-    - {fileID: 11400000, guid: 82b753acdc1c9714896937a6b8d93e1d, type: 2}
-    <Prefabs>k__BackingField:
-    - {fileID: 4860836494079287607, guid: dbbac324ccfff6e4593ed69bb4dfe554, type: 3}
   - <Name>k__BackingField: Spike
     <Key>k__BackingField: S
     <EventHandlers>k__BackingField:
     - {fileID: 11400000, guid: c69ee7c871ac2064082ca0e7c619f222, type: 2}
     <Prefabs>k__BackingField:
-    - {fileID: 5663278329609582704, guid: eb2bb48ca602a8c488396eec9a2dccfe, type: 3}
+    - {fileID: 3120464691585779500, guid: d51da728cff3f7646a564de5a9f6f873, type: 3}
   - <Name>k__BackingField: Spike Variant
     <Key>k__BackingField: I
     <EventHandlers>k__BackingField:
@@ -49,6 +43,13 @@ MonoBehaviour:
     - {fileID: 11400000, guid: f713a075f8e8f3845959c1cd77818254, type: 2}
     <Prefabs>k__BackingField:
     - {fileID: 6078349100696068221, guid: 6bee18036ddfa884abfa108ce5250ebd, type: 3}
+  - <Name>k__BackingField: Mind Rune
+    <Key>k__BackingField: N
+    <EventHandlers>k__BackingField:
+    - {fileID: 11400000, guid: 04fbee3fd9b221648ae5f9d46202c8f8, type: 2}
+    - {fileID: 11400000, guid: e83df5c605644e54d8da96a61f64818d, type: 2}
+    <Prefabs>k__BackingField:
+    - {fileID: 4860836494079287607, guid: fe83149adddf6f447aefe187117237b5, type: 3}
   _positionEvent:
   - <Name>k__BackingField: First Plate
     <Position>k__BackingField:
@@ -72,4 +73,11 @@ MonoBehaviour:
       Col: 3
     <EventHandlers>k__BackingField:
     - {fileID: 11400000, guid: 228cef61ab12366458193a01bdcda174, type: 2}
+    <Prefabs>k__BackingField: []
+  - <Name>k__BackingField: Second Fight
+    <Position>k__BackingField:
+      Row: 7
+      Col: 1
+    <EventHandlers>k__BackingField:
+    - {fileID: 11400000, guid: 0debab1764822174e912404f045e8d7c, type: 2}
     <Prefabs>k__BackingField: []

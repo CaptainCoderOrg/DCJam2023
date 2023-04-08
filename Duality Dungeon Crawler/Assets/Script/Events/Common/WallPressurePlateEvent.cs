@@ -64,12 +64,12 @@ public class WallPressurePlate : MapEvent
             MessageController.Display($"The ball holds the pressure plate in place.");
             _isHeld = true;
         }
-    }
+    } 
 
     private void OnEnable()
     {
         _isHeld = false;
         _gate = null;
     }
-
+  
 }

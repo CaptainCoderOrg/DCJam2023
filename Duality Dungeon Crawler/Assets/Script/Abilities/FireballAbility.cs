@@ -30,12 +30,12 @@ public class FireballAbility : AbilityDefinition
             message = "You must first summon Sol's Light.";
             return false;
         }
-        if(player.Stats.Stat(Stat.Sun) < SunCost)
+        if(player.Stats.Stat(Stat.Sun) <= SunCost)
         {
             message = "You do not have enough Sun energy.";
             return false;
         }
-        if(player.Stats.Stat(Stat.Yin) < YinCost)
+        if(player.Stats.Stat(Stat.Yin) <= YinCost)
         {
             message = "You do not have enough Yin energy.";
             return false;

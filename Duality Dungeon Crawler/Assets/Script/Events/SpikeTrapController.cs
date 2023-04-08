@@ -46,12 +46,10 @@ public class SpikeTrapController : MonoBehaviour
         yield return new WaitForSeconds(Offset);
         while (true)
         {
-            SpikesDown();
-            yield return new WaitForSeconds(1f);
             SpikesUp();
+            yield return new WaitForSeconds(1f);
+            SpikesDown();
             yield return new WaitForSeconds(Delay - 1f);
-            
-
         }
     }
 

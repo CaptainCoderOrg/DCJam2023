@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1167878966128339198, guid: 78ea047546dfff6428a1c9c5fa718676, type: 3}
       propertyPath: m_Name
-      value: Skull
+      value: SkullPair1
       objectReference: {fileID: 0}
     - target: {fileID: 5325957072839707899, guid: 78ea047546dfff6428a1c9c5fa718676, type: 3}
       propertyPath: m_RootOrder
@@ -56,8 +56,65 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3024795432554044989, guid: 78ea047546dfff6428a1c9c5fa718676, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1167878966128339198, guid: 78ea047546dfff6428a1c9c5fa718676, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1398884698037518859}
   m_SourcePrefab: {fileID: 100100000, guid: 78ea047546dfff6428a1c9c5fa718676, type: 3}
+--- !u!1 &1293338301655703012 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1167878966128339198, guid: 78ea047546dfff6428a1c9c5fa718676, type: 3}
+  m_PrefabInstance: {fileID: 128352513549317402}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1398884698037518859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1293338301655703012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa6ca81b3e2084146ac8a59d35f805d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnDeathEvent: []
+  HideOnDeath: {fileID: 6902794618365201635}
+  ShowOnDeath: {fileID: 3319933206806583976}
+  FireDamage: 2
+  IceDamage: 1
+  MaxHealth: 8
+  Health: 8
+  Position:
+    Row: 0
+    Col: 0
+  Facing: 0
+  BobbleAmount: 0.25
+  BobbleSpeed: 5
+  BaseY: 0
+  PivotObject: {fileID: 3652252785477291149}
+  ActionSpeed: 2
+  ActionOffset: 0
+  IsAlive: 1
+  IsActing: 0
+  <Projectile>k__BackingField: {fileID: 1317378841969782042, guid: 4ec0edc3e095797449f7b09b39b41bc5, type: 3}
+  OtherSkull: {fileID: 0}
+--- !u!1 &3319933206806583976 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3446725167338254258, guid: 78ea047546dfff6428a1c9c5fa718676, type: 3}
+  m_PrefabInstance: {fileID: 128352513549317402}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3652252785477291149 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3704377134440823191, guid: 78ea047546dfff6428a1c9c5fa718676, type: 3}
+  m_PrefabInstance: {fileID: 128352513549317402}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6902794618365201635 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6776889173975529977, guid: 78ea047546dfff6428a1c9c5fa718676, type: 3}
+  m_PrefabInstance: {fileID: 128352513549317402}
+  m_PrefabAsset: {fileID: 0}

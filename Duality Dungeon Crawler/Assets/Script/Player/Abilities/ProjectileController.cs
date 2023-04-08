@@ -56,7 +56,7 @@ public class ProjectileController : MonoBehaviour
             SoundEffectController.PlaySFX(GameManager.Instance.SoundEffects.Hurt);
             return;
         }
-        if (collider.gameObject.layer == EnemyLayer)
+        if (collider.gameObject.layer == EnemyLayer && !IsEnergy)
         {
             Explode();
             EnemyController enemy = collider.gameObject.GetComponent<EnemyController>();

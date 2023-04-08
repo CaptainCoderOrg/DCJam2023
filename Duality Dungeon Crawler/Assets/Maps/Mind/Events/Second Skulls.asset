@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 588b03fc84ce9774a92b51aba345426f, type: 3}
+  m_Name: Second Skulls
+  m_EditorClassIdentifier: 
+  EnemyNames:
+  - SkullPair1
+  - SkullPair2
+  SecondTrack: {fileID: 8300000, guid: 5b6606520bf3e6d4ea9b095aa89e670f, type: 3}

@@ -46,7 +46,7 @@ public class PedestalPressurePlate : MapEvent
             MessageController.Display($"The ball holds the pressure plate in place.");
             GameManager.Instance.AbilityController.OnAbilityFinished += RemoveMoonBall;
             _isHeld = true;
-        }
+        } 
     }
 
     private void RemoveMoonBall(AbilityDefinition ability)
@@ -61,7 +61,7 @@ public class PedestalPressurePlate : MapEvent
     }
 
     private void OnEnable()
-    {
+    { 
         _isHeld = false;
     }
 

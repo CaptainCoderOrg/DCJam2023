@@ -3,11 +3,15 @@ using UnityEngine;
 using CaptainCoder.Core;
 using System.Collections.Generic;
 using System.Collections;
+using CaptainCoder.Audio;
 
 public class EnemyController : MonoBehaviour
 {
-    
+
+    public List<MapEvent> OnDeathEvent;   
     public static List<EnemyController> CurrentEnemies = new ();
+    public GameObject HideOnDeath;
+    public GameObject ShowOnDeath;
     public MutablePosition ResetPosition { get; set; }
     public Direction ResetDirection { get; set; }
     public int FireDamage;
@@ -98,12 +102,28 @@ public class EnemyController : MonoBehaviour
             IsActing = false;
             IsAlive = false;
             StartCoroutine(HandleDeath());
-            Debug.Log("Defeated Enemy");
+            if (IsCombatOver())
+            {
+                CurrentEnemies.Clear();
+                MusicController.Instance.StopSecondTrack();
+                foreach (MapEvent evt in OnDeathEvent)
+                {
+                    evt.OnEnter();    
+                }
+
+            }
         }        
+    }
+
+    public virtual bool IsCombatOver()
+    {
+        return Health <= 0;
     }
 
     public virtual IEnumerator HandleDeath()
     {
+        ShowOnDeath?.SetActive(true);
+        HideOnDeath?.SetActive(false);
         yield break;
     }
 
@@ -134,7 +154,7 @@ public class EnemyController : MonoBehaviour
     private bool ShouldFire()
     {
         Position diff = Position.Freeze() - PlayerMovementController.Instance.Position;
-        if (diff.Row > 5 || diff.Col > 5) { return false; }
+        if (diff.Row > 8 || diff.Col > 8) { return false; }
         return IsLinedUp() && RotateDirection() == Facing;
     }
 
@@ -158,6 +178,12 @@ public class EnemyController : MonoBehaviour
         Position diff = Position.Freeze() - PlayerMovementController.Instance.Position;
         int rowSign = diff.Row == 0 ? 0 : (int)Mathf.Sign(diff.Row);
         int colSign = diff.Col == 0 ? 0 : (int)Mathf.Sign(diff.Col);
+        if (rowSign != 0 && colSign != 0)
+        {
+            int r = Random.Range(0, 2);
+            if (r == 0) { rowSign = 0; }
+            else { colSign = 0; }
+        }
         return (rowSign, colSign) switch
         {
             (0, 0) => PlayerMovementController.Instance.Facing.RotateClockwise().RotateClockwise(),

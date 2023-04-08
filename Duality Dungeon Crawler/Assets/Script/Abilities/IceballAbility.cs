@@ -29,12 +29,12 @@ public class IceballAbility : AbilityDefinition
             message = "You must first summon Lun's Shade.";
             return false;
         }
-        if(player.Stats.Stat(Stat.Moon) < MoonCost)
+        if(player.Stats.Stat(Stat.Moon) <= MoonCost)
         {
             message = "You do not have enough Moon energy.";
             return false;
         }
-        if(player.Stats.Stat(Stat.Yang) < YangCost)
+        if(player.Stats.Stat(Stat.Yang) <= YangCost)
         {
             message = "You do not have enough Yang energy.";
             return false;

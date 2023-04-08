@@ -81,7 +81,7 @@ namespace CaptainCoder.Audio
         {
             AudioClip track = clip; //_tracks.Track(id);
             if (track == _playingAudio.clip) { return; }
-            _fadeTime = 1;
+            _fadeTime = 1; 
             _swapQueued = true;
             _queuedAudio.clip = clip; //_tracks.Track(id);
             _queuedAudio.Play();

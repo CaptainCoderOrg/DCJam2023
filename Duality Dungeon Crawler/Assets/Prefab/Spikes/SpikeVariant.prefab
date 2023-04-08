@@ -376,8 +376,8 @@ MonoBehaviour:
   Position:
     Row: 0
     Col: 0
-  Delay: 3
-  Offset: 1.5
+  Delay: 6
+  Offset: 3
   Spikes: {fileID: 7568617157208098144}
   PopOutAudio: {fileID: 4724906016538393014}
   RetractAudio: {fileID: 1873178577825509585}

@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: YinToMind
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Channel Mind
-  <Description>k__BackingField: Focus and channel Yang energy into Mind energy.
-  <RunePhrase>k__BackingField: 86
+  <Description>k__BackingField: Focus and channel Yin energy into Mind energy.
+  <RunePhrase>k__BackingField: 26
   <CastSound>k__BackingField: {fileID: 8300000, guid: 02f8837b93755ef4a9bbcd694ebe47a4, type: 3}
   YinRequirement: 0
   YangRequirement: 0

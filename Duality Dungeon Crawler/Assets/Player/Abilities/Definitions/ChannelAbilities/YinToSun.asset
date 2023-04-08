@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c23c11378ff2bc448b6eed59a7e9e652, type: 3}
   m_Name: YinToSun
   m_EditorClassIdentifier: 
-  <Name>k__BackingField: Channel Moon
-  <Description>k__BackingField: Focus and channel Yang energy into Moon energy.
-  <RunePhrase>k__BackingField: 89
+  <Name>k__BackingField: Channel Sun
+  <Description>k__BackingField: Focus and channel Yin  energy into Sun energy.
+  <RunePhrase>k__BackingField: 21
   <CastSound>k__BackingField: {fileID: 8300000, guid: 02f8837b93755ef4a9bbcd694ebe47a4, type: 3}
   YinRequirement: 0
   YangRequirement: 0
