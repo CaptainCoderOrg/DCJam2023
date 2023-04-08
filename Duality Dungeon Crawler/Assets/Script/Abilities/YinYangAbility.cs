@@ -44,7 +44,24 @@ public class YinYangAbility : AbilityDefinition
                     ("Leave", () => {DialogController.Instance.IsVisible = false;})
                 );
                 DialogController.Instance.IsVisible = true;
-                
+
+            }
+            else
+            {
+                DialogController.Instance.DisplayDialog("The portal is reacting to your Yang energy! It swirls rapidly.");
+                Action Enter = () =>
+                {
+                    MessageController.Display($"You are surrounded by a cold shadow...");
+                    PlayerMovementController.Instance.CurrentMap = GameManager.Instance.MindMap;
+                    PlayerMovementController.Instance.Position = (2, 1);
+                    PlayerMovementController.Instance.Facing = Direction.East;
+                    GameManager.Instance.Player.Effects &= ~PlayerEffect.OnLunPortal;
+                };
+                DialogController.Instance.SetOptions(
+                    ("Enter Portal", Enter.ThenCloseDialog()),
+                    ("Leave", () => {DialogController.Instance.IsVisible = false;})
+                );
+                DialogController.Instance.IsVisible = true;
             }
             OnFinish();
         }

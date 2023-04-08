@@ -36,7 +36,7 @@ public class WallPressurePlate : MapEvent
             Wall.SetActive(false);
             MessageController.Display(OpenMessage);
             SoundEffectController.PlaySFX(ClickSound);
-            IWall wall = GameManager.Instance.YangMap.MapData.Grid.WallAt(Position.Freeze(), Facing);
+            IWall wall = PlayerMovementController.Instance.CurrentMap.MapData.Grid.WallAt(Position.Freeze(), Facing);
             wall.IsPassable = true;
             GameManager.Instance.AbilityController.OnAbilityFinished += CheckForMoonBall;
         }
@@ -50,7 +50,7 @@ public class WallPressurePlate : MapEvent
             Wall.SetActive(true);
             MessageController.Display(CloseMessage);
             SoundEffectController.PlaySFX(ClickSound);
-            IWall wall = GameManager.Instance.YangMap.MapData.Grid.WallAt(Position.Freeze(), Facing);
+            IWall wall = PlayerMovementController.Instance.CurrentMap.MapData.Grid.WallAt(Position.Freeze(), Facing);
             wall.IsPassable = false;
         }
         GameManager.Instance.AbilityController.OnAbilityFinished -= CheckForMoonBall;

@@ -54,7 +54,9 @@ MonoBehaviour:
   BaseY: 0
   PivotObject: {fileID: 3704377134440823191}
   ActionSpeed: 2
+  ActionOffset: 0
   IsAlive: 1
+  IsActing: 0
   <Projectile>k__BackingField: {fileID: 1317378841969782042, guid: 4ec0edc3e095797449f7b09b39b41bc5, type: 3}
 --- !u!1 &2646112357393207948
 GameObject:
@@ -3875,9 +3877,9 @@ ParticleSystem:
       properties: 0
       emitProbability: 1
   LightsModule:
-    enabled: 0
-    ratio: 0
-    light: {fileID: 0}
+    enabled: 1
+    ratio: 1
+    light: {fileID: 831545455175288021, guid: 0aa740db80e64fd4aa985eeb82b9c976, type: 3}
     randomDistribution: 1
     color: 1
     range: 1
@@ -8703,9 +8705,9 @@ ParticleSystem:
       properties: 0
       emitProbability: 1
   LightsModule:
-    enabled: 0
-    ratio: 0
-    light: {fileID: 0}
+    enabled: 1
+    ratio: 1
+    light: {fileID: 831545455175288021, guid: 0aa740db80e64fd4aa985eeb82b9c976, type: 3}
     randomDistribution: 1
     color: 1
     range: 1
@@ -9771,7 +9773,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6272ce15f0937bf4396bd26e0b84035a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2
+      value: -1.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6272ce15f0937bf4396bd26e0b84035a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -9779,7 +9781,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6272ce15f0937bf4396bd26e0b84035a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6272ce15f0937bf4396bd26e0b84035a, type: 3}
       propertyPath: m_LocalRotation.w

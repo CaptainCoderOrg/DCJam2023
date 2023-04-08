@@ -1,4 +1,5 @@
 using UnityEngine;
+[CreateAssetMenu(fileName = "NothingMapEvent", menuName = "BodyMind/Event/Nothing")]
 public class MapEvent : ScriptableObject
 {
 

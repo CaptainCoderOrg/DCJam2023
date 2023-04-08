@@ -13,7 +13,9 @@ public class EnemyController : MonoBehaviour
     public float BaseY;
     public GameObject PivotObject;
     public float ActionSpeed = 2f;
+    public float ActionOffset = 0f;
     public bool IsAlive = true;
+    public bool IsActing = false;
     public Coroutine routine;
     [field: SerializeField]
     public virtual ProjectileController Projectile { get; set; }
@@ -55,6 +57,7 @@ public class EnemyController : MonoBehaviour
 
     public virtual void TakeAction()
     {
+        if (!IsActing) { return; }
         // If not facing player, turn to face player.
         Facing = RotateDirection();
         // If not on player position, move toward player

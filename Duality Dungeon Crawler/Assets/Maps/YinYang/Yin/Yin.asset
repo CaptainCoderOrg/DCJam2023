@@ -42,14 +42,14 @@ MonoBehaviour:
     - {fileID: 11400000, guid: bf44feb2a64d4314ab4fb82f374cbd0c, type: 2}
     <Prefabs>k__BackingField:
     - {fileID: 6078349100696068221, guid: f61386325d6feae48ad077b4cc62e37d, type: 3}
-  - <Name>k__BackingField: Too Bright
-    <Key>k__BackingField: .S
-    <EventHandlers>k__BackingField:
-    - {fileID: 11400000, guid: e299c4966452f834880b1c1d33533c79, type: 2}
-    <Prefabs>k__BackingField: []
   - <Name>k__BackingField: Spike
     <Key>k__BackingField: S
     <EventHandlers>k__BackingField: []
     <Prefabs>k__BackingField:
     - {fileID: 5663278329609582704, guid: eb2bb48ca602a8c488396eec9a2dccfe, type: 3}
+  - <Name>k__BackingField: Too Bright
+    <Key>k__BackingField: .S
+    <EventHandlers>k__BackingField:
+    - {fileID: 11400000, guid: e299c4966452f834880b1c1d33533c79, type: 2}
+    <Prefabs>k__BackingField: []
   _positionEvent: []
