@@ -1,6 +1,8 @@
 using CaptainCoder.Core;
 using UnityEngine;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 [CreateAssetMenu(fileName = "MentorEvent", menuName = "BodyMind/Events/Mentor Event")]
 public class MentorEvent : MapEvent
@@ -11,15 +13,22 @@ public class MentorEvent : MapEvent
     {
         _isFirst = true;
         _hasBalanced = false;
+        _hints = null;
     }
 
     public override bool OnEnter()
     {
-        if (_isFirst)
+        int completedIntro = PlayerPrefs.GetInt("CompletedIntro", 0);
+        if (completedIntro == 0)
         {
             _isFirst = false;
             First.Display();
             GameManager.Instance.AbilityController.OnAbilityFinished += CheckHarmony;
+        }
+        else
+        {
+            _hasBalanced = true;
+            _isFirst = false;
         }
         
         return false;
@@ -30,8 +39,11 @@ public class MentorEvent : MapEvent
         if (ability is BalanceAbility)
         {
             _hasBalanced = true;
+            PlayerPrefs.SetInt("CompletedIntro", 1);
         }
     }
+
+    int nextHint = 0;
 
     public override bool OnExit()
     {
@@ -42,7 +54,11 @@ public class MentorEvent : MapEvent
             HarmonyRune.Display();
             return true; 
         }
-        if(_hasBalanced) { return false; }
+        if(_hasBalanced) { 
+            PlayerPrefs.SetInt("CompletedIntro", 1);
+
+            return false; 
+        }
         foreach (var stat in player.Stats.Stats)
         {
             if (stat.Value != 0)
@@ -52,22 +68,23 @@ public class MentorEvent : MapEvent
             }
         }
         _hasBalanced = true;
+        PlayerPrefs.SetInt("CompletedIntro", 1);
+
         return false;
     }
 
     public override bool OnInteract()
     {
-        if (_isFirst)
+        int completedIntro = PlayerPrefs.GetInt("CompletedIntro", 0);
+        if (completedIntro == 0)
         {
             First.Display();
             _isFirst = false;
         }
         else
         {
-            DialogChain.Dialog(@"
-            The necromancer's eyes open, 
-            ""Go forth and bring harmony to the Sun and Moon.""
-            ".TrimMultiLine(), "Leave").Display();
+            DialogChain[] hints = Hints.Where(f => f.Item1.Invoke()).Select(f => f.Item2).ToArray();
+            hints[nextHint++ % hints.Length].Display();
         }
         return false;
     }
@@ -123,4 +140,80 @@ public class MentorEvent : MapEvent
         You lack harmony, breath deeply and use the Harmony runes' energy.""
         ".TrimMultiLine());
     
+    
+    private DialogChain UseYinHint =
+        DialogChain.Dialog(@"
+        Only with the power of the Yin rune can you enter Sol's lair. Stand upon
+        Sol's portal and channel your Yin energy.
+        ".TrimMultiLine());
+
+    private DialogChain UseYangHint =
+        DialogChain.Dialog(@"
+        Only with the power of the Yang rune can you enter Lun's lair. Stand upon
+        Lun's portal and channel your Yang energy.
+        ".TrimMultiLine());
+
+    private DialogChain SpellBookHint =
+        DialogChain.Dialog(@"If you find yourself uncertain, check your Spellbook.".TrimMultiLine());
+
+    private DialogChain DensityHint =
+        DialogChain.Dialog(@"You can harness Lun's shade to create a heavy ball.".TrimMultiLine());
+
+    private DialogChain ShadeHint =
+        DialogChain.Dialog(@"Use Lun's Shade to protect yourself from Sol's light.".TrimMultiLine());
+
+    private DialogChain LightHint =
+        DialogChain.Dialog(@"Use Sol's Light to protect yourself from Lun's shade".TrimMultiLine());
+
+    private DialogChain FloatHint =
+        DialogChain.Dialog(@"Channeling Sol's Light into Harmony will allow you to float.".TrimMultiLine());
+
+    private DialogChain ChannelHint =
+        DialogChain.Dialog(@"Yin energy can be converted into Sun energy.".TrimMultiLine());
+    
+    private DialogChain ChannelHint2 =
+        DialogChain.Dialog(@"Yang energy can be converted into Moon energy.".TrimMultiLine());
+
+    private DialogChain BodyMindHint =
+        DialogChain.Dialog(@"You can restore your body and mind energies by focusing Yin and Yang energies.".TrimMultiLine());
+
+    private DialogChain FireballHint =
+        DialogChain.Dialog(@"Light and Yin energy can be combined to create fire.".TrimMultiLine());
+
+    private DialogChain IceballHint =
+        DialogChain.Dialog(@"Shade and Yang energy can be combined to create ice.".TrimMultiLine());
+
+    private DialogChain LunTempleHint =
+        DialogChain.Dialog(@"To defeat Lun you must combine Yang, Moon, Mind, and Harmony.".TrimMultiLine());
+
+    private DialogChain SolTempleHint =
+        DialogChain.Dialog(@"To defeat Sol you must combine Body, Sun, Yin, and Harmony.".TrimMultiLine());
+
+    private List<(Func<bool>, DialogChain)> _hints;
+    private List<(Func<bool>, DialogChain)> Hints => _hints ??= LoadHints(); 
+
+    private List<(Func<bool>, DialogChain)> LoadHints()
+    {
+        List<(Func<bool>, DialogChain)>  hints = new();
+        var player = GameManager.Instance.Player;
+        var runes = GameManager.Instance.Player.Runes;
+        var runeManifest = GameManager.Instance.Runes;
+        hints.Add((True, SpellBookHint));
+        hints.Add((True, DensityHint));
+        hints.Add((True, ShadeHint));
+        hints.Add((True, LightHint));
+        hints.Add((True, FloatHint));
+        hints.Add((() => runes.HasRune(runeManifest.Yin), ChannelHint));
+        hints.Add((() => runes.HasRune(runeManifest.Yang), ChannelHint2));
+        hints.Add((() => runes.HasRune(runeManifest.Yin) || runes.HasRune(runeManifest.Yang), BodyMindHint));
+        hints.Add((() => runes.HasRune(runeManifest.Yin), FireballHint));
+        hints.Add((() => runes.HasRune(runeManifest.Yang), IceballHint));
+        hints.Add((() => runes.HasRune(runeManifest.Mind), LunTempleHint));
+        hints.Add((() => runes.HasRune(runeManifest.Body), SolTempleHint));
+
+        return hints;
+    }
+
+    private bool True() => true;
+
 }

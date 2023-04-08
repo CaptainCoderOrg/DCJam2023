@@ -31,6 +31,7 @@ public class TitleScreenController : MonoBehaviour
         {
             PlayerPrefs.DeleteKey(rune.Description);
         }
+        PlayerPrefs.DeleteKey("CompletedIntro");
         SceneManager.LoadScene("YinYangTemple");
     }
 
