@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using CaptainCoder.Audio;
 using static UnityEngine.InputSystem.InputAction;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(UIDocument))]
 public class OptionsMenuController : MonoBehaviour
@@ -20,6 +21,11 @@ public class OptionsMenuController : MonoBehaviour
         Slider soundVolume = _document.rootVisualElement.Q<Slider>("SoundVolume");
         soundVolume.RegisterValueChangedCallback(UpdateSoundVolume);
         Button quitButton = _document.rootVisualElement.Q<Button>("QuitButton");
+        quitButton.clicked += () => 
+        {
+            ToggleMenu();
+            SceneManager.LoadScene("TitleScreen");
+        };
     }
 
     private void UpdateMusicVolume(ChangeEvent<float> evt)
