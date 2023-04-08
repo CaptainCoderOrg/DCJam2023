@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21898ee26e0010c41a94356e16cc192c, type: 3}
+  m_Name: FullHarmony
+  m_EditorClassIdentifier: 
+  <Name>k__BackingField: Total Harmony
+  <Description>k__BackingField: Combine all energies to free the Necromancer.
+  <RunePhrase>k__BackingField: 4125896
+  <CastSound>k__BackingField: {fileID: 8300000, guid: 94cee5ac3e3b94e4f818c16b927786dc, type: 3}
