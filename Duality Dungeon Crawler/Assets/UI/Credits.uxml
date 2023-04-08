@@ -1,0 +1,12 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/styles.uss?fileID=7433441132597879392&amp;guid=83ddee421334e8d41af0a574b07b9cf1&amp;type=3#styles" />
+    <ui:VisualElement name="Background" style="flex-grow: 1; background-color: rgb(0, 0, 0);">
+        <ui:Label tabindex="-1" text="Harmony" display-tooltip-when-elided="true" name="Label" class="shadow-label" style="font-size: 64px; -unity-text-align: upper-center;" />
+        <ui:VisualElement style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); margin-left: 50px; margin-right: 50px; margin-top: 50px; margin-bottom: 50px;">
+            <ui:Label tabindex="-1" text="Thanks for playing! We hope you enjoyed the journey!&#10;&#10;&#10;Music and Sound Effects by Twitchywhalez&#10;3D Modeling by RetroKnight and Captain Coder&#10;Programming and Level Design by Captain Coder&#10;Story and Writing by RetroKnight, Twitchywhalez, Aliax, and Captain Coder" display-tooltip-when-elided="true" class="shadow-label" style="-unity-text-align: upper-center;" />
+        </ui:VisualElement>
+        <ui:VisualElement style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-basis: 0; align-items: flex-end;">
+            <ui:Button text="Return to Title Screen" display-tooltip-when-elided="true" name="TitleButton" style="margin-right: 50px;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
