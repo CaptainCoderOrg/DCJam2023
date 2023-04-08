@@ -84,6 +84,8 @@ public class GameManager : MonoBehaviour
         DialogController.Instance.DisplayDialog(@"Your body is out of harmony... You can no longer continue. You feint.");
         Action WakeUp = () => {
             _isKnockedOut = false;
+            SolFinalEvent._isInCombat = false;
+            LunFinalEvent._isInCombat = false;
             PlayerMovementController.Instance.Position = (2,2);
             PlayerMovementController.Instance.Facing = Direction.North;
             PlayerMovementController.Instance.CurrentMap = EntranceMap;
