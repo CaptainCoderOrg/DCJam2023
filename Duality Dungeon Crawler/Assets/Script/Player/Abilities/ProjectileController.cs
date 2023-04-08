@@ -7,8 +7,10 @@ public class ProjectileController : MonoBehaviour
 {
     private static int _playerLayer = 0;
     private static int _wallLayer = 0;
+    private static int _enemyLayer = 0;
     private static int WallLayer => _wallLayer == 0 ? (_wallLayer = LayerMask.NameToLayer("Walls")) : _wallLayer;
     public static int PlayerLayer => _playerLayer == 0 ? (_playerLayer = LayerMask.NameToLayer("Player")) : _playerLayer;
+    public static int EnemyLayer => _enemyLayer == 0 ? (_enemyLayer = LayerMask.NameToLayer("Enemy")) : _enemyLayer;
     [field: SerializeField]
     public bool IsFire { get; set; } = false;
     [field: SerializeField]
@@ -41,6 +43,7 @@ public class ProjectileController : MonoBehaviour
         if (collider.gameObject.layer == WallLayer)
         {
             Explode();
+            return;
         }
         if (collider.gameObject.layer == PlayerLayer && IsEnergy)
         {
@@ -50,8 +53,16 @@ public class ProjectileController : MonoBehaviour
             GameManager.Instance.Player.Stats.Stat(DualStat.BodyMind).Value -= 10;
             GameManager.Instance.Player.Stats.Stat(DualStat.SunMoon).Value += 15;
             GameManager.Instance.Player.Stats.Stat(DualStat.YinYang).Value += 5;
-            SoundEffectController.PlaySFX(GameManager.Instance.SoundEffects.Hurt);    
+            SoundEffectController.PlaySFX(GameManager.Instance.SoundEffects.Hurt);
+            return;
         }
+        if (collider.gameObject.layer == EnemyLayer)
+        {
+            Explode();
+            EnemyController enemy = collider.gameObject.GetComponent<EnemyController>();
+            enemy.Hit(this);
+        }
+        
     }
 
     public void Explode()

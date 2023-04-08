@@ -71,6 +71,5 @@ MonoBehaviour:
       Row: 2
       Col: 3
     <EventHandlers>k__BackingField:
-    - {fileID: 11400000, guid: 97850ce63a858ee459ecc32663db3730, type: 2}
-    <Prefabs>k__BackingField:
-    - {fileID: 3000006383214854087, guid: 35d8c93f7b7477c49babd3b70e0bef23, type: 3}
+    - {fileID: 11400000, guid: 228cef61ab12366458193a01bdcda174, type: 2}
+    <Prefabs>k__BackingField: []

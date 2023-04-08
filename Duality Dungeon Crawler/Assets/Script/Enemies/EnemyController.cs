@@ -6,10 +6,14 @@ using System.Collections;
 
 public class EnemyController : MonoBehaviour
 {
+    
     public static List<EnemyController> CurrentEnemies = new ();
     public MutablePosition ResetPosition { get; set; }
     public Direction ResetDirection { get; set; }
-
+    public int FireDamage;
+    public int IceDamage;
+    public int MaxHealth;
+    public int Health;
     public MutablePosition Position;
     public Direction Facing;
     public float BobbleAmount;
@@ -44,6 +48,7 @@ public class EnemyController : MonoBehaviour
         IsAlive = true;
         Position = ResetPosition;
         Facing = ResetDirection;
+        Health = MaxHealth;
     }
 
     public void OnEnable()
@@ -74,6 +79,32 @@ public class EnemyController : MonoBehaviour
             yield return new WaitForSeconds(ActionSpeed);
             TakeAction();
         }
+    }
+
+    public virtual void Hit(ProjectileController projectile)
+    {
+        if (!IsActing) { return; }
+        if (projectile.IsFire)
+        {
+            Health -= FireDamage;
+        }
+        else
+        {
+            Health -= IceDamage;
+        }
+
+        if (Health <= 0)
+        {
+            IsActing = false;
+            IsAlive = false;
+            StartCoroutine(HandleDeath());
+            Debug.Log("Defeated Enemy");
+        }        
+    }
+
+    public virtual IEnumerator HandleDeath()
+    {
+        yield break;
     }
 
     public virtual void TakeAction()

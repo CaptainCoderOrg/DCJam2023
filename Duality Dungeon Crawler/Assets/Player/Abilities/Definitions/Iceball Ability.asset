@@ -15,7 +15,7 @@ MonoBehaviour:
   <Name>k__BackingField: Iceball
   <Description>k__BackingField: Using Sol's Shade, focus Yang and Moon energy into
     a icy projectile.
-  <RunePhrase>k__BackingField: 89
+  <RunePhrase>k__BackingField: 98
   <CastSound>k__BackingField: {fileID: 8300000, guid: 02f8837b93755ef4a9bbcd694ebe47a4, type: 3}
   MoonCost: 15
   YangCost: 10

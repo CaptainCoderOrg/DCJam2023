@@ -15,7 +15,7 @@ MonoBehaviour:
   <Name>k__BackingField: Fireball
   <Description>k__BackingField: Using Sol's Light, focuses Sun and Yin energy into
     a fiery projectile
-  <RunePhrase>k__BackingField: 21
+  <RunePhrase>k__BackingField: 12
   <CastSound>k__BackingField: {fileID: 8300000, guid: 349d73bc1c1135c4f883fc926d5eb39d, type: 3}
   SunCost: 10
   YinCost: 15
