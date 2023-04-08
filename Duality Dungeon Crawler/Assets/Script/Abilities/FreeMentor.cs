@@ -46,7 +46,7 @@ public class FullHarmony : AbilityDefinition
 
     }
 
-    public void Credits()
+    public static void Credits()
     {
         SceneManager.LoadScene("Credits");
     }
